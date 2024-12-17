@@ -1,0 +1,99 @@
+{
+  "app_name": "Loyal Home",
+
+  "name": "Name",
+  "login": "Login",
+  "username": "Username",
+  "password": "Password",
+
+  "companies": "Companies",
+  "add_company": "Add Company",
+
+  "success": "Successfull",
+  "tryagain": "Something went wrong, contact the developer!",
+
+  "actions": "Actions",
+  "authority": "Authority",
+
+  "dollar_prices": "Dollar Prices",
+
+  "update": "Update",
+  "delete": "Delete",
+  "delete_all": "Delete All",
+  "submit": "Submit",
+  "selected": "Selected",
+
+  "next": "Next",
+  "previous": "Previous",
+
+  "credentials_wrong": "Credentials are wrong",
+  "delete_warning": "Do you want to delete it?",
+
+  "dashboard": "Dashboard",
+  "sale": "Sales",
+  "clients": "Clients",
+  "client": "Client",
+  "employee": "Employees",
+  "warehouse": "Warehouse",
+  "finance": "Finance",
+  "report": "Report",
+  "settings": "Settings",
+  "rooms": "Rooms",
+  "managers": "Managers",
+  "import": "Import",
+  "mdf_sale": "MDF Sale",
+  "ballon_sale": "Ballon Sale",
+  "mdf": "MDF",
+  "ballon": "Ballon",
+
+  "add_manager": "Add Manager",
+  "update_manager": "Update Manager",
+
+  "dinar_price": "Dinar Price",
+  "add_dinar_price": "Add Price",
+
+  "profile": "Profile",
+  "add_client": "Add Client",
+  "firstname": "Firstname",
+  "lastname": "Lastname",
+  "contract_number": "Contract Number",
+  "phone": "Phone Number",
+  "extra_phone": "Second Phone Number",
+  "relative_name": "Relative Name",
+  "relative_phone": "Relative Phone",
+
+  "client_transactions": "Transactions",
+  "client_dept_payments": "Depts",
+
+  "employees": "Employees",
+  "employee_payments": "Payments",
+  "employee_attendances": "Attendances",
+
+  "spendings": "Spendings",
+  "add_spending": "Add Spending",
+
+  "company_depts": "Company Depts",
+  "add_company_dept": "Dept Payment",
+
+  "payments": "Payments",
+
+  "box_transaction": "Box Transaction",
+  "new_transaction": "New Transaction",
+  "deposit": "Deposit",
+  "withdraw": "Withdraw",
+
+  "add_employee": "Add Employee",
+  "salary_type": "Salary Type",
+  "salary": "Salary",
+  "position": "Position",
+
+  "products": "Products",
+  "add_product": "Add Product",
+  "get_price": "Get Price",
+  "sell_price": "Sell Price",
+  "tag": "Tag",
+  "unit_name": "Unit",
+
+  "import_invoices": "Import Invoices",
+  "wasted_products": "Wasted Products"
+}

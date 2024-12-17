@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.section_header {
+  @apply text-3xl  font-semibold bg-gradient-to-b from-overSixty via-overSixty to-sixty bg-clip-text text-transparent;
+}
+
+.section_body {
+  @apply text-xl;
+}
+
+.feature_header {
+  @apply text-md font-bold;
+}
+
+.feature_body {
+  @apply text-[16px] leading-normal;
+}
+
+.button_shape {
+  @apply px-2 py-1 rounded-sm flex items-center gap-1;
+}
+
+.input_shape {
+  @apply px-3 py-1 rounded-sm flex items-center gap-1;
+}

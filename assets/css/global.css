@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "calibri";
+  src: url("@/assets/fonts/calibri.ttf");
+  font-display: block;
+}
+
+/* Default (Light Mode) */
+:root {
+  --color-sixty: #ffffff;
+  --color-thirty: #edffec;
+  --color-ten: #3a4d39;
+
+  --color-overSixty: #000000;
+  --color-overThirty: #231515;
+  --color-overTen: #ffffff;
+
+  --color-destructive: #ef233c;
+  --color-update: #4361ee;
+
+  --color-dollar: #3a86ff;
+  --color-inventory: #f77f00;
+  --color-management: #3d405b;
+  --color-client: #7b2cbf;
+  --color-employee: #006d77;
+}
+
+/* Hide the scrollbar but keep content scrollable */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
