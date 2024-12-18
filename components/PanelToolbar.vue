@@ -161,7 +161,7 @@ const navigations = [
   },
   {
     name: "report",
-    route: "/report",
+    route: "/reports",
     icon: "hugeicons:file-verified",
   },
 

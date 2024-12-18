@@ -17,7 +17,6 @@
           @submit.prevent="onManageClient"
           class="flex flex-col gap-3"
         >
-          {{ selectedUnit }}
           <ComboBox
             label="unit_name"
             type="text"
@@ -26,9 +25,43 @@
             api_route="configs/units"
             api_route_query="search"
             :result_fields="['unit_name']"
-            :selectedValue="props.manageData.unit_name"
-            @on-change="(data) => (selectedUnit = data)"
+            :selectedValue="selectedUnit"
+            @on-change="
+              (data) => {
+                selectedUnit = data;
+                props.manageData.unit_id = data.unit_id;
+              }
+            "
+            @clear="
+              () => {
+                selectedUnit = null;
+                props.manageData.unit_id = '';
+              }
+            "
             :disabled="selectedUnit ? true : false"
+          />
+          <ComboBox
+            label="factory"
+            type="text"
+            icon="hugeicons:factory-02"
+            placeholder="factory"
+            api_route="configs/factories"
+            api_route_query="search"
+            :result_fields="['factory_name']"
+            :selectedValue="selectedFactory"
+            @on-change="
+              (data) => {
+                selectedFactory = data;
+                props.manageData.factory_id = data.factory_id;
+              }
+            "
+            @clear="
+              () => {
+                selectedFactory = null;
+                props.manageData.factory_id = '';
+              }
+            "
+            :disabled="selectedFactory ? true : false"
           />
 
           <Input
@@ -72,9 +105,10 @@ const props = defineProps<{
 }>();
 
 const selectedUnit = ref<any>(null);
+const selectedFactory = ref<any>(null);
 
 function validateFields() {
-  const missingFields = ["name", "price", "get_price", "sell_price"].filter(
+  const missingFields = ["name", "tag", "get_price", "sell_price"].filter(
     (field) => !props.manageData[field]?.length
   );
 
@@ -98,10 +132,10 @@ const emit = defineEmits(["refresh"]);
 async function onManageClient() {
   const response =
     props.type == "add"
-      ? await useActionPost("managers", {
+      ? await useActionPost("products", {
           ...props.manageData,
         })
-      : await useActionPut(`managers/${props.manageData.manager_id}`, {
+      : await useActionPut(`products/${props.manageData.product_id}`, {
           ...props.manageData,
         });
 
@@ -140,4 +174,28 @@ const inputs = [
     icon: "hugeicons:dollar-01",
   },
 ];
+
+function checkAndSetUnit() {
+  if (props.manageData.unit_id) {
+    selectedUnit.value = {
+      unit_id: props.manageData.unit_id,
+      unit_name: props.manageData.unit_name,
+    };
+  }
+  if (props.manageData.factory_id) {
+    selectedFactory.value = {
+      factory_id: props.manageData.factory_id,
+      factory_name: props.manageData.factory_name,
+    };
+  }
+}
+
+watch(
+  () => dialogContentVisible.value,
+  (newVal) => {
+    if (newVal) {
+      checkAndSetUnit();
+    }
+  }
+);
 </script>

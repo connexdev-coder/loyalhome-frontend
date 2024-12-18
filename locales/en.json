@@ -93,7 +93,12 @@
   "sell_price": "Sell Price",
   "tag": "Tag",
   "unit_name": "Unit",
+  "factory": "Factory",
 
   "import_invoices": "Import Invoices",
-  "wasted_products": "Wasted Products"
+  "wasted_products": "Wasted Products",
+
+  "imported_quantity": "Import",
+  "wasted_quantity": "Wasted",
+  "inventory_quantity": "Inventory"
 }

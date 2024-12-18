@@ -38,7 +38,7 @@ let navigations = [
   },
   {
     name: "import_invoices",
-    route: "/employee/imports",
+    route: "/warehouse/imports",
     icon: "hugeicons:invoice",
     role: "",
     background: "var(--color-inventory)",
@@ -46,7 +46,7 @@ let navigations = [
   },
   {
     name: "wasted_products",
-    route: "/employee/wasted",
+    route: "/warehouse/wasted",
     icon: "hugeicons:waste-restore",
     role: "",
     background: "var(--color-destructive)",
