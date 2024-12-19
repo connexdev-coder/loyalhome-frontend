@@ -5,7 +5,7 @@
     <PanelToolbar />
 
     <div
-      class="flex flex-col gap-1 flex-1 overflow-hidden overflow-y-auto h-screen pb-9"
+      class="flex flex-col gap-1 flex-1 overflow-hidden overflow-y-auto h-screen"
     >
       <!-- header -->
       <div
@@ -57,7 +57,7 @@
       </div>
 
       <!-- slots -->
-      <div class="p-3 bg-sixty h-full">
+      <div class="bg-sixty h-full p-2">
         <slot />
       </div>
     </div>

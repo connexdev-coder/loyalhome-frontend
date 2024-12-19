@@ -1,3 +1,121 @@
 {
-  "app_name": "لۆیاڵ هۆم"
+  "app_name": "Loyal Home",
+
+  "name": "Name",
+  "login": "Login",
+  "username": "Username",
+  "password": "Password",
+
+  "companies": "Companies",
+  "add_company": "Add Company",
+
+  "success": "Successfull",
+  "tryagain": "Something went wrong, contact the developer!",
+
+  "actions": "Actions",
+  "authority": "Authority",
+
+  "dollar_prices": "Dollar Prices",
+
+  "save": "Save",
+  "update": "Update",
+  "delete": "Delete",
+  "delete_all": "Delete All",
+  "submit": "Submit",
+  "selected": "Selected",
+
+  "next": "Next",
+  "previous": "Previous",
+
+  "credentials_wrong": "Credentials are wrong",
+  "delete_warning": "Do you want to delete it?",
+
+  "dashboard": "Dashboard",
+  "sales": "Sales",
+  "clients": "Clients",
+  "client": "Client",
+  "employee": "Employees",
+  "warehouse": "Warehouse",
+  "finance": "Finance",
+  "report": "Report",
+  "settings": "Settings",
+  "rooms": "Rooms",
+  "managers": "Managers",
+  "import": "Import",
+  "imports": "Imports",
+  "mdf_sale": "MDF Sale",
+  "ballon_sale": "Ballon Sale",
+  "mdf": "MDF",
+  "ballon": "Ballon",
+
+  "add_manager": "Add Manager",
+  "update_manager": "Update Manager",
+
+  "dinar_price": "Dinar Price",
+  "add_dinar_price": "Add Price",
+
+  "profile": "Profile",
+  "add_client": "Add Client",
+  "firstname": "Firstname",
+  "lastname": "Lastname",
+  "contract_number": "Contract Number",
+  "phone": "Phone Number",
+  "extra_phone": "Second Phone Number",
+  "relative_name": "Relative Name",
+  "relative_phone": "Relative Phone",
+
+  "client_transactions": "Transactions",
+  "client_dept_payments": "Depts",
+
+  "employees": "Employees",
+  "employee_payments": "Payments",
+  "employee_attendances": "Attendances",
+
+  "spendings": "Spendings",
+  "add_spending": "Add Spending",
+
+  "company_depts": "Company Depts",
+  "add_company_dept": "Dept Payment",
+
+  "payments": "Payments",
+
+  "box_transaction": "Box Transaction",
+  "new_transaction": "New Transaction",
+  "deposit": "Deposit",
+  "withdraw": "Withdraw",
+
+  "add_employee": "Add Employee",
+  "salary_type": "Salary Type",
+  "salary": "Salary",
+  "position": "Position",
+
+  "products": "Products",
+  "add_product": "Add Product",
+  "get_price": "Get Price",
+  "sell_price": "Sell Price",
+  "tag": "Tag",
+  "unit_name": "Unit",
+  "factory": "Factory",
+
+  "import_invoices": "jmarey ",
+  "wasted_products": "Wasted Products",
+
+  "imported_quantity": "Import",
+  "wasted_quantity": "Wasted",
+  "inventory_quantity": "Inventory",
+
+  "add_import": "New Import Invoice",
+
+  "import_invoice": "رقم وەسڵ",
+  "transaction_type": "Transaction Type",
+  "invoice_number": "ژمارەی وەسڵ",
+  "manual_invoice_number": "Manual Invoice Number",
+  "total_get_price": "Total Get Price",
+  "extra_price": "Extra Price",
+  "company_name": "Company Name",
+  "created_at": "Created At",
+  "updated_at": "Updated At",
+
+  "owing": "Owing",
+  "cash": "Cash"
 }

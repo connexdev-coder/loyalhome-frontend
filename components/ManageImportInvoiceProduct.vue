@@ -1,9 +1,7 @@
 <template>
   <Dialog v-model:open="dialogContentVisible">
     <DialogTrigger>
-      <div class="bg-ten text-sixty text-md px-3 py-2 rounded-sm w-full">
-        <slot />
-      </div>
+      <slot />
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>
@@ -150,7 +148,7 @@ const dataForm = ref<any>("");
 
 const props = defineProps<{
   type: string;
-  manageData: importInvoiceProductType;
+  manageData: any;
   id: any;
 }>();
 
@@ -185,11 +183,11 @@ async function onManageClient() {
   try {
     const response =
       props.type == "add"
-        ? await useActionPost("import_invoices/product", {
+        ? await useActionPost("import_product", {
             ...props.manageData,
             product_id: selectedProduct.value.product_id,
           })
-        : await useActionPut(`import_invoices/product/${props.id}`, {
+        : await useActionPut(`import_product/${props.id}`, {
             quantity: props.manageData.quantity,
             box_quantity: props.manageData.box_quantity,
             price: props.manageData.price,

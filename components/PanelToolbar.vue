@@ -135,8 +135,8 @@ const navigations = [
     icon: "hugeicons:dashboard-square-02",
   },
   {
-    name: "sale",
-    route: "/sale",
+    name: "sales",
+    route: "/sales",
     icon: "hugeicons:shopping-basket-02",
   },
   {

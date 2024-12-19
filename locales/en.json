@@ -17,6 +17,7 @@
 
   "dollar_prices": "Dollar Prices",
 
+  "save": "Save",
   "update": "Update",
   "delete": "Delete",
   "delete_all": "Delete All",
@@ -30,7 +31,7 @@
   "delete_warning": "Do you want to delete it?",
 
   "dashboard": "Dashboard",
-  "sale": "Sales",
+  "sales": "Sales",
   "clients": "Clients",
   "client": "Client",
   "employee": "Employees",
@@ -41,6 +42,7 @@
   "rooms": "Rooms",
   "managers": "Managers",
   "import": "Import",
+  "imports": "Imports",
   "mdf_sale": "MDF Sale",
   "ballon_sale": "Ballon Sale",
   "mdf": "MDF",
@@ -56,9 +58,9 @@
   "add_client": "Add Client",
   "firstname": "Firstname",
   "lastname": "Lastname",
-  "contract_number": "Contract Number",
-  "phone": "Phone Number",
-  "extra_phone": "Second Phone Number",
+  "contract_number": "Contract No.",
+  "phone": "Phone No.",
+  "extra_phone": "Second Phone No.",
   "relative_name": "Relative Name",
   "relative_phone": "Relative Phone",
 
@@ -100,5 +102,26 @@
 
   "imported_quantity": "Import",
   "wasted_quantity": "Wasted",
-  "inventory_quantity": "Inventory"
+  "inventory_quantity": "Inventory",
+
+  "add_import": "New Import Invoice",
+
+  "import_invoice": "Import Invoice",
+  "transaction_type": "Transaction Type",
+  "invoice_number": "Invoice No.",
+  "manual_invoice_number": "Manual Invoice No.",
+  "total_get_price": "Total Get Price",
+  "extra_price": "Extra Price",
+  "company_name": "Company Name",
+  "created_at": "Created At",
+  "updated_at": "Updated At",
+  "note": "Note",
+
+  "product_name": "Prodoct Name",
+  "quantity": "Quantity",
+
+  "owing": "Owing",
+  "cash": "Cash",
+
+  "unit": "Unit"
 }

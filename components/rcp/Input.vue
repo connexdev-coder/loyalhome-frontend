@@ -1,14 +1,15 @@
 <template>
-  <div class="flex flex-col items-stretch gap-1">
+  <div class="flex flex-col items-stretch gap-1 w-full">
     <label for="" class="text-sm" v-if="props.label">
       {{ $t(props.label) }}
     </label>
     <div class="border-2 button_shape gap-4">
-      <Icon :name="props.icon" class="text-xl" />
+      <Icon :name="props.icon" class="text-xl text-ten" />
       <input
+        :disabled="props.disabled"
         :name="props.valueField"
         type="text"
-        class="w-full outline-none text-md"
+        class="w-full outline-none text-md bg-transparent"
         :placeholder="$t(props.placeholder)"
         v-model="props.value[props.valueField]"
         @input="handleInput"
@@ -25,6 +26,7 @@ const props = defineProps<{
   placeholder: string;
   value: any;
   valueField: string;
+  disabled?: boolean;
 }>();
 
 const emit = defineEmits(["on-change"]);
