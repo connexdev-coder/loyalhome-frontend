@@ -3,13 +3,13 @@
     <label for="" class="text-sm" v-if="props.label">
       {{ $t(props.label) }}
     </label>
-    <div class="border-2 button_shape gap-4">
+    <div class="border-2 button_shape gap-4 h-10">
       <Icon :name="props.icon" class="text-xl text-ten" />
       <input
         :disabled="props.disabled"
         :name="props.valueField"
         type="text"
-        class="w-full outline-none text-md bg-transparent"
+        class="w-full outline-none text-md bg-transparent disabled:bg-transparent"
         :placeholder="$t(props.placeholder)"
         v-model="props.value[props.valueField]"
         @input="handleInput"

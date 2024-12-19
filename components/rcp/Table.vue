@@ -7,8 +7,12 @@
     >
       <DeleteAll
         :ids="selectedRows"
-        :path="props.api_route"
         @refresh="refreshData"
+        :path="
+          props.primary_key == 'import_invoice_product_id'
+            ? 'import_product'
+            : props.api_route
+        "
       >
         <div
           class="bg-destructive text-white px-2 py-1 rounded-sm flex items-center gap-1"

@@ -40,7 +40,7 @@
       @page-change="fetchPage"
       primary_key="import_invoice_id"
       api_route="import_inv"
-      >s
+    >
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">

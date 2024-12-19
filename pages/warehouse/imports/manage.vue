@@ -9,17 +9,36 @@
         </h1>
       </div>
 
-      <button @click="manageInvoice">
-        <div class="bg-update text-white button_shape">
-          <Icon name="hugeicons:floppy-disk" class="text-xl" />
-          <span> {{ $t("save") }}</span>
-        </div>
-      </button>
+      <div class="flex flex-row items-center gap-2">
+        <button @click="manageInvoice">
+          <div class="bg-update text-white button_shape">
+            <Icon name="hugeicons:floppy-disk" class="text-xl" />
+            <span> {{ $t("save") }}</span>
+          </div>
+        </button>
+
+        <ManageImportProduct
+          title="add_product"
+          :manage-data="manageProductData"
+          type="add"
+          :id="0"
+          @refresh="fetchCurrentPage"
+          :invoice_id="query_id"
+        >
+          <div
+            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          >
+            <Icon name="hugeicons:add-01" class="text-xl" />
+            <span> {{ $t("add_product") }}</span>
+          </div>
+        </ManageImportProduct>
+      </div>
     </div>
 
     <!-- Info -->
     <div
-      class="grid grid-cols-1 sm:grid-grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 border-2 p-3 rounded-md"
+      class="grid grid-cols-1 sm:grid-grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 border-2 p-3 rounded-md"
+      :class="isUpdate ? 'border-ten' : ''"
     >
       <Input
         v-if="status == 'success' && data.length > 0"
@@ -34,7 +53,7 @@
 
       <Input
         :value="manageData"
-        :disabled="isUpdate"
+        :disabled="query_id"
         value-field="invoice_number"
         type="text"
         icon="hugeicons:file-import"
@@ -108,27 +127,28 @@
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-change="fetchPage"
-      primary_key="import_invoice_id"
+      primary_key="import_invoice_product_id"
       api_route="import_inv"
     >
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <ManageImportInvoiceProduct
+          <ManageImportProduct
             title="update"
             :manage-data="row"
             type="update"
-            :id="row.product_id"
+            :id="row.import_invoice_product_id"
             @refresh="fetchCurrentPage"
+            :invoice_id="query_id"
           >
             <div class="bg-update text-white button_shape">
               <Icon name="hugeicons:pencil-edit-01" class="text-xl" />
               <span> {{ $t("update") }}</span>
             </div>
-          </ManageImportInvoiceProduct>
+          </ManageImportProduct>
           <Delete
-            type="products"
-            :id="row.product_id"
+            type="import_product"
+            :id="row.import_invoice_product_id"
             @refresh="fetchPage(currentPage)"
           >
             <div
@@ -146,6 +166,7 @@
     <div
       v-if="status == 'success' && data.length > 0"
       class="absolute bottom-0 left-0 right-0 p-2 flex flex-row items-center gap-2 border-t-2"
+      :class="isUpdate ? 'border-ten' : ''"
     >
       <Input
         :value="manageData"
@@ -162,7 +183,7 @@
         :disabled="isUpdate"
         value-field="extra_price"
         type="text"
-        icon="hugeicons:note-04"
+        icon="hugeicons:dollar-01"
         label="extra_price"
         placeholder="extra_price"
       />
@@ -174,7 +195,6 @@
 import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table } from "@/components/rcp";
-import ManageImportInvoiceProduct from "~/components/ManageImportInvoiceProduct.vue";
 import Input from "~/components/rcp/Input.vue";
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
 import { useToast } from "~/components/ui/toast";
@@ -186,11 +206,11 @@ const selectedCompany = ref<any>(null);
 
 const { toast } = useToast();
 
-const isUpdate = ref(false);
-
 const route = useRoute();
 const query = route.query as { id: any };
 const query_id = ref(query.id);
+
+const isUpdate = ref(false);
 
 const { t } = useI18n();
 
@@ -200,6 +220,13 @@ const manageData = ref({
   company_id: "",
   factory_id: "",
   extra_price: "0",
+  note: "",
+});
+
+const manageProductData = ref({
+  product_id: "",
+  get_price: "",
+  quantity: "",
   note: "",
 });
 
@@ -299,8 +326,11 @@ async function manageInvoice() {
       variant: "default",
     });
 
-    useRouter().push(`/warehouse/imports/manage?id=${query_id.value}`);
+    if (!query_id.value) {
+      useRouter().push(`/warehouse/imports/manage?id=${query_id.value}`);
+    }
 
+    isUpdate.value = false;
     return;
   }
   toast({

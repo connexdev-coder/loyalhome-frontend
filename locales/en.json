@@ -123,5 +123,7 @@
   "owing": "Owing",
   "cash": "Cash",
 
-  "unit": "Unit"
+  "unit": "Unit",
+
+  "update_invoice": "Update Invoice"
 }

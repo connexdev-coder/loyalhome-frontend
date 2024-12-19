@@ -29,6 +29,7 @@ module.exports = {
 
         destructive: "var(--color-destructive)",
         update: "var(--color-update)",
+        clear: "var(--color-clear)",
 
         dollar: "var(--color-dollar)",
         inventory: "var(--color-inventory)",

@@ -4,7 +4,7 @@
       {{ $t(props.label) }}
     </label>
     <div
-      class="relative border-2 button_shape gap-4 flex flex-row items-center justify-between"
+      class="h-10 relative border-2 button_shape gap-4 flex flex-row items-center justify-between"
     >
       <div class="w-full flex flex-row items-center gap-2">
         <Icon :name="props.icon" class="text-xl" />
@@ -25,14 +25,14 @@
 
       <div
         v-if="disabled"
-        class="p-1 bg-ten rounded-md flex items-center justify-center cursor-pointer"
+        class="p-1 bg-clear hover:bg-destructive duration-100 text-white rounded-full flex items-center justify-center cursor-pointer"
         @click="
           () => {
             emit('clear');
           }
         "
       >
-        <Icon name="hugeicons:cancel-01" class="text-2xl text-white" />
+        <Icon name="hugeicons:cancel-01" class="text-lg" />
       </div>
 
       <div
