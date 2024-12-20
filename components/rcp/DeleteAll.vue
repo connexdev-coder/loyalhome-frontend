@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionDelete } from "~/hooks/actionFetch";
-import { useToast } from "./ui/toast";
+import { useToast } from "../ui/toast";
 
 const { toast } = useToast();
 

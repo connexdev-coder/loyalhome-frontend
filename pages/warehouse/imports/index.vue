@@ -18,15 +18,67 @@
     </div>
 
     <!-- Filter -->
-    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-2">
       <Input
+        v-for="filter in filters"
+        :label="filter.valueField"
         :value="filterData"
-        value-field="search"
+        :value-field="filter.valueField"
+        :type="filter.type"
+        :icon="filter.icon"
+        :placeholder="filter.valueField"
+        @on-change="filter.onChange"
+      />
+
+      <ComboBox
+        label="company_name"
         type="text"
-        icon="hugeicons:search-01"
-        placeholder="search"
-        @on-change="fetchCurrentPage"
-        @refresh="fetchCurrentPage"
+        :icon="COMPANY_ICON"
+        placeholder="company_name"
+        api_route="companies"
+        api_route_query="search"
+        :result_fields="['company_name']"
+        :selectedValue="selectedCompany"
+        @on-change="
+          (data:any) => {
+            selectedCompany = data;
+            filterData.company_id = data.company_id;
+            fetchCurrentPage();
+          }
+        "
+        @clear="
+          () => {
+            selectedCompany = null;
+            filterData.company_id = '';
+            fetchCurrentPage();
+          }
+        "
+        :disabled="selectedCompany ? true : false"
+      />
+      <ComboBox
+        label="factory_name"
+        type="text"
+        :icon="FACTORY_ICON"
+        placeholder="factory_name"
+        api_route="configs/factories"
+        api_route_query="search"
+        :result_fields="['factory_name']"
+        :selectedValue="selectedFactory"
+        @on-change="
+          (data:any) => {
+            selectedFactory = data;
+            filterData.factory_id = data.factory_id;
+            fetchCurrentPage();
+          }
+        "
+        @clear="
+          () => {
+            selectedFactory = null;
+            filterData.factory_id = '';
+            fetchCurrentPage();
+          }
+        "
+        :disabled="selectedFactory ? true : false"
       />
     </div>
 
@@ -48,8 +100,8 @@
             :to="`/warehouse/imports/manage?id=${row.import_invoice_id}`"
           >
             <div class="bg-update text-white button_shape">
-              <Icon name="hugeicons:pencil-edit-01" class="text-xl" />
-              <span> {{ $t("update") }}</span>
+              <Icon :name="EYE_ICON" class="text-xl" />
+              <span> {{ $t("see_invoice") }}</span>
             </div>
           </NuxtLink>
           <Delete
@@ -74,12 +126,48 @@
 import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
+import ComboBox from "~/components/rcp/ComboBox.vue";
+
+const selectedCompany = ref(null);
+const selectedFactory = ref(null);
 
 const { t } = useI18n();
 
 const filterData = ref({
   search: "",
+  from: "",
+  to: "",
+  transaction_type: "",
+  company_id: "",
+  factory_id: "",
 });
+
+const filters = [
+  {
+    valueField: "search",
+    type: "text",
+    icon: SEARCH_ICON,
+    onChange: () => {
+      filterData.value.search == "" ? null : fetchCurrentPage();
+    },
+  },
+  {
+    valueField: "from",
+    type: "date",
+    icon: DATE_ICON,
+    onChange: () => {
+      filterData.value.to == "" ? null : fetchCurrentPage();
+    },
+  },
+  {
+    valueField: "to",
+    type: "date",
+    icon: DATE_ICON,
+    onChange: () => {
+      filterData.value.from == "" ? null : fetchCurrentPage();
+    },
+  },
+];
 
 // Define columns
 const columns = [
@@ -98,6 +186,7 @@ const columns = [
   },
 
   { key: "company_name", label: t("company_name"), sortable: true },
+  { key: "factory_name", label: t("factory_name"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },
   { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },
@@ -110,9 +199,20 @@ const data = ref<any>(null);
 const status = ref<any>(null);
 
 async function fetchPage(page: number) {
+  const queryParams = new URLSearchParams({
+    page: page.toString(),
+    search: filterData.value.search || "",
+    from: filterData.value.from || "",
+    to: filterData.value.to || "",
+    transaction_type: filterData.value.transaction_type || "",
+    company_id: filterData.value.company_id || "",
+    factory_id: filterData.value.factory_id || "",
+  });
+
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `import_inv?page=${page}&search=${filterData.value.search}`
+    `import_inv?${queryParams.toString()}`
   );
+
   data.value = dataData.value.data;
   status.value = dataStatus.value;
   totalPages.value = dataData.value.total_pages;

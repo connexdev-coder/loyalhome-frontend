@@ -40,7 +40,7 @@
           <th
             v-for="column in columns"
             :key="column.key"
-            class="p-2 border border-gray-200 cursor-pointer"
+            class="p-2 border border-gray-200 cursor-pointer whitespace-nowrap"
             @click="sortByColumn(column)"
           >
             <div class="flex items-center justify-start gap-1">
@@ -86,7 +86,7 @@
           <td
             v-for="(column, colIndex) in columns"
             :key="colIndex"
-            class="p-2 border border-gray-200"
+            class="p-2 border border-gray-200 whitespace-nowrap"
           >
             <!-- Custom slot or default rendering -->
             <slot

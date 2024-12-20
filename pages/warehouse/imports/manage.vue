@@ -1,15 +1,22 @@
 <template>
-  <div class="flex flex-col gap-3 relative h-full pb-20">
+  <div class="flex flex-col gap-3 relative h-full pb-56">
     <!-- Title -->
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">
+        <h1 class="text-xl uppercase hidden md:block">
           {{ !query_id ? $t("add_import") : $t("import_invoice") }}
         </h1>
       </div>
 
-      <div class="flex flex-row items-center gap-2">
+      <div class="flex flex-wrap md:flex-row justify-end items-center gap-2">
+        <button>
+          <div class="bg-inventory text-white button_shape">
+            <Icon :name="PRINT_ICON" class="text-xl" />
+            <span> {{ $t("print") }}</span>
+          </div>
+        </button>
+
         <button @click="manageInvoice">
           <div class="bg-update text-white button_shape">
             <Icon name="hugeicons:floppy-disk" class="text-xl" />
@@ -53,7 +60,7 @@
 
       <Input
         :value="manageData"
-        :disabled="query_id"
+        :disabled="false"
         value-field="invoice_number"
         type="text"
         icon="hugeicons:file-import"
@@ -73,7 +80,7 @@
       <ComboBox
         label="factory"
         type="text"
-        icon="hugeicons:factory-02"
+        :icon="FACTORY_ICON"
         placeholder="factory"
         api_route="configs/factories"
         api_route_query="search"
@@ -97,7 +104,7 @@
       <ComboBox
         label="company_name"
         type="text"
-        icon="hugeicons:factory-02"
+        :icon="COMPANY_ICON"
         placeholder="company_name"
         api_route="companies"
         api_route_query="search"
@@ -165,7 +172,7 @@
     <!-- Note & Price -->
     <div
       v-if="status == 'success' && data.length > 0"
-      class="absolute bottom-0 left-0 right-0 p-2 flex flex-row items-center gap-2 border-t-2"
+      class="absolute bottom-0 left-0 right-0 p-2 flex flex-col md:flex-row items-center gap-2 border-t-2"
       :class="isUpdate ? 'border-ten' : ''"
     >
       <Input
@@ -200,6 +207,7 @@ import { useActionPost, useActionPut } from "~/hooks/actionFetch";
 import { useToast } from "~/components/ui/toast";
 import OfflineSelect from "~/components/rcp/OfflineSelect.vue";
 import ComboBox from "~/components/rcp/ComboBox.vue";
+import ManageImportProduct from "~/components/management/ManageImportProduct.vue";
 
 const selectedFactory = ref<any>(null);
 const selectedCompany = ref<any>(null);
@@ -245,6 +253,7 @@ const columns = [
     sortable: true,
   },
   { key: "unit", label: t("unit"), sortable: true },
+  { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 
@@ -339,7 +348,7 @@ async function manageInvoice() {
   });
 }
 
-function checkAndSetUnit() {
+function checkAndSetDefaults() {
   if (status.value == "success" && data.value.length > 0) {
     selectedFactory.value = {
       factory_id: data.value[0].factory_id,
@@ -354,5 +363,5 @@ function checkAndSetUnit() {
   }
 }
 
-checkAndSetUnit();
+checkAndSetDefaults();
 </script>

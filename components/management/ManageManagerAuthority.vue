@@ -59,7 +59,6 @@
 </template>
 
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionPut } from "~/hooks/actionFetch";
 import { useGet } from "~/hooks/fetch";
 

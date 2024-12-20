@@ -15,6 +15,7 @@
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
+          @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
           <Input
@@ -39,10 +40,8 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
-import { useToast } from "./ui/toast";
-import Input from "./rcp/Input.vue";
+import { useToast } from "../ui/toast";
 
 const { t } = useI18n();
 const { toast } = useToast();
@@ -57,7 +56,7 @@ const props = defineProps<{
 }>();
 
 function validateFields() {
-  const missingFields = ["dinar_price"].filter(
+  const missingFields = ["name", "username", "password"].filter(
     (field) => !props.manageData[field]?.length
   );
 
@@ -81,15 +80,12 @@ const emit = defineEmits(["refresh"]);
 async function onManageClient() {
   const response =
     props.type == "add"
-      ? await useActionPost("dollar_prices", {
+      ? await useActionPost("managers", {
           ...props.manageData,
         })
-      : await useActionPut(
-          `dollar_prices/${props.manageData.dollar_to_dinar_id}`,
-          {
-            ...props.manageData,
-          }
-        );
+      : await useActionPut(`managers/${props.manageData.manager_id}`, {
+          ...props.manageData,
+        });
 
   if (response.status == 200) {
     emit("refresh");
@@ -106,9 +102,19 @@ const dialogContentVisible = ref(false);
 
 const inputs = [
   {
-    valueField: "dinar_price",
-    type: "number",
-    icon: "hugeicons:search-dollar",
+    valueField: "name",
+    type: "text",
+    icon: "hugeicons:user",
+  },
+  {
+    valueField: "username",
+    type: "text",
+    icon: "hugeicons:account-setting-01",
+  },
+  {
+    valueField: "password",
+    type: "text",
+    icon: "hugeicons:square-lock-password",
   },
 ];
 </script>

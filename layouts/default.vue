@@ -57,7 +57,7 @@
       </div>
 
       <!-- slots -->
-      <div class="bg-sixty h-full p-2">
+      <div class="bg-sixty h-full p-4 pb-10">
         <slot />
       </div>
     </div>

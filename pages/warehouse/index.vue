@@ -47,7 +47,7 @@ let navigations = [
   {
     name: "wasted_products",
     route: "/warehouse/wasted",
-    icon: "hugeicons:waste-restore",
+    icon: WASTED_ICON,
     role: "",
     background: "var(--color-destructive)",
     textColor: "#ffffff",

@@ -1,6 +1,8 @@
 {
   "app_name": "Loyal Home",
 
+  "id": "ID",
+
   "name": "Name",
   "login": "Login",
   "username": "Username",
@@ -47,6 +49,18 @@
   "ballon_sale": "Ballon Sale",
   "mdf": "MDF",
   "ballon": "Ballon",
+  "product_name": "Prodoct Name",
+  "quantity": "Quantity",
+  "owing": "Owing",
+  "cash": "Cash",
+  "unit": "Unit",
+  "update_invoice": "Update Invoice",
+  "see_invoice": "See Invoice",
+  "print": "Print",
+  "from": "From",
+  "to": "To",
+  "factory_name": "Factory Name",
+  "search": "Search",
 
   "add_manager": "Add Manager",
   "update_manager": "Update Manager",
@@ -117,13 +131,5 @@
   "updated_at": "Updated At",
   "note": "Note",
 
-  "product_name": "Prodoct Name",
-  "quantity": "Quantity",
-
-  "owing": "Owing",
-  "cash": "Cash",
-
-  "unit": "Unit",
-
-  "update_invoice": "Update Invoice"
+  "add_wasted_product": "Add Wasted Product"
 }

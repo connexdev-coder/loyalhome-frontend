@@ -7,7 +7,7 @@
 /* Default (Light Mode) */
 :root {
   --color-sixty: #ffffff;
-  --color-thirty: #edffec;
+  --color-thirty: #ced4da;
   --color-ten: #3a4d39;
 
   --color-overSixty: #000000;
@@ -16,7 +16,7 @@
 
   --color-destructive: #ef233c;
   --color-update: #4361ee;
-  --color-clear: #f08080;
+  --color-clear: #ef233c;
 
   --color-dollar: #3a86ff;
   --color-inventory: #f77f00;

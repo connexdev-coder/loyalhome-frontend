@@ -8,7 +8,7 @@
       <input
         :disabled="props.disabled"
         :name="props.valueField"
-        :type="props.type == 'number' ? 'text' : props.type"
+        type="date"
         class="w-full outline-none text-md bg-transparent disabled:bg-transparent"
         :placeholder="$t(props.placeholder)"
         v-model="props.value[props.valueField]"

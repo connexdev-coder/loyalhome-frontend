@@ -2,6 +2,15 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
 
+  components: [
+    "~/components",
+    { path: "~/components/rcp", extensions: ["vue"] },
+    { path: "~/components/layouts", extensions: ["vue"] },
+    { path: "~/components/management", extensions: ["vue"] },
+    { path: "~/components/ui/toast", extensions: ["vue"] },
+    { path: "~/components/ui/dialog", extensions: ["vue"] },
+  ],
+
   modules: [
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
@@ -36,7 +45,11 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  css: ["~/assets/css/main.css", "~/assets/css/global.css"],
+  css: [
+    "~/assets/css/main.css",
+    "~/assets/css/global.css",
+    "~/assets/css/tailwind.css",
+  ],
 
   runtimeConfig: {
     tokenSecret: process.env.SECRET,

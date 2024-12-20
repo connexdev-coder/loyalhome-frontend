@@ -84,7 +84,7 @@
 import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
-import ManageProduct from "~/components/ManageProduct.vue";
+import ManageProduct from "~/components/management/ManageProduct.vue";
 
 const { t } = useI18n();
 

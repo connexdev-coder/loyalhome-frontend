@@ -15,6 +15,7 @@
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
+          @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
           <ComboBox
@@ -86,11 +87,8 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
-import { useToast } from "./ui/toast";
-import Input from "./rcp/Input.vue";
-import ComboBox from "./rcp/ComboBox.vue";
+import { useToast } from "../ui/toast";
 
 const { t } = useI18n();
 const { toast } = useToast();
@@ -175,7 +173,7 @@ const inputs = [
   },
 ];
 
-function checkAndSetUnit() {
+function checkAndSetDefaults() {
   if (props.manageData.unit_id) {
     selectedUnit.value = {
       unit_id: props.manageData.unit_id,
@@ -194,7 +192,7 @@ watch(
   () => dialogContentVisible.value,
   (newVal) => {
     if (newVal) {
-      checkAndSetUnit();
+      checkAndSetDefaults();
     }
   }
 );

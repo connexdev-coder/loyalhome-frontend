@@ -15,6 +15,7 @@
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
+          @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
           <Input
@@ -39,10 +40,8 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
-import { useToast } from "./ui/toast";
-import Input from "./rcp/Input.vue";
+import { useToast } from "../ui/toast";
 
 const { t } = useI18n();
 const { toast } = useToast();
@@ -57,14 +56,9 @@ const props = defineProps<{
 }>();
 
 function validateFields() {
-  const missingFields = [
-    "firstname",
-    "lastname",
-    "phone",
-    "extra_phone",
-    "relative_name",
-    "relative_phone",
-  ].filter((field) => !props.manageData[field]?.length);
+  const missingFields = ["dinar_price"].filter(
+    (field) => !props.manageData[field]?.length
+  );
 
   return missingFields;
 }
@@ -86,12 +80,15 @@ const emit = defineEmits(["refresh"]);
 async function onManageClient() {
   const response =
     props.type == "add"
-      ? await useActionPost("clients", {
+      ? await useActionPost("dollar_prices", {
           ...props.manageData,
         })
-      : await useActionPut(`clients/${props.manageData.client_id}`, {
-          ...props.manageData,
-        });
+      : await useActionPut(
+          `dollar_prices/${props.manageData.dollar_to_dinar_id}`,
+          {
+            ...props.manageData,
+          }
+        );
 
   if (response.status == 200) {
     emit("refresh");
@@ -108,39 +105,9 @@ const dialogContentVisible = ref(false);
 
 const inputs = [
   {
-    valueField: "contract_number",
-    type: "text",
-    icon: "hugeicons:document-validation",
-  },
-  {
-    valueField: "firstname",
-    type: "text",
-    icon: "hugeicons:user",
-  },
-  {
-    valueField: "lastname",
-    type: "text",
-    icon: "hugeicons:user",
-  },
-  {
-    valueField: "phone",
-    type: "text",
-    icon: "hugeicons:call",
-  },
-  {
-    valueField: "extra_phone",
-    type: "text",
-    icon: "hugeicons:call",
-  },
-  {
-    valueField: "relative_name",
-    type: "text",
-    icon: "hugeicons:flow-connection",
-  },
-  {
-    valueField: "relative_phone",
-    type: "text",
-    icon: "hugeicons:call",
+    valueField: "dinar_price",
+    type: "number",
+    icon: "hugeicons:search-dollar",
   },
 ];
 </script>

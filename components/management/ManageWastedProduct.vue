@@ -15,8 +15,34 @@
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
+          @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
+          <ComboBox
+            label="product_name"
+            type="text"
+            :icon="PRODUCT_ICON"
+            placeholder="product_name"
+            api_route="products"
+            api_route_query="search"
+            :result_fields="['product_name']"
+            :selectedValue="selectedProduct"
+            @on-change="
+              (data) => {
+                selectedProduct = data;
+                props.manageData.product_id = data.product_id;
+                props.manageData.get_price = data.get_price;
+              }
+            "
+            @clear="
+              () => {
+                selectedProduct = null;
+                props.manageData.product_id = '';
+              }
+            "
+            :disabled="selectedProduct ? true : false"
+          />
+
           <Input
             v-for="input in inputs"
             :label="input.valueField"
@@ -39,10 +65,8 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
-import { useToast } from "./ui/toast";
-import Input from "./rcp/Input.vue";
+import { useToast } from "../ui/toast";
 
 const { t } = useI18n();
 const { toast } = useToast();
@@ -56,11 +80,13 @@ const props = defineProps<{
   id: any;
 }>();
 
-function validateFields() {
-  const missingFields = ["name"].filter(
-    (field) => !props.manageData[field]?.length
-  );
+const selectedProduct = ref<any>(null);
 
+function validateFields() {
+  const missingFields = ["get_price", "quantity"].filter(
+    (field) => props.manageData[field] == null || props.manageData[field] === ""
+  );
+  if (!selectedProduct.value) missingFields.push("product_id");
   return missingFields;
 }
 
@@ -81,10 +107,10 @@ const emit = defineEmits(["refresh"]);
 async function onManageClient() {
   const response =
     props.type == "add"
-      ? await useActionPost("companies", {
+      ? await useActionPost("waste_product", {
           ...props.manageData,
         })
-      : await useActionPut(`companies/${props.manageData.company_id}`, {
+      : await useActionPut(`waste_product/${props.id}`, {
           ...props.manageData,
         });
 
@@ -103,9 +129,37 @@ const dialogContentVisible = ref(false);
 
 const inputs = [
   {
-    valueField: "name",
+    valueField: "get_price",
+    type: "number",
+    icon: PRICE_ICON,
+  },
+  {
+    valueField: "quantity",
+    type: "number",
+    icon: "hugeicons:tags",
+  },
+  {
+    valueField: "note",
     type: "text",
-    icon: "hugeicons:delivery-truck-02",
+    icon: NOTE_ICON,
   },
 ];
+
+function checkAndSetDefaults() {
+  if (props.manageData.product_id) {
+    selectedProduct.value = {
+      product_id: props.manageData.product_id,
+      product_name: props.manageData.product_name,
+    };
+  }
+}
+
+watch(
+  () => dialogContentVisible.value,
+  (newVal) => {
+    if (newVal) {
+      checkAndSetDefaults();
+    }
+  }
+);
 </script>
