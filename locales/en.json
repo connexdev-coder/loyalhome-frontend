@@ -146,5 +146,8 @@
   "logout": "Logout",
   "logout_warning": "Do you want to logout?",
 
-  "available_quantity": "Available Quantity"
+  "available_quantity": "Available Quantity",
+
+  "total_paid": "Total Paid",
+  "total_remaining": "Total Remaining"
 }

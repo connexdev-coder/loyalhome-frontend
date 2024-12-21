@@ -9,7 +9,7 @@
     >
       <Header />
       <!-- slots -->
-      <div class="bg-sixty h-full px-3 py-2 pb-10">
+      <div class="bg-sixty h-full px-3 pt-4">
         <slot />
       </div>
     </div>

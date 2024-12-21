@@ -45,6 +45,14 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
+    name: "depts",
+    route: "/client/depts",
+    icon: DOLLAR_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
+  {
     name: "client_dept_payments",
     route: "/client/depts",
     icon: "hugeicons:money-receive-circle",

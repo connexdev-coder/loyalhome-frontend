@@ -110,6 +110,7 @@ const columns = [
   { key: "extra_phone", label: t("extra_phone"), sortable: true },
   { key: "relative_name", label: t("relative_name"), sortable: true },
   { key: "relative_phone", label: t("relative_phone"), sortable: true },
+  { key: "total_owing", label: t("total_owing"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

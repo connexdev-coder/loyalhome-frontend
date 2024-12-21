@@ -33,7 +33,7 @@
           }
         "
       >
-        <Icon name="hugeicons:cancel-01" class="text-lg" />
+        <Icon name="hugeicons:cancel-01" class="text-md" />
       </div>
 
       <div

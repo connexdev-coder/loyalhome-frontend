@@ -122,8 +122,6 @@ async function fetchPage(page: number) {
 fetchPage(currentPage.value);
 
 function fetchCurrentPage() {
-  console.log(1);
-
   fetchPage(currentPage.value);
 }
 </script>

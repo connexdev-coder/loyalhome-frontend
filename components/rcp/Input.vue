@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col items-stretch gap-1 w-full">
-    <label for="" class="text-sm" v-if="props.label">
+  <div class="flex flex-col items-stretch gap-0 w-full">
+    <label for="" class="text-sm font-bold" v-if="props.label">
       {{ $t(props.label) }}
     </label>
     <div class="border-2 button_shape gap-2 h-10">
