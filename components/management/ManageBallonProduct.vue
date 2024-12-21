@@ -14,14 +14,14 @@
       <div class="h-[300px] overflow-y-scroll">
         <form
           ref="dataForm"
-          @submit.prevent="onManageClient"
+          @submit.prevent="onManageData"
           @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
           <ComboBox
             label="product_name"
             type="text"
-            :icon="PRODUCT_ICON"
+            icon="hugeicons:workflow-square-06"
             placeholder="product_name"
             api_route="products"
             api_route_query="search"
@@ -32,6 +32,7 @@
                 selectedProduct = data;
                 props.manageData.product_id = data.product_id;
                 props.manageData.get_price = data.get_price;
+                props.manageData.sell_price = data.sell_price;
               }
             "
             @clear="
@@ -43,15 +44,32 @@
             :disabled="selectedProduct ? true : false"
           />
 
-          <Input
-            v-for="input in inputs"
-            :label="input.valueField"
-            :value="props.manageData"
-            :value-field="input.valueField"
-            :type="input.type"
-            :icon="input.icon"
-            :placeholder="input.valueField"
-          />
+          <div
+            v-if="props.type == 'add' && selectedProduct"
+            class="bg-inventory text-white px-2 py-1 rounded-sm"
+          >
+            <span>
+              {{ $t("available_quantity") }}:
+              {{ selectedProduct.inventory_quantity }}</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <Input
+              v-for="input in inputs"
+              :label="input.valueField"
+              :value="props.manageData"
+              :value-field="input.valueField"
+              :type="input.type"
+              :icon="input.icon"
+              :placeholder="input.valueField"
+              :max-value="
+                input.valueField == 'quantity' && selectedProduct
+                  ? selectedProduct.inventory_quantity
+                  : undefined
+              "
+            />
+          </div>
         </form>
       </div>
 
@@ -84,7 +102,7 @@ const props = defineProps<{
 const selectedProduct = ref<any>(null);
 
 function validateFields() {
-  const missingFields = ["get_price", "quantity"].filter(
+  const missingFields = ["get_price", "sell_price", "quantity"].filter(
     (field) => props.manageData[field] == null || props.manageData[field] === ""
   );
   if (!selectedProduct.value) missingFields.push("product_id");
@@ -105,14 +123,14 @@ function submitForm() {
 
 const emit = defineEmits(["refresh"]);
 
-async function onManageClient() {
+async function onManageData() {
   const response =
     props.type == "add"
-      ? await useActionPost("import_product", {
+      ? await useActionPost("ballon_sale_product", {
           ...props.manageData,
-          import_invoice_id: props.invoice_id,
+          ballon_sale_id: props.invoice_id,
         })
-      : await useActionPut(`import_product/${props.id}`, {
+      : await useActionPut(`ballon_sale_product/${props.id}`, {
           ...props.manageData,
         });
 
@@ -136,6 +154,11 @@ const inputs = [
     icon: DOLLAR_ICON,
   },
   {
+    valueField: "sell_price",
+    type: "number",
+    icon: DOLLAR_ICON,
+  },
+  {
     valueField: "quantity",
     type: "number",
     icon: PRODUCT_ICON,
@@ -152,7 +175,7 @@ function checkAndSetDefaults() {
     selectedProduct.value = {
       product_id: props.manageData.product_id,
       product_name: props.manageData.product_name,
-      // get_price: props.manageData.get_price,
+      unit_name: props.manageData.unit_name,
     };
   }
 }

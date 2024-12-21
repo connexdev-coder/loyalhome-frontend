@@ -65,19 +65,11 @@ const columns = [
   { key: "product_id", label: "ID", sortable: true },
   { key: "name", label: t("name"), sortable: true },
   { key: "tag", label: t("tag"), sortable: true },
-  {
-    key: "get_price",
-    label: `${t("get_price")} (${MAIN_CURRENCY})`,
-    sortable: true,
-  },
-  {
-    key: "sell_price",
-    label: `${t("sell_price")} (${MAIN_CURRENCY})`,
-    sortable: true,
-  },
   { key: "unit_name", label: t("unit_name"), sortable: true },
   { key: "imported_quantity", label: t("imported_quantity"), sortable: true },
   { key: "wasted_quantity", label: t("wasted_quantity"), sortable: true },
+  { key: "ballon_quantity", label: t("ballon_quantity"), sortable: true },
+  { key: "mdf_quantity", label: t("mdf_quantity"), sortable: true },
   { key: "inventory_quantity", label: t("inventory_quantity"), sortable: true },
 ];
 

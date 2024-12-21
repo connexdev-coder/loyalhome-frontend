@@ -75,7 +75,7 @@
           "
         >
           <!-- Individual Row Checkbox -->
-          <td class="p-2 border border-gray-200 w-10 text-center">
+          <td class="p-2 border border-gray-300 w-10 text-center">
             <input
               type="checkbox"
               v-model="selectedRows"
@@ -86,7 +86,7 @@
           <td
             v-for="(column, colIndex) in columns"
             :key="colIndex"
-            class="p-2 border border-gray-200 whitespace-nowrap"
+            class="p-2 border border-gray-300 whitespace-nowrap"
           >
             <!-- Custom slot or default rendering -->
             <slot
@@ -95,7 +95,11 @@
               :column="column"
               :value="row[column.key]"
             >
-              {{ row[column.key] }}
+              {{
+                Number(row[column.key])
+                  ? Number(row[column.key]).toLocaleString()
+                  : row[column.key]
+              }}
             </slot>
           </td>
         </tr>

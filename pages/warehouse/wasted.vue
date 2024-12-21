@@ -80,7 +80,7 @@
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-change="fetchPage"
-      primary_key="import_invoice_id"
+      primary_key="wasted_product_id"
       api_route="waste_product"
     >
       <!-- Custom slot for 'actions' column -->
@@ -102,7 +102,7 @@
           </ManageWastedProduct>
           <Delete
             type="waste_product"
-            :id="row.import_invoice_id"
+            :id="row.wasted_product_id"
             @refresh="fetchPage(currentPage)"
           >
             <div

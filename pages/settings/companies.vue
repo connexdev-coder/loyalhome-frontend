@@ -27,7 +27,7 @@
     <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
       <Input
         :value="filterData"
-        value-field="name"
+        value-field="search"
         type="text"
         icon="hugeicons:search-01"
         placeholder="search"
@@ -88,7 +88,7 @@ import { Table, Input } from "@/components/rcp";
 const { t } = useI18n();
 
 const filterData = ref({
-  name: "",
+  search: "",
 });
 
 const manageData = ref({
@@ -110,7 +110,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `companies?page=${page}&search=${filterData.value.name}`
+    `companies?page=${page}&search=${filterData.value.search}`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
@@ -122,6 +122,8 @@ async function fetchPage(page: number) {
 fetchPage(currentPage.value);
 
 function fetchCurrentPage() {
+  console.log(1);
+
   fetchPage(currentPage.value);
 }
 </script>

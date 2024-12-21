@@ -2,7 +2,7 @@
   <div class="flex flex-col items-stretch gap-4">
     <div class="font-bold flex flex-row items-center gap-1">
       <Icon name="hugeicons:file-verified" class="text-4xl text-ten" />
-      <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
+      <h1 class="text-xl uppercase">{{ $t("sales") }}</h1>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -29,11 +29,19 @@ definePageMeta({
 
 let navigations = [
   {
-    name: "jard",
-    route: "/reports/jard",
-    icon: "hugeicons:dashboard-square-01",
+    name: "ballon_sale",
+    route: "/sales/ballon",
+    icon: BALLON_ICON,
     role: "",
-    background: "var(--color-inventory)",
+    background: "var(--color-ballon)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "mdf_sale",
+    route: "/sales/mdf",
+    icon: MDF_ICON,
+    role: "",
+    background: "var(--color-mdf)",
     textColor: "#ffffff",
   },
 ];

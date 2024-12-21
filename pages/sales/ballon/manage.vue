@@ -5,7 +5,7 @@
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase hidden md:block">
-          {{ !query_id ? $t("add_import") : $t("import_invoice") }}
+          {{ !query_id ? $t("add_ballon_sale") : $t("ballon_sale") }}
         </h1>
       </div>
 
@@ -24,7 +24,7 @@
           </div>
         </button>
 
-        <ManageImportProduct
+        <ManageBallonProduct
           v-if="query_id"
           title="add_product"
           :manage-data="manageProductData"
@@ -39,7 +39,7 @@
             <Icon name="hugeicons:add-01" class="text-xl" />
             <span> {{ $t("add_product") }}</span>
           </div>
-        </ManageImportProduct>
+        </ManageBallonProduct>
       </div>
     </div>
 
@@ -52,21 +52,11 @@
         v-if="status == 'success' && data.length > 0"
         :value="data[0]"
         :disabled="true"
-        value-field="import_invoice_id"
+        value-field="ballon_sale_id"
         type="text"
         icon="hugeicons:invoice-01"
         label="invoice_number"
         placeholder="invoice_number"
-      />
-
-      <Input
-        :value="manageData"
-        :disabled="false"
-        value-field="invoice_number"
-        type="text"
-        icon="hugeicons:file-import"
-        label="manual_invoice_number"
-        placeholder="manual_invoice_number"
       />
 
       <OfflineSelect
@@ -79,51 +69,39 @@
       />
 
       <ComboBox
-        label="factory"
+        label="client_name"
         type="text"
-        :icon="FACTORY_ICON"
-        placeholder="factory"
-        api_route="configs/factories"
+        :icon="CLIENT_ICON"
+        placeholder="client_name"
+        api_route="clients"
         api_route_query="search"
-        :result_fields="['factory_name']"
-        :selectedValue="selectedFactory"
+        :result_fields="['client_name']"
+        :selectedValue="selectedClient"
         @on-change="
           (data:any) => {
-            selectedFactory = data;
-            manageData.factory_id = data.factory_id;
+            selectedClient = data;
+            manageData.client_id = data.client_id;
+            fetchCurrentPage();
           }
         "
         @clear="
           () => {
-            selectedFactory = null;
-            manageData.factory_id = '';
+            selectedClient = null;
+            manageData.client_id = '';
+            fetchCurrentPage();
           }
         "
-        :disabled="selectedFactory ? true : false"
+        :disabled="selectedClient ? true : false"
       />
 
-      <ComboBox
-        label="company_name"
+      <Input
+        :value="manageData"
+        :disabled="false"
+        value-field="person_name"
         type="text"
-        :icon="COMPANY_ICON"
-        placeholder="company_name"
-        api_route="companies"
-        api_route_query="search"
-        :result_fields="['company_name']"
-        :selectedValue="selectedCompany"
-        @on-change="
-          (data:any) => {
-            selectedCompany = data;
-            manageData.company_id = data.company_id;
-          }
-        "
-        @clear="
-          () => {
-            selectedCompany = null;
-            manageData.company_id = '';
-          }
-        "
-        :disabled="selectedCompany ? true : false"
+        :icon="CLIENT_ICON"
+        label="person_name"
+        placeholder="person_name"
       />
     </div>
 
@@ -135,17 +113,25 @@
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-change="fetchPage"
-      primary_key="import_invoice_product_id"
-      api_route="import_inv"
+      primary_key="ballon_sale_product_id"
+      api_route="ballon_sale_product"
     >
+      <!-- Custom slot for 'actions' column -->
+      <template #cell-quantity="{ row }">
+        <div class="flex flex-row items-center gap-2">
+          <span>{{ row.quantity }}</span>
+          <span>{{ row.unit_name }}</span>
+        </div>
+      </template>
+
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <ManageImportProduct
+          <ManageBallonProduct
             title="update"
             :manage-data="row"
             type="update"
-            :id="row.import_invoice_product_id"
+            :id="row.ballon_sale_product_id"
             @refresh="fetchCurrentPage"
             :invoice_id="query_id"
           >
@@ -153,10 +139,10 @@
               <Icon name="hugeicons:pencil-edit-01" class="text-xl" />
               <span> {{ $t("update") }}</span>
             </div>
-          </ManageImportProduct>
+          </ManageBallonProduct>
           <Delete
-            type="import_product"
-            :id="row.import_invoice_product_id"
+            type="ballon_sale_product"
+            :id="row.ballon_sale_product_id"
             @refresh="fetchPage(currentPage)"
           >
             <div
@@ -189,11 +175,11 @@
       <Input
         :value="manageData"
         :disabled="isUpdate"
-        value-field="extra_price"
+        value-field="discount"
         type="text"
-        icon="hugeicons:dollar-01"
-        label="extra_price"
-        placeholder="extra_price"
+        :icon="DISCOUNT_ICON"
+        label="discount"
+        placeholder="discount"
       />
     </div>
   </div>
@@ -208,10 +194,9 @@ import { useActionPost, useActionPut } from "~/hooks/actionFetch";
 import { useToast } from "~/components/ui/toast";
 import OfflineSelect from "~/components/rcp/OfflineSelect.vue";
 import ComboBox from "~/components/rcp/ComboBox.vue";
-import ManageImportProduct from "~/components/management/ManageImportProduct.vue";
+import ManageBallonProduct from "~/components/management/ManageBallonProduct.vue";
 
-const selectedFactory = ref<any>(null);
-const selectedCompany = ref<any>(null);
+const selectedClient = ref<any>(null);
 
 const { toast } = useToast();
 
@@ -224,18 +209,19 @@ const isUpdate = ref(false);
 const { t } = useI18n();
 
 const manageData = ref({
-  invoice_number: "",
+  person_name: "",
   transaction_type: "",
-  company_id: "",
-  factory_id: "",
-  extra_price: "0",
+  sale_status: "",
+  discount: 0,
+  client_id: "",
   note: "",
 });
 
 const manageProductData = ref({
   product_id: "",
-  get_price: "",
-  quantity: "",
+  get_price: 0,
+  sell_price: 0,
+  quantity: 0,
   note: "",
 });
 
@@ -244,16 +230,15 @@ const columns = [
   { key: "product_name", label: t("product_name"), sortable: true },
   { key: "quantity", label: t("quantity"), sortable: true },
   {
-    key: "get_price",
-    label: `${t("get_price")} (${MAIN_CURRENCY})`,
+    key: "sell_price",
+    label: `${t("sell_price")} (${MAIN_CURRENCY})`,
     sortable: true,
   },
   {
-    key: "total_get_price",
-    label: `${t("total_get_price")} (${MAIN_CURRENCY})`,
+    key: "total_sell_price",
+    label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
     sortable: true,
   },
-  { key: "unit", label: t("unit"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
@@ -265,7 +250,7 @@ const data = ref<any>(null);
 const status = ref<any>(null);
 
 async function fetchPage(page: number) {
-  let path = `import_inv/invoice/${query_id.value}`;
+  let path = `ballon_sales/invoice/${query_id.value}`;
 
   const { data: dataData, status: dataStatus }: any = await useGet(path);
   data.value = dataData.value.data;
@@ -287,22 +272,21 @@ async function fetchCurrentPage() {
 
 function setManageData() {
   if (status.value == "success" && data.value.length > 0) {
-    manageData.value.company_id = data.value[0].company_id;
-    manageData.value.factory_id = data.value[0].factory_id;
-    manageData.value.extra_price = data.value[0].extra_price;
-    manageData.value.invoice_number = data.value[0].invoice_number;
+    manageData.value.client_id = data.value[0].client_id;
+    manageData.value.discount = data.value[0].discount;
     manageData.value.note = data.value[0].note;
     manageData.value.transaction_type = data.value[0].transaction_type;
+    manageData.value.sale_status = data.value[0].sale_status;
+    manageData.value.person_name = data.value[0].person_name;
   }
 }
 
 function validateFields() {
-  const missingFields = ["invoice_number", "transaction_type"].filter(
+  const missingFields = ["transaction_type"].filter(
     (field) => !manageData.value[field]?.length
   );
 
-  if (!selectedCompany.value) missingFields.push("company_id");
-  if (!selectedFactory.value) missingFields.push("factory_id");
+  if (!selectedClient.value) missingFields.push("client_id");
 
   return missingFields;
 }
@@ -318,16 +302,16 @@ async function manageInvoice() {
   }
 
   const response = query_id.value
-    ? await useActionPut(`import_inv/${query_id.value}`, {
+    ? await useActionPut(`ballon_sales/${query_id.value}`, {
         ...manageData.value,
       })
-    : await useActionPost(`import_inv`, {
+    : await useActionPost(`ballon_sales`, {
         ...manageData.value,
       });
 
   if (response.status == 200) {
     if (!query_id.value) {
-      query_id.value = response.data[0].import_invoice_id;
+      query_id.value = response.data[0].ballon_sale_id;
     }
 
     fetchCurrentPage();
@@ -336,8 +320,8 @@ async function manageInvoice() {
       variant: "default",
     });
 
-    if (!query_id.value) {
-      useRouter().push(`/warehouse/imports/manage?id=${query_id.value}`);
+    if (query_id.value) {
+      useRouter().push(`/sales/ballon/manage?id=${query_id.value}`);
     }
 
     isUpdate.value = false;
@@ -351,15 +335,9 @@ async function manageInvoice() {
 
 function checkAndSetDefaults() {
   if (status.value == "success" && data.value.length > 0) {
-    selectedFactory.value = {
-      factory_id: data.value[0].factory_id,
-      factory_name: data.value[0].factory_name,
-    };
-  }
-  if (status.value == "success" && data.value.length > 0) {
-    selectedCompany.value = {
-      company_id: data.value[0].company_id,
-      company_name: data.value[0].company_name,
+    selectedClient.value = {
+      client_id: data.value[0].client_id,
+      client_name: data.value[0].client_name,
     };
   }
 }

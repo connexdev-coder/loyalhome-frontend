@@ -3,7 +3,7 @@
     <label for="" class="text-sm" v-if="props.label">
       {{ $t(props.label) }}
     </label>
-    <div class="border-2 button_shape gap-4 h-10">
+    <div class="border-2 button_shape gap-2 h-10">
       <Icon :name="props.icon" class="text-xl text-ten" />
       <input
         :disabled="props.disabled"
@@ -27,6 +27,7 @@ const props = defineProps<{
   value: any;
   valueField: string;
   disabled?: boolean;
+  maxValue?: number;
 }>();
 
 const emit = defineEmits(["on-change"]);
@@ -40,8 +41,13 @@ const debounceEmit = () => {
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement;
   if (props.type === "number") {
-    target.value = target.value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+    target.value = target.value.replace(/[^0-9.]/g, ""); // Allow numeric characters and decimal points
+
+    if (props.maxValue && parseFloat(target.value) > props.maxValue) {
+      target.value = props.maxValue.toString();
+    }
   }
+
   props.value[props.valueField] = target.value; // Update the value
   debounceEmit();
 };

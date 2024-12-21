@@ -1,13 +1,13 @@
 <template>
   <div
-    :style="{ width: expanded ? '250px' : '70px' }"
-    class="text-[16px] px-3 py-3 bg-ten flex flex-col items-start justify-between h-screen overflow-y-auto overflow-x-clip transition-all duration-150 ease-in-out"
+    :style="{ width: expanded ? '230px' : '70px' }"
+    class="text-[16px] py-3 bg-ten flex flex-col items-start justify-between h-screen overflow-y-auto overflow-x-clip transition-all duration-150 ease-in-out"
   >
     <!-- Top Section -->
     <div class="flex flex-col items-start w-full gap-5">
       <!-- logowhite -->
       <div
-        class="flex items-center gap-3 transition-all duration-300 ease-in-out"
+        class="px-3 flex items-center gap-3 transition-all duration-300 ease-in-out border-b-[1px] w-full pb-4"
       >
         <NuxtLink to="/dashboard" class="w-11 h-11 rounded-md border-[#245780]">
           <img
@@ -29,11 +29,11 @@
       </div>
 
       <!-- Navigation Links with Expandable Submenus -->
-      <div class="flex flex-col items-start w-full gap-2">
+      <div class="flex flex-col items-start w-full gap-1">
         <NuxtLink
           v-for="(section, index) in navigations"
           :key="section.route"
-          class="w-full"
+          class="w-full border-b-[1px] border-slate-400 border-opacity-10"
           :to="section.route"
           @click="
             () => {
@@ -43,7 +43,7 @@
           "
         >
           <div
-            class="flex items-center justify-between gap-1 rounded-lg w-full cursor-pointer"
+            class="px-3 flex items-center justify-between w-full cursor-pointer"
             :class="
               route.path === section.route
                 ? 'bg-thirty text-overThirty'
@@ -56,7 +56,7 @@
               <Icon :name="section.icon" class="text-2xl" />
             </div>
             <div
-              class="px-1 flex-1 flex flex-row items-center justify-between transition-all duration-150 ease-in-out overflow-hidden whitespace-nowrap"
+              class="text-md px-1 flex-1 flex flex-row items-center justify-between transition-all duration-150 ease-in-out overflow-hidden whitespace-nowrap"
               :style="{
                 maxWidth: expanded ? '100%' : '0px',
                 opacity: expanded ? 1 : 0,
@@ -70,51 +70,28 @@
     </div>
 
     <!-- Bottom Section -->
-    <div class="flex flex-col items-start w-full gap-3 mb-3">
+    <div class="flex flex-col items-start w-full gap-3 mb-3 px-3">
       <!-- Expand Button -->
       <button
-        @click="
-          () => {
-            expanded = !expanded;
-          }
-        "
+        @click="expanded = !expanded"
         class="w-11 h-11 rounded-md flex items-center justify-center text-overTen"
       >
         <Icon
           name="iconoir:sidebar-expand"
           class="text-2xl transition-transform duration-150"
-          :style="{ transform: expanded ? 'rotate(0deg)' : 'rotate(180deg)' }"
+          :style="{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)' }"
         />
       </button>
 
-      <!-- profile -->
-      <div
-        class="flex items-center gap-3 transition-all duration-300 ease-in-out"
-      >
-        <button class="w-11 h-11 flex items-center justify-center text-overTen">
+      <!-- logout -->
+      <Logout>
+        <div class="w-11 h-11 flex items-center justify-center text-overTen">
           <Icon
-            name="hugeicons:user"
+            :name="LOGOUT_ICON"
             class="text-2xl transition-transform duration-150"
           />
-        </button>
-
-        <div
-          class="flex flex-row justify-between items-center transition-all text-overTen duration-300 ease-in-out whitespace-nowrap overflow-hidden"
-          :style="{
-            opacity: expanded ? 1 : 0,
-            maxWidth: expanded ? '200px' : '0px',
-          }"
-        >
-          <h1 class="text-md">{{ userDetails.name }}</h1>
-          <!-- Logout -->
-          <button
-            @click="logout"
-            class="flex flex-row items-center gap-2 px-2 py-2"
-          >
-            <Icon name="hugeicons:logout-03" class="text-2xl text-overTen" />
-          </button>
         </div>
-      </div>
+      </Logout>
     </div>
   </div>
 </template>
@@ -124,7 +101,7 @@ import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { useProfileStore } from "~/stores/users/profile_store";
 
-const expanded = ref(false);
+const expanded = ref(true);
 const route = useRoute();
 const router = useRouter();
 

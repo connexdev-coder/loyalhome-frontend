@@ -45,8 +45,8 @@
   "managers": "Managers",
   "import": "Import",
   "imports": "Imports",
-  "mdf_sale": "MDF Sale",
-  "ballon_sale": "Ballon Sale",
+  "mdf_sale": "MDF Sales",
+  "ballon_sale": "Ballon Sales",
   "mdf": "MDF",
   "ballon": "Ballon",
   "product_name": "Prodoct Name",
@@ -77,6 +77,11 @@
   "extra_phone": "Second Phone No.",
   "relative_name": "Relative Name",
   "relative_phone": "Relative Phone",
+
+  "client_name": "Client Name",
+  "person_name": "Person Name",
+  "sale_status": "Sale Status",
+  "discount": "Discount",
 
   "client_transactions": "Transactions",
   "client_dept_payments": "Depts",
@@ -125,6 +130,7 @@
   "invoice_number": "Invoice No.",
   "manual_invoice_number": "Manual Invoice No.",
   "total_get_price": "Total Get Price",
+  "total_sell_price": "Total Sell Price",
   "extra_price": "Extra Price",
   "company_name": "Company Name",
   "created_at": "Created At",
@@ -133,5 +139,12 @@
 
   "add_wasted_product": "Add Wasted Product",
 
-  "jard": "Inventory"
+  "jard": "Inventory",
+  "add_ballon_sale": "New Ballon Sale",
+  "sold_quantity": "Sold Quantity",
+
+  "logout": "Logout",
+  "logout_warning": "Do you want to logout?",
+
+  "available_quantity": "Available Quantity"
 }

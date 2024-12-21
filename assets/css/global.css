@@ -7,7 +7,7 @@
 /* Default (Light Mode) */
 :root {
   --color-sixty: #ffffff;
-  --color-thirty: #ced4da;
+  --color-thirty: #f7f2e6;
   --color-ten: #3a4d39;
 
   --color-overSixty: #000000;
@@ -23,14 +23,16 @@
   --color-management: #3d405b;
   --color-client: #7b2cbf;
   --color-employee: #006d77;
+
+  --color-mdf: #03045e;
+  --color-ballon: #0077b6;
 }
 
-/* Hide the scrollbar but keep content scrollable */
 ::-webkit-scrollbar {
   display: none;
 }
 
 html {
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

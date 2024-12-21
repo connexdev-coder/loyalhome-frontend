@@ -117,6 +117,7 @@ const columns = [
     sortable: true,
   },
   { key: "unit_name", label: t("unit_name"), sortable: true },
+  { key: "factory_name", label: t("factory_name"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

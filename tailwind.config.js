@@ -37,6 +37,9 @@ export default {
         client: "var(--color-client)",
         employee: "var(--color-employee)",
 
+        ballon: "var(--color-ballon)",
+        mdf: "var(--color-mdf)",
+
         border: "var(--color-thirty)",
         input: "var(--color-sixty)",
         ring: "var(--color-thirty)",

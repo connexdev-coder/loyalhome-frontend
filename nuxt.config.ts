@@ -45,11 +45,7 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  css: [
-    "~/assets/css/main.css",
-    "~/assets/css/global.css",
-    "~/assets/css/tailwind.css",
-  ],
+  css: ["~/assets/css/main.css", "~/assets/css/global.css"],
 
   runtimeConfig: {
     tokenSecret: process.env.SECRET,
