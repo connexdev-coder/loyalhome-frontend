@@ -13,6 +13,7 @@
           v-model="props.selectedValue[props.field]"
           class="w-full outline-none text-md bg-transparent"
           :name="props.label"
+          @change="emit('on-change')"
         >
           <option v-for="option in props.options" :value="option">
             {{ $t(option) }}

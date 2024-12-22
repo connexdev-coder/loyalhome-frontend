@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-stretch gap-0 w-full">
+  <div class="flex flex-col items-stretch gap-1 w-full">
     <label for="" class="text-sm font-bold" v-if="props.label">
       {{ $t(props.label) }}
     </label>

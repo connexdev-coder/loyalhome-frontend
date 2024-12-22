@@ -43,6 +43,16 @@
             :disabled="selectedProduct ? true : false"
           />
 
+          <div
+            v-if="props.type == 'add' && selectedProduct"
+            class="bg-inventory text-white px-2 py-1 rounded-sm"
+          >
+            <span>
+              {{ $t("available_quantity") }}:
+              {{ selectedProduct.inventory_quantity }}</span
+            >
+          </div>
+
           <Input
             v-for="input in inputs"
             :label="input.valueField"
@@ -51,6 +61,11 @@
             :type="input.type"
             :icon="input.icon"
             :placeholder="input.valueField"
+            :max-value="
+              input.valueField == 'quantity' && selectedProduct
+                ? selectedProduct.inventory_quantity
+                : undefined
+            "
           />
         </form>
       </div>

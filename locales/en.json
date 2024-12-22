@@ -65,18 +65,25 @@
   "add_manager": "Add Manager",
   "update_manager": "Update Manager",
 
-  "dinar_price": "Dinar Price",
+  "dinar_price": "Dinar To Price",
   "add_dinar_price": "Add Price",
 
   "profile": "Profile",
   "add_client": "Add Client",
   "firstname": "Firstname",
   "lastname": "Lastname",
-  "contract_number": "Contract No.",
-  "phone": "Phone No.",
-  "extra_phone": "Second Phone No.",
-  "relative_name": "Relative Name",
-  "relative_phone": "Relative Phone",
+  "contract_number": "Contract Number",
+  "phone": "Phone",
+  "extra_phone": "Second Phone",
+  "relative": "Agent",
+  "relative_name": "Agent Name",
+  "relative_phone": "Agent Phone",
+  "paid_money_type": "Money Type",
+
+  "dollar": "Dollar",
+  "dinar": "Dinar",
+
+  "depts": "Depts",
 
   "client_name": "Client Name",
   "person_name": "Person Name",
@@ -127,6 +134,7 @@
 
   "import_invoice": "Import Invoice",
   "transaction_type": "Transaction Type",
+  "currency_type": "Currency Type",
   "invoice_number": "Invoice No.",
   "manual_invoice_number": "Manual Invoice No.",
   "total_get_price": "Total Get Price",
@@ -149,5 +157,12 @@
   "available_quantity": "Available Quantity",
 
   "total_paid": "Total Paid",
-  "total_remaining": "Total Remaining"
+  "total_remaining": "Total Remaining",
+
+  "client_depts": "Client Depts",
+  "total_owing": "Total Owing",
+  "balance": "Balance",
+  "amount": "Amount",
+
+  "add_transaction": "New Transaction"
 }

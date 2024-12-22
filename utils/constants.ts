@@ -21,3 +21,4 @@ export const DISCOUNT_ICON = "hugeicons:discount";
 export const LOGOUT_ICON = "hugeicons:logout-04";
 export const LANG_ICON = "hugeicons:global";
 export const DOLLAR_ICON = "hugeicons:dollar-01";
+export const DEPT_ICON = "hugeicons:money-receive-circle";

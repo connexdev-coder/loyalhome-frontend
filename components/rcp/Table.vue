@@ -87,6 +87,19 @@
             v-for="(column, colIndex) in columns"
             :key="colIndex"
             class="p-2 border border-gray-300 whitespace-nowrap"
+            :class="
+              row[column.key] == 'dollar'
+                ? 'bg-blue-100'
+                : row[column.key] == 'dinar'
+                ? 'bg-yellow-100'
+                : row[column.key] == 'deposit'
+                ? 'bg-orange-100'
+                : row[column.key] == 'withdraw'
+                ? 'bg-red-100'
+                : column.key == 'dinar_price'
+                ? 'bg-slate-200'
+                : ''
+            "
           >
             <!-- Custom slot or default rendering -->
             <slot
@@ -96,8 +109,11 @@
               :value="row[column.key]"
             >
               {{
-                Number(row[column.key])
+                Number(row[column.key]) &&
+                !["phone", "extra_phone", "relative_phone"].includes(column.key)
                   ? Number(row[column.key]).toLocaleString()
+                  : ["transaction_type", "currency_type"].includes(column.key)
+                  ? $t(row[column.key])
                   : row[column.key]
               }}
             </slot>

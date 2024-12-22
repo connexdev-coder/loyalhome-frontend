@@ -52,14 +52,6 @@ let navigations = [
     background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
-  {
-    name: "client_dept_payments",
-    route: "/client/depts",
-    icon: "hugeicons:money-receive-circle",
-    role: "",
-    background: "var(--color-dollar)",
-    textColor: "#ffffff",
-  },
 ];
 </script>
 

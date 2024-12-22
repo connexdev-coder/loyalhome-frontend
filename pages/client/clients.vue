@@ -105,12 +105,9 @@ const manageData = ref({
 const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },
+  { key: "client_phone", label: t("phone"), sortable: true },
   { key: "contract_number", label: t("contract_number"), sortable: true },
-  { key: "phone", label: t("phone"), sortable: true },
-  { key: "extra_phone", label: t("extra_phone"), sortable: true },
-  { key: "relative_name", label: t("relative_name"), sortable: true },
-  { key: "relative_phone", label: t("relative_phone"), sortable: true },
-  { key: "total_owing", label: t("total_owing"), sortable: true },
+  { key: "relative", label: t("relative"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 
