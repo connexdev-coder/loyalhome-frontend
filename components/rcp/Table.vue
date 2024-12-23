@@ -70,8 +70,8 @@
             selectedRows.includes(row[props.primary_key])
               ? 'bg-thirty'
               : rowIndex % 2 == 0
-              ? 'bg-slate-50'
-              : ''
+              ? ''
+              : 'bg-slate-100'
           "
         >
           <!-- Individual Row Checkbox -->
@@ -96,8 +96,16 @@
                 ? 'bg-orange-100'
                 : row[column.key] == 'withdraw'
                 ? 'bg-red-100'
+                : row[column.key] == 'cash'
+                ? 'bg-green-100'
+                : row[column.key] == 'owing'
+                ? 'bg-red-100'
                 : column.key == 'dinar_price'
                 ? 'bg-slate-200'
+                : column.key == 'total_remaining'
+                ? 'bg-red-100'
+                : column.key == 'total_paid'
+                ? 'bg-green-100'
                 : ''
             "
           >
@@ -113,6 +121,10 @@
                 !["phone", "extra_phone", "relative_phone"].includes(column.key)
                   ? Number(row[column.key]).toLocaleString()
                   : ["transaction_type", "currency_type"].includes(column.key)
+                  ? $t(row[column.key])
+                  : column.key == "sale_status"
+                  ? $t(row[column.key])
+                  : column.key == "sale_type"
                   ? $t(row[column.key])
                   : row[column.key]
               }}

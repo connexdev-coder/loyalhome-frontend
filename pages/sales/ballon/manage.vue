@@ -43,6 +43,8 @@
       </div>
     </div>
 
+    {{ manageData }}
+
     <!-- Info -->
     <div
       class="grid grid-cols-1 sm:grid-grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 border-2 p-3 rounded-md"
@@ -81,14 +83,13 @@
           (data:any) => {
             selectedClient = data;
             manageData.client_id = data.client_id;
-            fetchCurrentPage();
+
           }
         "
         @clear="
           () => {
             selectedClient = null;
             manageData.client_id = '';
-            fetchCurrentPage();
           }
         "
         :disabled="selectedClient ? true : false"
@@ -163,7 +164,7 @@
       v-if="status == 'success' && data.length > 0"
       class="bg-sixty absolute bottom-2 left-0 right-0 p-2 border-2 flex flex-col gap-1"
     >
-      <div class="grid grid-cols-2 sm:grid-cols-4 items-center gap-1">
+      <div class="grid grid-cols-6 items-center gap-1 overflow-x-scroll">
         <Input
           :value="data[0]"
           :disabled="true"
@@ -173,11 +174,20 @@
           label="total_sell_price"
           placeholder="total_sell_price"
         />
+        <Input
+          :value="data[0]"
+          :disabled="true"
+          value-field="total_sell_price_discount"
+          type="text"
+          :icon="DOLLAR_ICON"
+          label="total_sell_price_discount"
+          placeholder="total_sell_price_discount"
+        />
 
         <Input
           :value="data[0]"
           :disabled="true"
-          value-field="total"
+          value-field="total_paid"
           type="text"
           :icon="DOLLAR_ICON"
           label="total_paid"
@@ -187,7 +197,7 @@
         <Input
           :value="data[0]"
           :disabled="true"
-          value-field="total"
+          value-field="total_remaining"
           type="text"
           :icon="DOLLAR_ICON"
           label="total_remaining"
@@ -203,18 +213,18 @@
           label="discount"
           placeholder="discount"
         />
-      </div>
-
-      <div class="flex flex-row gap-2">
         <Input
           :value="manageData"
           :disabled="isUpdate"
           value-field="note"
           type="text"
+          label="note"
           icon="hugeicons:note-04"
           placeholder="note"
         />
       </div>
+
+      <div class="flex flex-row gap-2"></div>
     </div>
   </div>
 </template>

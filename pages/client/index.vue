@@ -5,7 +5,7 @@
       <h1 class="text-xl uppercase">{{ $t("clients") }}</h1>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
       <NuxtLink
         v-for="section in navigations"
         :to="section.route"
@@ -36,18 +36,27 @@ let navigations = [
     background: "var(--color-client)",
     textColor: "#ffffff",
   },
+
   {
-    name: "client_transactions",
-    route: "/client/transactions",
-    icon: "hugeicons:arrow-data-transfer-diagonal",
+    name: "deptors",
+    route: "/client/deptors",
+    icon: DOLLAR_ICON,
     role: "",
     background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
   {
-    name: "depts",
-    route: "/client/depts",
-    icon: DOLLAR_ICON,
+    name: "payment_history",
+    route: "/client/payment_history",
+    icon: HISTORY_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "client_transactions",
+    route: "/client/transactions",
+    icon: "hugeicons:arrow-data-transfer-diagonal",
     role: "",
     background: "var(--color-dollar)",
     textColor: "#ffffff",

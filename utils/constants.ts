@@ -22,3 +22,7 @@ export const LOGOUT_ICON = "hugeicons:logout-04";
 export const LANG_ICON = "hugeicons:global";
 export const DOLLAR_ICON = "hugeicons:dollar-01";
 export const DEPT_ICON = "hugeicons:money-receive-circle";
+export const INVOICE_ICON = "hugeicons:filter-mail-square";
+export const HISTORY_ICON = "hugeicons:archive-02";
+export const REPAYMENT_ICON = "hugeicons:payment-success-01";
+export const INFO_ICON = "hugeicons:information-circle";

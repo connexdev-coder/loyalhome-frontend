@@ -25,6 +25,7 @@
   "delete_all": "Delete All",
   "submit": "Submit",
   "selected": "Selected",
+  "details": "Details",
 
   "next": "Next",
   "previous": "Previous",
@@ -83,7 +84,9 @@
   "dollar": "Dollar",
   "dinar": "Dinar",
 
-  "depts": "Depts",
+  "depts": "Owings",
+  "deptors": "Deptors",
+  "owing_invoices": "Owing Invoices",
 
   "client_name": "Client Name",
   "person_name": "Person Name",
@@ -91,7 +94,7 @@
   "discount": "Discount",
 
   "client_transactions": "Transactions",
-  "client_dept_payments": "Depts",
+  "client_dept_payments": "Owings",
 
   "employees": "Employees",
   "employee_payments": "Payments",
@@ -100,8 +103,8 @@
   "spendings": "Spendings",
   "add_spending": "Add Spending",
 
-  "company_depts": "Company Depts",
-  "add_company_dept": "Dept Payment",
+  "company_depts": "Company Owings",
+  "add_company_dept": "Owing Payment",
 
   "payments": "Payments",
 
@@ -130,7 +133,14 @@
   "wasted_quantity": "Wasted",
   "inventory_quantity": "Inventory",
 
+  "dept_invoices": "Owing Invoices",
+  "payment_history": "Payment History",
+  "pay": "Repayment",
+
   "add_import": "New Import Invoice",
+  "pending": "Pending",
+  "working": "Working",
+  "finished": "Finished",
 
   "import_invoice": "Import Invoice",
   "transaction_type": "Transaction Type",
@@ -139,6 +149,7 @@
   "manual_invoice_number": "Manual Invoice No.",
   "total_get_price": "Total Get Price",
   "total_sell_price": "Total Sell Price",
+  "total_sell_price_discount": "Total Sell Price/Discount",
   "extra_price": "Extra Price",
   "company_name": "Company Name",
   "created_at": "Created At",
@@ -159,7 +170,7 @@
   "total_paid": "Total Paid",
   "total_remaining": "Total Remaining",
 
-  "client_depts": "Client Depts",
+  "client_depts": "Client Owings",
   "total_owing": "Total Owing",
   "balance": "Balance",
   "amount": "Amount",

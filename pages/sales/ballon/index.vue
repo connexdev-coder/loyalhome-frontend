@@ -145,17 +145,22 @@ const columns = [
   { key: "ballon_sale_id", label: t("invoice_number"), sortable: true },
   { key: "transaction_type", label: t("transaction_type"), sortable: true },
   { key: "sale_status", label: t("sale_status"), sortable: true },
-  {
-    key: "discount",
-    label: `${t("discount")} (${MAIN_CURRENCY})`,
-    sortable: true,
-  },
+
   {
     key: "total_sell_price",
     label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
     sortable: true,
   },
-
+  {
+    key: "total_sell_price_discount",
+    label: `${t("total_sell_price_discount")} (${MAIN_CURRENCY})`,
+    sortable: true,
+  },
+  {
+    key: "discount",
+    label: `${t("discount")} (${MAIN_CURRENCY})`,
+    sortable: true,
+  },
   { key: "client_name", label: t("client_name"), sortable: true },
   { key: "person_name", label: t("person_name"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },

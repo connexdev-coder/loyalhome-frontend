@@ -101,7 +101,7 @@ const manageData = ref({
   contract_number: "",
 });
 
-// Define columns
+// Define columnsc
 const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },

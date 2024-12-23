@@ -4,35 +4,36 @@
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("clients") }}</h1>
+        <h1 class="text-xl uppercase">{{ $t("deptors") }}</h1>
       </div>
-
-      <ManageClient
-        title="add_client"
-        :manage-data="manageData"
-        type="add"
-        :id="0"
-        @refresh="fetchCurrentPage"
-      >
-        <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
-        >
-          <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_client") }}</span>
-        </div>
-      </ManageClient>
     </div>
 
     <!-- Filter -->
     <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
-      <Input
-        :value="filterData"
-        value-field="search"
+      <ComboBox
+        label="client_name"
         type="text"
-        icon="hugeicons:search-01"
-        placeholder="search"
-        @on-change="fetchCurrentPage"
-        @refresh="fetchCurrentPage"
+        :icon="PRICE_ICON"
+        placeholder="client_name"
+        api_route="clients"
+        api_route_query="search"
+        :result_fields="['client_name']"
+        :selectedValue="selectedClient"
+        @on-change="
+            (data:any) => {
+              selectedClient = data;
+              filterData.client_id = data.client_id;
+              fetchCurrentPage();
+            }
+        "
+        @clear="
+          () => {
+            selectedClient = null;
+            filterData.client_id = '';
+            fetchCurrentPage();
+          }
+        "
+        :disabled="selectedClient ? true : false"
       />
     </div>
 
@@ -50,30 +51,14 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <ManageClient
-            title="update"
-            :manage-data="row"
-            type="update"
-            :id="row.client_id"
-            @refresh="fetchCurrentPage"
-          >
-            <div class="bg-update text-white button_shape">
-              <Icon name="hugeicons:pencil-edit-01" class="text-xl" />
-              <span> {{ $t("update") }}</span>
-            </div>
-          </ManageClient>
-          <Delete
-            type="clients"
-            :id="row.client_id"
-            @refresh="fetchPage(currentPage)"
-          >
+          <NuxtLink :to="`/client/deptors/${row.client_id}`">
             <div
-              class="bg-destructive text-white px-2 py-1 rounded-sm flex items-center gap-1"
+              class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
             >
-              <Icon name="hugeicons:delete-02" class="text-xl" />
-              <span> {{ $t("delete") }}</span>
+              <Icon :name="DOLLAR_ICON" class="text-xl" />
+              <span> {{ $t("owing_invoices") }}</span>
             </div>
-          </Delete>
+          </NuxtLink>
         </div>
       </template>
     </Table>
@@ -87,18 +72,9 @@ import { Table, Input } from "@/components/rcp";
 
 const { t } = useI18n();
 
+const selectedClient = ref(null);
 const filterData = ref({
-  search: "",
-});
-
-const manageData = ref({
-  firstname: "",
-  lastname: "",
-  phone: "",
-  extra_phone: "",
-  relative_name: "",
-  relative_phone: "",
-  contract_number: "",
+  client_id: "",
 });
 
 // Define columns
@@ -118,7 +94,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `clients?page=${page}&search=${filterData.value.search}&type=owing`
+    `clients?page=${page}&id=${filterData.value.client_id}&type=owing`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
