@@ -5,6 +5,18 @@
         <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase">{{ $t("dept_invoices") }}</h1>
       </div>
+
+      <NuxtLink
+        v-if="client"
+        :to="`/client/payments?client=${client.client_id}`"
+      >
+        <div
+          class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
+        >
+          <Icon :name="DOLLAR_ICON" class="text-xl" />
+          <span> {{ $t("payment_history") }}</span>
+        </div>
+      </NuxtLink>
     </div>
 
     <div class="flex flex-col items-start gap-1 text-lg" v-if="client">
@@ -33,15 +45,6 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <NuxtLink :to="`/client/deptors/${row.client_id}`">
-            <div
-              class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
-            >
-              <Icon :name="DOLLAR_ICON" class="text-xl" />
-              <span> {{ $t("payment_history") }}</span>
-            </div>
-          </NuxtLink>
-
           <ManageClientDeptPayment
             title="repay"
             :manage-data="{

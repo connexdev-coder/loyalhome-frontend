@@ -204,6 +204,7 @@ watch(
   (newVal) => {
     if (newVal) {
       checkAndSetDefaults();
+      changeMaxValue();
     } else {
       props.manageData.dollar_to_dinar_id = null;
       selectedDollarPrice.value = null;

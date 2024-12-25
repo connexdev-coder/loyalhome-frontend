@@ -179,5 +179,9 @@
   "add_transaction": "New Transaction",
 
   "sale_type": "Sale Type",
-  "sale_id": "Invoice Number"
+  "sale_id": "Invoice Number",
+
+  "add_mdf_sale": "New MDF Sale",
+  "total_product_price": "Product Price",
+  "item_name": "Item Name"
 }
