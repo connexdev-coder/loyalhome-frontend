@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col gap-3">
-    <!-- Title -->
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
@@ -16,7 +15,7 @@
 
       <div class="flex flex-row items-center gap-1">
         <span class="rounded-sm"> {{ $t("total_owing") }}:</span>
-        <span>{{ client.total_owing }}{{ MAIN_CURRENCY }}</span>
+        <span>{{ Number(client.remaining_balance) }}{{ MAIN_CURRENCY }}</span>
       </div>
     </div>
 
@@ -43,12 +42,29 @@
             </div>
           </NuxtLink>
 
-          <div
-            class="bg-client text-white px-2 py-1 rounded-sm flex items-center gap-1"
+          <ManageClientDeptPayment
+            title="repay"
+            :manage-data="{
+              client_id: row.client_id,
+              sale_type: row.sale_type,
+              sale_id: row.sale_id,
+              currency_type: 'dollar',
+              // dollar_to_dinar
+              // amount
+              // note
+            }"
+            :max="row.total_remaining"
+            type="add"
+            :id="0"
+            @refresh="fetchCurrentPage"
           >
-            <Icon :name="REPAYMENT_ICON" class="text-xl" />
-            <span> {{ $t("pay") }}</span>
-          </div>
+            <div
+              class="bg-client text-white px-2 py-1 rounded-sm flex items-center gap-1"
+            >
+              <Icon :name="REPAYMENT_ICON" class="text-xl" />
+              <span> {{ $t("repay") }}</span>
+            </div>
+          </ManageClientDeptPayment>
 
           <!-- !Change the rotue if it was mdf -->
           <NuxtLink :to="`/sales/ballon/manage?id=${row.sale_id}`">

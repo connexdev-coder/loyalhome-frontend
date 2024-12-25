@@ -68,7 +68,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
-import { Table, Input } from "@/components/rcp";
+import { Table } from "@/components/rcp";
 
 const { t } = useI18n();
 
@@ -82,7 +82,11 @@ const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },
   { key: "phone", label: t("phone"), sortable: true },
-  { key: "total_owing", label: t("total_owing"), sortable: true },
+  {
+    key: "remaining_balance",
+    label: `${t("total_owing")} (${MAIN_CURRENCY})`,
+    sortable: true,
+  },
   { key: "actions", label: t("actions") },
 ];
 

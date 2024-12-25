@@ -26,3 +26,6 @@ export const INVOICE_ICON = "hugeicons:filter-mail-square";
 export const HISTORY_ICON = "hugeicons:archive-02";
 export const REPAYMENT_ICON = "hugeicons:payment-success-01";
 export const INFO_ICON = "hugeicons:information-circle";
+export const TRANSACTION_ICON = "hugeicons:arrow-data-transfer-horizontal";
+export const ADD_ICON = "hugeicons:add-01";
+export const USER_ICON = "hugeicons:user";

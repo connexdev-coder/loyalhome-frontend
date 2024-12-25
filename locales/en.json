@@ -135,7 +135,8 @@
 
   "dept_invoices": "Owing Invoices",
   "payment_history": "Payment History",
-  "pay": "Repayment",
+  "pay": "Payment",
+  "repay": "Repayment",
 
   "add_import": "New Import Invoice",
   "pending": "Pending",
@@ -175,5 +176,8 @@
   "balance": "Balance",
   "amount": "Amount",
 
-  "add_transaction": "New Transaction"
+  "add_transaction": "New Transaction",
+
+  "sale_type": "Sale Type",
+  "sale_id": "Invoice Number"
 }

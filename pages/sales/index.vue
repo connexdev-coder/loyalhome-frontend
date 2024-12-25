@@ -5,7 +5,7 @@
       <h1 class="text-xl uppercase">{{ $t("sales") }}</h1>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
       <NuxtLink
         v-for="section in navigations"
         :to="section.route"

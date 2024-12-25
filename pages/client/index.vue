@@ -36,7 +36,6 @@ let navigations = [
     background: "var(--color-client)",
     textColor: "#ffffff",
   },
-
   {
     name: "deptors",
     route: "/client/deptors",
@@ -47,7 +46,7 @@ let navigations = [
   },
   {
     name: "payment_history",
-    route: "/client/payment_history",
+    route: "/client/payments",
     icon: HISTORY_ICON,
     role: "",
     background: "var(--color-dollar)",

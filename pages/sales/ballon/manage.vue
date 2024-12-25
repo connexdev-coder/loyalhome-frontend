@@ -43,8 +43,6 @@
       </div>
     </div>
 
-    {{ manageData }}
-
     <!-- Info -->
     <div
       class="grid grid-cols-1 sm:grid-grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 border-2 p-3 rounded-md"
@@ -68,6 +66,7 @@
         :options="['cash', 'owing']"
         :selected-value="manageData"
         field="transaction_type"
+        :disabled="query_id ? true : false"
       />
 
       <ComboBox
@@ -169,7 +168,7 @@
           :value="data[0]"
           :disabled="true"
           value-field="total_sell_price"
-          type="text"
+          type="number"
           :icon="DOLLAR_ICON"
           label="total_sell_price"
           placeholder="total_sell_price"
@@ -178,7 +177,7 @@
           :value="data[0]"
           :disabled="true"
           value-field="total_sell_price_discount"
-          type="text"
+          type="number"
           :icon="DOLLAR_ICON"
           label="total_sell_price_discount"
           placeholder="total_sell_price_discount"
@@ -188,7 +187,7 @@
           :value="data[0]"
           :disabled="true"
           value-field="total_paid"
-          type="text"
+          type="number"
           :icon="DOLLAR_ICON"
           label="total_paid"
           placeholder="total_paid"
@@ -198,7 +197,7 @@
           :value="data[0]"
           :disabled="true"
           value-field="total_remaining"
-          type="text"
+          type="number"
           :icon="DOLLAR_ICON"
           label="total_remaining"
           placeholder="total_remaining"

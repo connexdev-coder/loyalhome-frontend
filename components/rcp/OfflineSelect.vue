@@ -9,6 +9,7 @@
       <div class="w-full flex flex-row items-center gap-2">
         <Icon :name="props.icon" class="text-xl" />
         <select
+          :disabled="props.disabled"
           :placeholder="props.placeholder"
           v-model="props.selectedValue[props.field]"
           class="w-full outline-none text-md bg-transparent"
@@ -41,5 +42,6 @@ const props = defineProps<{
   selectedValue: any;
   field: string;
   options: any[];
+  disabled?: boolean;
 }>();
 </script>

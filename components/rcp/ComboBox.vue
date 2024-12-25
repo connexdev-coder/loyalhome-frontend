@@ -19,7 +19,12 @@
           v-model="searchValue"
           @input="debounceEmit"
           ref="searchBox"
-          @click="showResultBox = true"
+          @click="
+            () => {
+              showResultBox = true;
+              debounceEmit();
+            }
+          "
         />
       </div>
 
