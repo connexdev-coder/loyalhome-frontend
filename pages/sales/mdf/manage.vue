@@ -1,9 +1,11 @@
 <template>
   <div class="relative flex flex-col gap-3 h-full w-full">
     <!-- Title -->
-    <div class="flex flex-row items-center justify-between">
+    <div
+      class="flex flex-row items-center justify-between bg-mdf text-white px-2 py-1 rounded-md"
+    >
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
+        <Icon :name="INVOICE_ICON" class="text-4xl" />
         <h1 class="text-xl uppercase hidden md:block">
           {{ !query_id ? $t("add_mdf_sale") : $t("mdf_sale") }}
         </h1>
@@ -24,10 +26,10 @@
           </div>
         </button>
 
-        <ManageBallonProduct
+        <ManageMdfItem
           v-if="query_id"
-          title="add_product"
-          :manage-data="manageProductData"
+          title="add_item"
+          :manage-data="manageItemData"
           type="add"
           :id="0"
           @refresh="fetchCurrentPage"
@@ -37,9 +39,9 @@
             class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
           >
             <Icon name="hugeicons:add-01" class="text-xl" />
-            <span> {{ $t("add_product") }}</span>
+            <span> {{ $t("add_item") }}</span>
           </div>
-        </ManageBallonProduct>
+        </ManageMdfItem>
       </div>
     </div>
 
@@ -117,11 +119,11 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <ManageBallonProduct
+          <ManageMdfItem
             title="update"
             :manage-data="row"
             type="update"
-            :id="row.mdf_sale_product_id"
+            :id="row.mdf_sale_item_id"
             @refresh="fetchCurrentPage"
             :invoice_id="query_id"
           >
@@ -129,10 +131,10 @@
               <Icon name="hugeicons:pencil-edit-01" class="text-xl" />
               <span> {{ $t("update") }}</span>
             </div>
-          </ManageBallonProduct>
+          </ManageMdfItem>
           <Delete
-            type="mdf_sale_product"
-            :id="row.mdf_sale_product_id"
+            type="mdf_sale_items"
+            :id="row.mdf_sale_item_id"
             @refresh="fetchPage(currentPage)"
           >
             <div
@@ -218,7 +220,7 @@ import { useActionPost, useActionPut } from "~/hooks/actionFetch";
 import { useToast } from "~/components/ui/toast";
 import OfflineSelect from "~/components/rcp/OfflineSelect.vue";
 import ComboBox from "~/components/rcp/ComboBox.vue";
-import ManageBallonProduct from "~/components/management/ManageBallonProduct.vue";
+import ManageMdfItem from "~/components/management/ManageMdfItem.vue";
 
 const selectedClient = ref<any>(null);
 
@@ -233,19 +235,17 @@ const isUpdate = ref(false);
 const { t } = useI18n();
 
 const manageData = ref({
-  person_name: "",
   transaction_type: "",
   sale_status: "",
-  discount: 0,
   client_id: "",
   note: "",
 });
 
-const manageProductData = ref({
-  product_id: "",
-  get_price: 0,
-  sell_price: 0,
+const manageItemData = ref({
+  item_name: "",
+  extra_price: 0,
   quantity: 0,
+  discount: 0,
   note: "",
 });
 
@@ -313,11 +313,9 @@ async function fetchCurrentPage() {
 function setManageData() {
   if (status.value == "success" && data.value.length > 0) {
     manageData.value.client_id = data.value[0].client_id;
-    manageData.value.discount = data.value[0].discount;
     manageData.value.note = data.value[0].note;
     manageData.value.transaction_type = data.value[0].transaction_type;
     manageData.value.sale_status = data.value[0].sale_status;
-    manageData.value.person_name = data.value[0].person_name;
   }
 }
 

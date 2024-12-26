@@ -97,7 +97,6 @@ const manageData = ref({
 
 // Define columns
 const columns = [
-  { key: "company_id", label: "ID", sortable: true },
   { key: "name", label: t("name"), sortable: true },
   { key: "actions", label: t("actions") },
 ];

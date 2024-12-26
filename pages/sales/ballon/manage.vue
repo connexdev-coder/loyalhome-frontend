@@ -1,9 +1,11 @@
 <template>
   <div class="relative flex flex-col gap-3 h-full w-full">
     <!-- Title -->
-    <div class="flex flex-row items-center justify-between">
+    <div
+      class="flex flex-row items-center justify-between bg-ballon text-white px-2 py-1 rounded-md"
+    >
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
+        <Icon :name="INVOICE_ICON" class="text-4xl" />
         <h1 class="text-xl uppercase hidden md:block">
           {{ !query_id ? $t("add_ballon_sale") : $t("ballon_sale") }}
         </h1>
@@ -18,7 +20,7 @@
         </button>
 
         <button @click="manageInvoice">
-          <div class="bg-update text-white button_shape">
+          <div class="bg-inventory text-white button_shape">
             <Icon name="hugeicons:floppy-disk" class="text-xl" />
             <span> {{ $t("save") }}</span>
           </div>
@@ -59,6 +61,17 @@
         placeholder="invoice_number"
       />
 
+      <Input
+        v-if="query_id"
+        :value="selectedClient"
+        :disabled="true"
+        value-field="client_name"
+        type="text"
+        :icon="USER_ICON"
+        label="client_name"
+        placeholder="client_name"
+      />
+
       <OfflineSelect
         label="transaction_type"
         placeholder="transaction_type"
@@ -70,6 +83,7 @@
       />
 
       <ComboBox
+        v-if="!query_id"
         label="client_name"
         type="text"
         :icon="CLIENT_ICON"

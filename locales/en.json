@@ -183,5 +183,6 @@
 
   "add_mdf_sale": "New MDF Sale",
   "total_product_price": "Product Price",
-  "item_name": "Item Name"
+  "item_name": "Item Name",
+  "add_item": "New Item"
 }

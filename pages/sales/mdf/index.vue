@@ -1,15 +1,17 @@
 <template>
   <div class="flex flex-col gap-3">
     <!-- Title -->
-    <div class="flex flex-row items-center justify-between">
+    <div
+      class="flex flex-row items-center justify-between bg-mdf text-white px-2 py-1 rounded-md"
+    >
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
+        <Icon :name="MDF_ICON" class="text-4xl" />
         <h1 class="text-xl uppercase">{{ $t("mdf_sale") }}</h1>
       </div>
 
       <NuxtLink to="/sales/mdf/manage">
         <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          class="bg-sixty text-mdf px-2 py-1 rounded-sm flex items-center gap-1"
         >
           <Icon name="hugeicons:add-01" class="text-xl" />
           <span> {{ $t("add_mdf_sale") }}</span>
@@ -157,7 +159,6 @@ const columns = [
     sortable: true,
   },
   { key: "client_name", label: t("client_name"), sortable: true },
-  { key: "person_name", label: t("person_name"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },
   { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },

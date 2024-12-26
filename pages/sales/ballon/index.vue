@@ -1,15 +1,17 @@
 <template>
   <div class="flex flex-col gap-3">
     <!-- Title -->
-    <div class="flex flex-row items-center justify-between">
+    <div
+      class="flex flex-row items-center justify-between bg-ballon text-white px-2 py-1 rounded-md"
+    >
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
+        <Icon :name="BALLON_ICON" class="text-4xl" />
         <h1 class="text-xl uppercase">{{ $t("ballon_sale") }}</h1>
       </div>
 
       <NuxtLink to="/sales/ballon/manage">
         <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          class="bg-white text-ballon px-2 py-1 rounded-sm flex items-center gap-1"
         >
           <Icon name="hugeicons:add-01" class="text-xl" />
           <span> {{ $t("add_ballon_sale") }}</span>

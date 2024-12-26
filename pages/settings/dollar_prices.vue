@@ -84,7 +84,6 @@ const manageData = ref({
 
 // Define columns
 const columns = [
-  { key: "dollar_to_dinar_id", label: "ID", sortable: true },
   { key: "dinar_price", label: t("dinar_price"), sortable: true },
   { key: "actions", label: t("actions") },
 ];

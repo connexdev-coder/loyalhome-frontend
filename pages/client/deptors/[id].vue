@@ -69,8 +69,13 @@
             </div>
           </ManageClientDeptPayment>
 
-          <!-- !Change the rotue if it was mdf -->
-          <NuxtLink :to="`/sales/ballon/manage?id=${row.sale_id}`">
+          <NuxtLink
+            :to="
+              row.sale_type == 'mdf'
+                ? `/sales/mdf/manage?id=${row.sale_id}`
+                : `/sales/ballon/manage?id=${row.sale_id}`
+            "
+          >
             <div
               class="bg-inventory text-white px-2 py-1 rounded-sm flex items-center gap-1"
             >
