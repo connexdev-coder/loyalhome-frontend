@@ -44,14 +44,6 @@ let navigations = [
     background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
-  {
-    name: "company_depts",
-    route: "/finance/company_depts",
-    icon: "hugeicons:delivery-truck-02",
-    role: "",
-    background: "var(--color-inventory)",
-    textColor: "#ffffff",
-  },
 ];
 </script>
 

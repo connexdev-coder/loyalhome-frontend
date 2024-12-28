@@ -144,6 +144,16 @@
               <span> {{ $t("delete") }}</span>
             </div>
           </Delete>
+
+          <SeeMdfProducts
+            :id="row.mdf_sale_item_id"
+            @refresh="fetchCurrentPage"
+          >
+            <div class="bg-inventory text-white button_shape">
+              <Icon :name="PRODUCT_ICON" class="text-xl" />
+              <span> {{ $t("products") }}</span>
+            </div>
+          </SeeMdfProducts>
         </div>
       </template>
     </Table>
@@ -152,7 +162,7 @@
 
     <!-- Note & Price -->
     <div
-      v-if="status == 'success' && data.length > 0"
+      v-if="data && status == 'success' && data.length > 0"
       class="bg-sixty absolute bottom-2 left-0 right-0 p-2 border-2 flex flex-col gap-1"
     >
       <div class="grid grid-cols-6 items-center gap-1 overflow-x-scroll">
@@ -204,6 +214,34 @@
           icon="hugeicons:note-04"
           placeholder="note"
         />
+
+        <div class="flex flex-col items-start gap-0">
+          <span class="invisible">aa</span>
+          <ManageClientDeptPayment
+            v-if="data[0].transaction_type == 'owing'"
+            title="repay"
+            :manage-data="{
+              client_id: data[0].client_id,
+              sale_type: 'mdf',
+              sale_id: data[0].mdf_sale_id,
+              currency_type: 'dollar',
+              // dollar_to_dinar
+              // amount
+              // note
+            }"
+            :max="data[0].total_remaining"
+            type="add"
+            :id="0"
+            @refresh="fetchCurrentPage"
+          >
+            <div
+              class="bg-client text-white px-2 py-1 rounded-sm flex items-center gap-1 h-10"
+            >
+              <Icon :name="REPAYMENT_ICON" class="text-xl" />
+              <span> {{ $t("repay") }}</span>
+            </div>
+          </ManageClientDeptPayment>
+        </div>
       </div>
 
       <div class="flex flex-row gap-2"></div>
@@ -244,7 +282,7 @@ const manageData = ref({
 const manageItemData = ref({
   item_name: "",
   extra_price: 0,
-  quantity: 0,
+  quantity: 1,
   discount: 0,
   note: "",
 });

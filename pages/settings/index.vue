@@ -37,14 +37,6 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
-    name: "companies",
-    route: "/settings/companies",
-    icon: "hugeicons:delivery-truck-02",
-    role: "",
-    background: "var(--color-inventory)",
-    textColor: "#ffffff",
-  },
-  {
     name: "managers",
     route: "/settings/managers",
     icon: "hugeicons:user-settings-01",
