@@ -35,6 +35,7 @@ export default {
         inventory: "var(--color-inventory)",
         management: "var(--color-management)",
         client: "var(--color-client)",
+        company: "var(--color-company)",
         employee: "var(--color-employee)",
 
         ballon: "var(--color-ballon)",

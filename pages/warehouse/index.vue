@@ -45,6 +45,14 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
+    name: "order_invoices",
+    route: "/warehouse/orders",
+    icon: ORDER_ICON,
+    role: "",
+    background: "var(--color-management)",
+    textColor: "#ffffff",
+  },
+  {
     name: "wasted_products",
     route: "/warehouse/wasted",
     icon: WASTED_ICON,
@@ -57,7 +65,7 @@ let navigations = [
     route: "/warehouse/companies",
     icon: "hugeicons:delivery-truck-02",
     role: "",
-    background: "var(--color-client)",
+    background: "var(--color-company)",
     textColor: "#ffffff",
   },
   {
@@ -65,15 +73,15 @@ let navigations = [
     route: "/warehouse/company_depts",
     icon: REPAYMENT_ICON,
     role: "",
-    background: "var(--color-dollar)",
+    background: "var(--color-company)",
     textColor: "#ffffff",
   },
   {
-    name: "payments",
+    name: "company_payments",
     route: "/warehouse/payments",
     icon: HISTORY_ICON,
     role: "",
-    background: "var(--color-dollar)",
+    background: "var(--color-company)",
     textColor: "#ffffff",
   },
 ];

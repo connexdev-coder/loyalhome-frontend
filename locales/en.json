@@ -1,6 +1,11 @@
 {
   "app_name": "Loyal Home",
 
+  "add_order": "New Order",
+  "ordered_by": "Ordered By",
+  "order_invoices": "Ordered Inovices",
+  "company_payments": "Company Payments",
+
   "id": "ID",
 
   "name": "Name",
