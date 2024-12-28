@@ -61,7 +61,7 @@
 
       <Input
         :value="manageData"
-        :disabled="false"
+        :disabled="query_id ? true : false"
         value-field="invoice_number"
         type="text"
         icon="hugeicons:file-import"
@@ -76,6 +76,7 @@
         :options="['cash', 'owing']"
         :selected-value="manageData"
         field="transaction_type"
+        :disabled="query_id ? true : false"
       />
 
       <ComboBox
@@ -99,7 +100,7 @@
             manageData.factory_id = '';
           }
         "
-        :disabled="selectedFactory ? true : false"
+        :disabled="query_id ? true : false"
       />
 
       <ComboBox
@@ -123,7 +124,7 @@
             manageData.company_id = '';
           }
         "
-        :disabled="selectedCompany ? true : false"
+        :disabled="query_id ? true : false"
       />
     </div>
 
@@ -172,29 +173,89 @@
 
     <!-- Note & Price -->
     <div
-      v-if="status == 'success' && data.length > 0"
-      class="absolute bottom-0 left-0 right-0 p-2 flex flex-col md:flex-row items-center gap-2 border-t-2"
-      :class="isUpdate ? 'border-ten' : ''"
+      v-if="data && status == 'success' && data.length > 0"
+      class="bg-sixty absolute bottom-2 left-0 right-0 p-2 border-2 flex flex-col gap-1"
     >
-      <Input
-        :value="manageData"
-        :disabled="isUpdate"
-        value-field="note"
-        type="text"
-        icon="hugeicons:note-04"
-        label="note"
-        placeholder="note"
-      />
+      <div class="grid grid-cols-6 items-center gap-1 overflow-x-scroll">
+        <Input
+          :value="data[0]"
+          :disabled="true"
+          value-field="total_get_price"
+          type="number"
+          :icon="DOLLAR_ICON"
+          label="total_get_price"
+          placeholder="total_get_price"
+        />
 
-      <Input
-        :value="manageData"
-        :disabled="isUpdate"
-        value-field="extra_price"
-        type="text"
-        icon="hugeicons:dollar-01"
-        label="extra_price"
-        placeholder="extra_price"
-      />
+        <Input
+          :value="data[0]"
+          :disabled="true"
+          value-field="total_paid"
+          type="number"
+          :icon="DOLLAR_ICON"
+          label="total_paid"
+          placeholder="total_paid"
+        />
+
+        <Input
+          :value="data[0]"
+          :disabled="true"
+          value-field="total_remaining"
+          type="number"
+          :icon="DOLLAR_ICON"
+          label="total_remaining"
+          placeholder="total_remaining"
+        />
+
+        <Input
+          :value="manageData"
+          :disabled="true"
+          value-field="extra_price"
+          type="number"
+          label="note"
+          :icon="DOLLAR_ICON"
+          placeholder="extra_price"
+        />
+
+        <Input
+          :value="manageData"
+          :disabled="isUpdate"
+          value-field="note"
+          type="text"
+          label="note"
+          icon="hugeicons:note-04"
+          placeholder="note"
+        />
+
+        <div class="flex flex-col items-start gap-0">
+          <span class="invisible">aa</span>
+          <ManageCompanyDeptPayment
+            v-if="data[0].transaction_type == 'owing'"
+            title="repay"
+            :manage-data="{
+              company_id: data[0].company_id,
+              currency_type: 'dollar',
+              import_invoice_id: data[0].import_invoice_id,
+              // dollar_to_dinar
+              // amount
+              // note
+            }"
+            :max="data[0].total_remaining"
+            type="add"
+            :id="0"
+            @refresh="fetchCurrentPage"
+          >
+            <div
+              class="bg-client text-white px-2 py-1 rounded-sm flex items-center gap-1 h-10"
+            >
+              <Icon :name="REPAYMENT_ICON" class="text-xl" />
+              <span> {{ $t("repay") }}</span>
+            </div>
+          </ManageCompanyDeptPayment>
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-2"></div>
     </div>
   </div>
 </template>

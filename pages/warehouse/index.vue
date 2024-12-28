@@ -54,7 +54,7 @@ let navigations = [
   },
   {
     name: "companies",
-    route: "/settings/companies",
+    route: "/warehouse/companies",
     icon: "hugeicons:delivery-truck-02",
     role: "",
     background: "var(--color-client)",
@@ -62,8 +62,16 @@ let navigations = [
   },
   {
     name: "company_depts",
-    route: "/finance/company_depts",
+    route: "/warehouse/company_depts",
     icon: REPAYMENT_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "payments",
+    route: "/warehouse/payments",
+    icon: HISTORY_ICON,
     role: "",
     background: "var(--color-dollar)",
     textColor: "#ffffff",

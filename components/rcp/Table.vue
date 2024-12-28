@@ -116,21 +116,7 @@
               :column="column"
               :value="row[column.key]"
             >
-              {{
-                !isNaN(Number(row[column.key])) &&
-                !["phone", "extra_phone", "relative_phone"].includes(column.key)
-                  ? Number(row[column.key]).toLocaleString()
-                  : ["transaction_type", "currency_type"].includes(
-                      column.key
-                    ) && typeof row[column.key] === "string"
-                  ? $t(row[column.key])
-                  : column.key == "sale_status" &&
-                    typeof row[column.key] === "string"
-                  ? $t(row[column.key])
-                  : column.key == "sale_type"
-                  ? $t(row[column.key])
-                  : row[column.key]
-              }}
+              {{ row[column.key] }}
             </slot>
           </td>
         </tr>
