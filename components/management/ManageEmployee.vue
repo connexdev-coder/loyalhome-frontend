@@ -27,6 +27,15 @@
             :icon="input.icon"
             :placeholder="input.valueField"
           />
+
+          <OfflineSelect
+            label="salary_type"
+            placeholder="salary_type"
+            :icon="TRANSACTION_ICON"
+            :options="['weekly', 'daily']"
+            :selected-value="manageData"
+            field="salary_type"
+          />
         </form>
       </div>
 
@@ -119,11 +128,6 @@ const inputs = [
     valueField: "position",
     type: "text",
     icon: "hugeicons:flow-connection",
-  },
-  {
-    valueField: "salary_type",
-    type: "text",
-    icon: "hugeicons:filter",
   },
   {
     valueField: "salary",
