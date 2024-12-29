@@ -125,8 +125,6 @@ async function onManageClient() {
       selectedFile.value
     );
 
-    console.log(uploadData);
-
     if (uploadStatus.value == "success") {
       uploadedFile = uploadData.value.data;
       props.manageData.contract_file = uploadedFile;

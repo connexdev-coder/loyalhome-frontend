@@ -100,6 +100,10 @@
                 ? 'bg-green-100'
                 : row[column.key] == 'owing'
                 ? 'bg-red-100'
+                : row[column.key] == 'kar'
+                ? 'bg-red-100'
+                : row[column.key] == 'bnchina'
+                ? 'bg-yellow-100'
                 : column.key == 'dinar_price'
                 ? 'bg-slate-200'
                 : column.key == 'total_remaining'
@@ -116,7 +120,9 @@
               :column="column"
               :value="row[column.key]"
             >
-              {{ row[column.key] }}
+              <span>
+                {{ formatData(row[column.key], column.key) }}
+              </span>
             </slot>
           </td>
         </tr>
@@ -146,6 +152,32 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits, ref, computed } from "vue";
+
+const { t } = useI18n();
+
+function formatData(data: any, key: string) {
+  const translationKeys = [
+    "spending_type",
+    "currency_type",
+    "transaction_type",
+    "factory_name",
+    "salary_type",
+  ];
+  const priceKeys = [
+    "total_owing",
+    "total_paid",
+    "total_remaining",
+    "dollar_amount",
+    "dinar_amount",
+    "dinar_price",
+    "salary",
+  ];
+  return translationKeys.includes(key)
+    ? t(data)
+    : priceKeys.includes(key)
+    ? Number(data).toLocaleString()
+    : data;
+}
 
 // Define column type
 type TableColumn = {

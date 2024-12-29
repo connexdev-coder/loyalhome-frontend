@@ -31,7 +31,7 @@ let navigations = [
   {
     name: "spendings",
     route: "/finance/spendings",
-    icon: "hugeicons:paragraph-bullets-point-01",
+    icon: SPENDING_ICON,
     role: "",
     background: "var(--color-dollar)",
     textColor: "#ffffff",

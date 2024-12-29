@@ -33,3 +33,4 @@ export const CALCULATE_ICON = "hugeicons:calculate";
 export const ORDER_ICON = "hugeicons:arrow-reload-vertical";
 export const CALENDAR_ICON = "hugeicons:calendar-03";
 export const CONTRACT_ICON = "hugeicons:document-validation";
+export const SPENDING_ICON = "hugeicons:paragraph-bullets-point-01";

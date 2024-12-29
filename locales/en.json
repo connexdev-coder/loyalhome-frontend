@@ -6,8 +6,17 @@
   "order_invoices": "Ordered Inovices",
   "company_payments": "Company Payments",
   "add_off": "New Off",
+  "weekly": "Weekly",
+  "daily": "Daily",
 
   "upload_failed": "Upload Failed",
+
+  "paid_to": "Paid To",
+  "paid_by": "Paid By",
+  "box_transactions": "Box Transactions",
+  "spending_type": "Spending Type",
+  "spend_to": "Spend To",
+  "spend_by": "Spend By",
 
   "contracts": "Contracts",
   "add_contract": "New Contract",
