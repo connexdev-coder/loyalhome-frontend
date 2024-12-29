@@ -31,3 +31,4 @@ export const ADD_ICON = "hugeicons:add-01";
 export const USER_ICON = "hugeicons:user";
 export const CALCULATE_ICON = "hugeicons:calculate";
 export const ORDER_ICON = "hugeicons:arrow-reload-vertical";
+export const CALENDAR_ICON = "hugeicons:calendar-03";

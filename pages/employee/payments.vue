@@ -18,7 +18,7 @@
           @refresh="fetchCurrentPage"
         >
           <div
-            class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-0 h-10"
+            class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-0"
           >
             <Icon :name="DOLLAR_ICON" class="text-xl" />
             <span> {{ $t("pay") }}</span>
@@ -82,6 +82,20 @@
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
+          <ManageEmployeePayment
+            title="payment"
+            :manage-data="row"
+            type="update"
+            :id="row.employee_salary_payment_id"
+            @refresh="fetchCurrentPage"
+          >
+            <div
+              class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-0"
+            >
+              <Icon :name="UPDATE_ICON" class="text-xl" />
+              <span> {{ $t("update") }}</span>
+            </div>
+          </ManageEmployeePayment>
           <Delete
             type="employee_payments"
             :id="row.employee_salary_payment_id"

@@ -43,64 +43,10 @@
             :disabled="selectedEmployee ? true : false"
           />
 
-          <!-- Set dolar price -->
-          <div v-if="selectedEmployee" class="flex flex-row items-center gap-2">
-            <div class="flex-1">
-              <ComboBox
-                label="dinar_price"
-                type="text"
-                :icon="PRICE_ICON"
-                placeholder="dinar_price"
-                api_route="dollar_prices"
-                api_route_query="search"
-                :result_fields="['dinar_price']"
-                :selectedValue="selectedDollarPrice"
-                @on-change="
-                  (data:any) => {
-                    selectedDollarPrice = data;
-                    props.manageData.dollar_to_dinar_id = data.dollar_to_dinar_id;
-                  }
-                "
-                @clear="
-                  () => {
-                    selectedDollarPrice = null;
-                    manageData.dollar_to_dinar_id = '';
-                  }
-                "
-                :disabled="selectedDollarPrice ? true : false"
-              />
-            </div>
-
-            <div class="flex flex-col">
-              <span class="text-md invisible">asd</span>
-              <ManageDollarPrice
-                title="add_dinar_price"
-                :manage-data="{}"
-                type="add"
-                :id="0"
-              >
-                <div
-                  class="bg-ten text-overTen h-10 w-10 flex items-center justify-center rounded-sm"
-                >
-                  <Icon :name="ADD_ICON" class="text-xl" />
-                </div>
-              </ManageDollarPrice>
-            </div>
-          </div>
-
           <div
-            v-if="selectedDollarPrice"
+            v-if="selectedEmployee || props.type == 'update'"
             class="grid grid-cols-1 md:grid-cols-2 gap-2"
           >
-            <OfflineSelect
-              label="currency_type"
-              placeholder="currency_type"
-              :icon="TRANSACTION_ICON"
-              :options="['dollar', 'dinar']"
-              :selected-value="manageData"
-              field="currency_type"
-            />
-
             <Input
               v-for="input in inputs"
               :label="input.valueField"
@@ -141,15 +87,12 @@ const props = defineProps<{
   id: any;
 }>();
 
-const selectedDollarPrice = ref<any>(null);
-
 function validateFields() {
-  const missingFields = ["amount", "currency_type"].filter(
+  const missingFields = ["from", "to"].filter(
     (field) => !props.manageData[field]?.length
   );
   if (!selectedEmployee.value && props.type == "add")
     missingFields.push("employee_id");
-  if (!selectedDollarPrice.value) missingFields.push("dollar_to_dinar_id");
   return missingFields;
 }
 
@@ -170,10 +113,10 @@ const emit = defineEmits(["refresh"]);
 async function onManageClient() {
   const response =
     props.type == "add"
-      ? await useActionPost("employee_payments", {
+      ? await useActionPost("employee_offs", {
           ...props.manageData,
         })
-      : await useActionPut(`employee_payments/${props.id}`, {
+      : await useActionPut(`employee_offs/${props.id}`, {
           ...props.manageData,
         });
 
@@ -192,9 +135,14 @@ const dialogContentVisible = ref(false);
 
 const inputs = [
   {
-    valueField: "amount",
-    type: "number",
-    icon: DOLLAR_ICON,
+    valueField: "from",
+    type: "datetime-local",
+    icon: DATE_ICON,
+  },
+  {
+    valueField: "to",
+    type: "datetime-local",
+    icon: DATE_ICON,
   },
   {
     valueField: "note",
@@ -204,12 +152,6 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
-  if (props.manageData.dollar_to_dinar_id) {
-    selectedDollarPrice.value = {
-      dollar_to_dinar_id: props.manageData.dollar_to_dinar_id,
-      dinar_price: props.manageData.dinar_price,
-    };
-  }
   if (props.manageData.employee_id) {
     selectedEmployee.value = {
       employee_id: props.manageData.employee_id,
@@ -224,8 +166,6 @@ watch(
     if (newVal) {
       checkAndSetDefaults();
     } else {
-      props.manageData.dollar_to_dinar_id = null;
-      selectedDollarPrice.value = null;
       props.manageData.employee_id = null;
       selectedEmployee.value = null;
     }
