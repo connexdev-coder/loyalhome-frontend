@@ -37,6 +37,14 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
+    name: "contracts",
+    route: "/client/contracts",
+    icon: CONTRACT_ICON,
+    role: "",
+    background: "var(--color-client)",
+    textColor: "#ffffff",
+  },
+  {
     name: "deptors",
     route: "/client/deptors",
     icon: DOLLAR_ICON,

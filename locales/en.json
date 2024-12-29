@@ -7,7 +7,15 @@
   "company_payments": "Company Payments",
   "add_off": "New Off",
 
+  "upload_failed": "Upload Failed",
+
+  "contracts": "Contracts",
+  "add_contract": "New Contract",
+  "contract_name": "Contract Name",
+  "contract_file": "Contract File",
+
   "employee_name": "Employee Name",
+  "drag_drop_or_click": "Drag & Drop Or Click",
 
   "id": "ID",
 

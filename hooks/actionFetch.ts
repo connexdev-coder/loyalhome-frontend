@@ -72,3 +72,19 @@ export async function useActionDelete(path: string) {
 
   return response;
 }
+
+export const useActionPostFormData = async (
+  endpoint: string,
+  formData: FormData
+) => {
+  const config = useRuntimeConfig();
+  try {
+    return await $fetch(`${config.public.apiBase}/${endpoint}`, {
+      method: "POST",
+      body: formData,
+      // Don't set Content-Type header, let the browser set it with the boundary
+    });
+  } catch (error: any) {
+    return error.response;
+  }
+};
