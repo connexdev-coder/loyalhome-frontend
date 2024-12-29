@@ -4,7 +4,7 @@
       {{ $t(props.label) }}
     </label>
     <div class="border-2 button_shape gap-2 h-10">
-      <Icon :name="props.icon" class="text-xl text-ten" />
+      <Icon v-if="props.icon" :name="props.icon" class="text-xl text-ten" />
       <input
         :disabled="props.disabled"
         :name="props.valueField"
@@ -22,7 +22,7 @@
 const props = defineProps<{
   label?: string;
   type: string;
-  icon: string;
+  icon: string | null;
   placeholder: string;
   value: any;
   valueField: string;

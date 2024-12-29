@@ -1,6 +1,10 @@
 {
   "app_name": "Loyal Home",
 
+  "dollar_dinar": "Change Dollar To Dinar",
+  "dinar_dollar": "Change Dinar To Dollar",
+  "currency_exchange": "Currency Exchange",
+
   "add_order": "New Order",
   "ordered_by": "Ordered By",
   "order_invoices": "Ordered Inovices",
@@ -8,6 +12,8 @@
   "add_off": "New Off",
   "weekly": "Weekly",
   "daily": "Daily",
+  "bnchina": "Bnchina",
+  "Kar": "Kar",
 
   "upload_failed": "Upload Failed",
 
@@ -91,7 +97,9 @@
   "add_manager": "Add Manager",
   "update_manager": "Update Manager",
 
-  "dinar_price": "Dinar To Price",
+  "copy": "Copy",
+
+  "dinar_price": "Dinar Price",
   "add_dinar_price": "Add Price",
 
   "profile": "Profile",
