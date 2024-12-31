@@ -6,6 +6,8 @@
         <Icon :name="HISTORY_ICON" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase">{{ $t("payment_history") }}</h1>
       </div>
+
+      <div class="flex flex-row items-center gap-1"></div>
     </div>
 
     <!-- Filter -->
@@ -73,6 +75,17 @@
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
+          <PrintDialog
+            type="payment_check"
+            :extra="`id=${row.client_dept_payment_id}&client_id=${row.client_id}`"
+            lang="ku"
+          />
+          <PrintDialog
+            type="payment_check"
+            :extra="`id=${row.client_dept_payment_id}&client_id=${row.client_id}`"
+            lang="ku"
+          />
+
           <Delete
             type="client_depts"
             :id="row.client_dept_payment_id"
@@ -165,6 +178,7 @@ const columns = [
     label: "$ > IQD",
     sortable: true,
   },
+  { key: "created_at", label: t("created_at"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
@@ -179,7 +193,6 @@ async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
     `client_depts/payments?page=${page}&client_id=${filterData.value.client_id}&sale_type=${filterData.value.sale_type}&id=${filterData.value.sale_id}&from=${filterData.value.from}&to=${filterData.value.to}`
   );
-
   data.value = dataData.value.data;
   status.value = dataStatus.value;
   totalPages.value = dataData.value.total_pages;

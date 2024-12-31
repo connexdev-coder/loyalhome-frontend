@@ -10,12 +10,8 @@
       </div>
 
       <div class="flex flex-wrap md:flex-row justify-end items-center gap-2">
-        <button v-if="query_id">
-          <div class="bg-inventory text-white button_shape">
-            <Icon :name="PRINT_ICON" class="text-xl" />
-            <span> {{ $t("print") }}</span>
-          </div>
-        </button>
+        <PrintDialog type="import" :extra="`id=${query_id}`" lang="ku" />
+        <PrintDialog type="import" :extra="`id=${query_id}`" lang="ar" />
 
         <button @click="manageInvoice">
           <div class="bg-update text-white button_shape">
@@ -212,7 +208,7 @@
           :disabled="true"
           value-field="extra_price"
           type="number"
-          label="note"
+          label="extra_price"
           :icon="DOLLAR_ICON"
           placeholder="extra_price"
         />

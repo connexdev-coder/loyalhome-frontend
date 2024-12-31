@@ -36,3 +36,6 @@ export const CONTRACT_ICON = "hugeicons:document-validation";
 export const SPENDING_ICON = "hugeicons:paragraph-bullets-point-01";
 export const EXCHANGER_ICON = "hugeicons:exchange-03";
 export const COPY_ICON = "hugeicons:copy-01";
+export const STATISTICS_ICON = "hugeicons:chart-line-data-02";
+export const DOWNLOAD_ICON = "hugeicons:download-04";
+export const LOADING_ICON = "hugeicons:loading-03";

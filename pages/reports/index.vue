@@ -36,6 +36,14 @@ let navigations = [
     background: "var(--color-inventory)",
     textColor: "#ffffff",
   },
+  {
+    name: "statistics",
+    route: "/reports/statistics",
+    icon: STATISTICS_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
 ];
 </script>
 

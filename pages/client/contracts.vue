@@ -79,6 +79,14 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
+          <button @click="downloadFile(row.contract_file)">
+            <div
+              class="bg-management text-white px-2 py-1 rounded-sm flex items-center gap-1"
+            >
+              <Icon :name="DOWNLOAD_ICON" class="text-xl" />
+              <span> {{ row.contract_file }}</span>
+            </div>
+          </button>
           <ManageClientContract
             title="update"
             :manage-data="row"
@@ -180,4 +188,16 @@ const inputs = [
     },
   },
 ];
+
+async function downloadFile(filename: string) {
+  const { data: downloadData, status: downloadStatus } = await useGet(
+    `files/${filename}`
+  );
+  if (downloadStatus.value != "success") return;
+  const pdfBlob: any = downloadData.value;
+  const downloadLink = document.createElement("a");
+  downloadLink.href = URL.createObjectURL(pdfBlob);
+  downloadLink.target = "_blank"; // Open in a new tab
+  downloadLink.click();
+}
 </script>

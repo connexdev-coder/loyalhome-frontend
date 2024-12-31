@@ -7,22 +7,35 @@
         <h1 class="text-xl uppercase">{{ $t("box_transactions") }}</h1>
       </div>
 
-      <ManageBoxTransaction
-        title="add_transaction"
-        :manage-data="{
-          currency_type: 'dollar',
-        }"
-        type="add"
-        :id="0"
-        @refresh="fetchCurrentPage"
-      >
-        <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+      <div class="flex flex-row items-center gap-2">
+        <PrintDialog
+          type="box_trx"
+          :extra="`from=${filterData.from}&to=${filterData.to}`"
+          lang="ku"
+        />
+        <PrintDialog
+          type="box_trx"
+          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar`"
+          lang="ar"
+        />
+
+        <ManageBoxTransaction
+          title="add_transaction"
+          :manage-data="{
+            currency_type: 'dollar',
+          }"
+          type="add"
+          :id="0"
+          @refresh="fetchCurrentPage"
         >
-          <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_transaction") }}</span>
-        </div>
-      </ManageBoxTransaction>
+          <div
+            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          >
+            <Icon name="hugeicons:add-01" class="text-xl" />
+            <span> {{ $t("add_transaction") }}</span>
+          </div>
+        </ManageBoxTransaction>
+      </div>
     </div>
 
     <!-- Filter -->

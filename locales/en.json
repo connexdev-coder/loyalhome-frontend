@@ -1,6 +1,11 @@
 {
   "app_name": "Loyal Home",
 
+  "close": "Close",
+
+  "ar": "Arabic",
+  "ku": "Kurdish",
+
   "dollar_dinar": "Change Dollar To Dinar",
   "dinar_dollar": "Change Dinar To Dollar",
   "currency_exchange": "Currency Exchange",

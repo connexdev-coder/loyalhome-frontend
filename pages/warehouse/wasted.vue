@@ -8,12 +8,16 @@
       </div>
 
       <div class="flex flex-row items-center gap-2">
-        <button>
-          <div class="bg-inventory text-white button_shape">
-            <Icon :name="PRINT_ICON" class="text-xl" />
-            <span> {{ $t("print") }}</span>
-          </div>
-        </button>
+        <PrintDialog
+          type="wasted"
+          :extra="`from=${filterData.from}&to=${filterData.to}`"
+          lang="ku"
+        />
+        <PrintDialog
+          type="wasted"
+          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar`"
+          lang="ar"
+        />
 
         <ManageWastedProduct
           title="add_wasted_product"
@@ -124,6 +128,7 @@ import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
 import ComboBox from "~/components/rcp/ComboBox.vue";
 import ManageWastedProduct from "~/components/management/ManageWastedProduct.vue";
+import PrintDialog from "~/components/rcp/PrintDialog.vue";
 
 const selectedProduct = ref(null);
 

@@ -7,20 +7,23 @@
         <h1 class="text-xl uppercase">{{ $t("dollar_prices") }}</h1>
       </div>
 
-      <ManageDollarPrice
-        title="add_dinar_price"
-        :manage-data="manageData"
-        type="add"
-        :id="0"
-        @refresh="fetchCurrentPage"
-      >
-        <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+      <div class="flex flex-row items-center gap-2">
+        <PrintDialog type="wasted" :extra="``" lang="ku" />
+        <ManageDollarPrice
+          title="add_dinar_price"
+          :manage-data="manageData"
+          type="add"
+          :id="0"
+          @refresh="fetchCurrentPage"
         >
-          <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_dinar_price") }}</span>
-        </div>
-      </ManageDollarPrice>
+          <div
+            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          >
+            <Icon name="hugeicons:add-01" class="text-xl" />
+            <span> {{ $t("add_dinar_price") }}</span>
+          </div>
+        </ManageDollarPrice>
+      </div>
     </div>
 
     <!-- Data -->

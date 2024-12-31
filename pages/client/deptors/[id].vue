@@ -6,17 +6,21 @@
         <h1 class="text-xl uppercase">{{ $t("dept_invoices") }}</h1>
       </div>
 
-      <NuxtLink
-        v-if="client"
-        :to="`/client/payments?client=${client.client_id}`"
-      >
-        <div
-          class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="client_depts" :extra="`id=${params.id}`" lang="ku" />
+        <PrintDialog type="client_depts" :extra="`id=${params.id}`" lang="ar" />
+        <NuxtLink
+          v-if="client"
+          :to="`/client/payments?client=${client.client_id}`"
         >
-          <Icon :name="DOLLAR_ICON" class="text-xl" />
-          <span> {{ $t("payment_history") }}</span>
-        </div>
-      </NuxtLink>
+          <div
+            class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
+          >
+            <Icon :name="DOLLAR_ICON" class="text-xl" />
+            <span> {{ $t("payment_history") }}</span>
+          </div>
+        </NuxtLink>
+      </div>
     </div>
 
     <div class="flex flex-col items-start gap-1 text-lg" v-if="client">
@@ -27,7 +31,7 @@
 
       <div class="flex flex-row items-center gap-1">
         <span class="rounded-sm"> {{ $t("total_owing") }}:</span>
-        <span>{{ Number(client.remaining_balance) }}{{ MAIN_CURRENCY }}</span>
+        <span>{{ Number(client.total_remaining) }}{{ MAIN_CURRENCY }}</span>
       </div>
     </div>
 

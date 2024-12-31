@@ -65,7 +65,7 @@ const columns = [
   { key: "company_id", label: "ID", sortable: true },
   { key: "company_name", label: t("name"), sortable: true },
   {
-    key: "remaining_balance",
+    key: "total_remaining",
     label: `${t("total_owing")} (${MAIN_CURRENCY})`,
     sortable: true,
   },

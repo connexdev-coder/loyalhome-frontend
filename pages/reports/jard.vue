@@ -1,9 +1,24 @@
 <template>
   <div class="flex flex-col gap-3">
     <!-- Title -->
-    <div class="font-bold flex flex-row items-center gap-1">
-      <Icon name="hugeicons:dashboard-square-01" class="text-4xl text-ten" />
-      <h1 class="text-xl uppercase">{{ $t("jard") }}</h1>
+    <div class="flex flex-row items-center gap-1 justify-between">
+      <div class="flex flex-row items-center">
+        <Icon name="hugeicons:dashboard-square-01" class="text-4xl text-ten" />
+        <h1 class="text-xl uppercase">{{ $t("jard") }}</h1>
+      </div>
+
+      <div class="flex flex-row items-center gap-2">
+        <PrintDialog
+          type="jard"
+          :extra="`search=${filterData.search}`"
+          lang="ku"
+        />
+        <PrintDialog
+          type="jard"
+          :extra="`search=${filterData.search}`"
+          lang="ar"
+        />
+      </div>
     </div>
 
     <!-- Filter -->

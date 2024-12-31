@@ -7,22 +7,35 @@
         <h1 class="text-xl uppercase">{{ $t("spendings") }}</h1>
       </div>
 
-      <ManageSpending
-        title="add_spending"
-        :manage-data="{
-          currency_type: 'dollar',
-        }"
-        type="add"
-        :id="0"
-        @refresh="fetchCurrentPage"
-      >
-        <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+      <div class="flex flex-row items-center gap-2">
+        <PrintDialog
+          type="spending"
+          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar&spend_to=${filterData.spend_to}&spending_type=${filterData.spending_type}&search=${filterData.search}`"
+          lang="ku"
+        />
+        <PrintDialog
+          type="spending"
+          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar&spend_to=${filterData.spend_to}&spending_type=${filterData.spending_type}&search=${filterData.search}`"
+          lang="ar"
+        />
+
+        <ManageSpending
+          title="add_spending"
+          :manage-data="{
+            currency_type: 'dollar',
+          }"
+          type="add"
+          :id="0"
+          @refresh="fetchCurrentPage"
         >
-          <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_spending") }}</span>
-        </div>
-      </ManageSpending>
+          <div
+            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          >
+            <Icon name="hugeicons:add-01" class="text-xl" />
+            <span> {{ $t("add_spending") }}</span>
+          </div>
+        </ManageSpending>
+      </div>
     </div>
 
     <!-- Filter -->

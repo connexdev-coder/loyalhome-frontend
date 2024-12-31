@@ -12,12 +12,8 @@
       </div>
 
       <div class="flex flex-wrap md:flex-row justify-end items-center gap-2">
-        <button v-if="query_id">
-          <div class="bg-inventory text-white button_shape">
-            <Icon :name="PRINT_ICON" class="text-xl" />
-            <span> {{ $t("print") }}</span>
-          </div>
-        </button>
+        <PrintDialog type="mdf" :extra="`id=${query_id}`" lang="ku" />
+        <PrintDialog type="mdf" :extra="`id=${query_id}`" lang="ar" />
 
         <button @click="manageInvoice">
           <div class="bg-update text-white button_shape">

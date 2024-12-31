@@ -31,7 +31,7 @@ let navigations = [
   {
     name: "dollar_prices",
     route: "/settings/dollar_prices",
-    icon: "hugeicons:search-dollar",
+    icon: DOLLAR_ICON,
     role: "",
     background: "var(--color-dollar)",
     textColor: "#ffffff",

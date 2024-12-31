@@ -83,7 +83,7 @@ const columns = [
   { key: "client_name", label: t("name"), sortable: true },
   { key: "phone", label: t("phone"), sortable: true },
   {
-    key: "remaining_balance",
+    key: "total_remaining",
     label: `${t("total_owing")} (${MAIN_CURRENCY})`,
     sortable: true,
   },
