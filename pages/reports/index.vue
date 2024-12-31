@@ -1,50 +1,29 @@
 <template>
-  <div class="flex flex-col items-stretch gap-4">
+  <div class="flex flex-col gap-3">
+    <!-- Title -->
     <div class="font-bold flex flex-row items-center gap-1">
-      <Icon name="hugeicons:file-verified" class="text-4xl text-ten" />
+      <Icon :name="JARD_ICON" class="text-4xl text-ten" />
       <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-      <NuxtLink
-        v-for="section in navigations"
-        :to="section.route"
-        class="flex flex-col justify-center items-center text-center hover:scale-95 duration-100 gap-2 px-3 py-2 rounded-sm"
-        :style="{
-          backgroundColor: section.background,
-          color: section.textColor,
-        }"
-      >
-        <Icon :name="section.icon" class="text-4xl" />
-        <span class="text-xl">{{ $t(section.name) }}</span>
-      </NuxtLink>
-    </div>
+    {{ data }}
   </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  requiredAuthorities: ["settings"],
-});
+import { ref } from "vue";
+import { useGet } from "~/hooks/fetch";
 
-let navigations = [
-  {
-    name: "jard",
-    route: "/reports/jard",
-    icon: "hugeicons:dashboard-square-01",
-    role: "",
-    background: "var(--color-inventory)",
-    textColor: "#ffffff",
-  },
-  {
-    name: "statistics",
-    route: "/reports/statistics",
-    icon: STATISTICS_ICON,
-    role: "",
-    background: "var(--color-dollar)",
-    textColor: "#ffffff",
-  },
-];
+// Backend pagination
+const data = ref<any>(null);
+const status = ref<any>(null);
+
+async function fetchPage() {
+  const { data: dataData, status: dataStatus }: any = await useGet(`reports`);
+  data.value = dataData.value.data;
+  status.value = dataStatus.value;
+}
+
+// Fetch initial page
+fetchPage();
 </script>
-
-<style scoped></style>

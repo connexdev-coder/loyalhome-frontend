@@ -162,6 +162,7 @@ function formatData(data: any, key: string) {
     "transaction_type",
     "factory_name",
     "salary_type",
+    "sale_status",
   ];
   const priceKeys = [
     "total_owing",

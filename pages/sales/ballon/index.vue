@@ -91,6 +91,24 @@
               <span> {{ $t("delete") }}</span>
             </div>
           </Delete>
+
+          <select
+            class="px-2 py-1 bg-transparent"
+            v-model="row.sale_status"
+            name="sale_status"
+            id=""
+            @change="
+              async (e: any) => {
+                await useActionPut(`ballon_sales/${row.ballon_sale_id}`, {
+                  sale_status: e.target.value,
+                });
+              }
+            "
+          >
+            <option value="pending">{{ $t("pending") }}</option>
+            <option value="working">{{ $t("working") }}</option>
+            <option value="finished">{{ $t("finished") }}</option>
+          </select>
         </div>
       </template>
     </Table>
@@ -102,6 +120,7 @@ import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
 import ComboBox from "~/components/rcp/ComboBox.vue";
+import { useActionPut } from "~/hooks/actionFetch";
 
 const selectedClient = ref(null);
 

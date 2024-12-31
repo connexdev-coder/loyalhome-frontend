@@ -2,9 +2,18 @@
   "app_name": "Loyal Home",
 
   "close": "Close",
+  "cancel": "Close",
+  "yes": "Yes",
+  "give": "Give",
+  "approve_warning": "Do you want to do it?",
+
+  "factory_requested": "Factory Requested",
 
   "ar": "Arabic",
   "ku": "Kurdish",
+
+  "ballon_quantity": "Ballon Quantity",
+  "mdf_quantity": "MDF Quantity",
 
   "dollar_dinar": "Change Dollar To Dinar",
   "dinar_dollar": "Change Dinar To Dollar",

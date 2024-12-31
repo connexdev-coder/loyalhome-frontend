@@ -37,6 +37,14 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
+    name: "jard",
+    route: "/warehouse/jard",
+    icon: JARD_ICON,
+    role: "",
+    background: "var(--color-inventory)",
+    textColor: "#ffffff",
+  },
+  {
     name: "import_invoices",
     route: "/warehouse/imports",
     icon: "hugeicons:invoice",
@@ -82,6 +90,14 @@ let navigations = [
     icon: HISTORY_ICON,
     role: "",
     background: "var(--color-company)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "factory_requested",
+    route: "/warehouse/factory_requested",
+    icon: PENDING_ICON,
+    role: "",
+    background: "var(--color-client)",
     textColor: "#ffffff",
   },
 ];
