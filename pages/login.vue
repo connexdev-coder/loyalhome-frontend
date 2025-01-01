@@ -1,7 +1,7 @@
 <template>
   <div class="h-full flex flex-row items-center justify-center w-screen">
     <img
-      src="https://media.designcafe.com/wp-content/uploads/2022/07/29185240/industrial-rustic-living-room-in-earthy-tones.jpg"
+      src="https://images.pexels.com/photos/1571452/pexels-photo-1571452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       alt=""
       srcset=""
       class="w-full h-full object-cover overflow-hidden hidden md:flex"

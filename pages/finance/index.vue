@@ -44,6 +44,14 @@ let navigations = [
     background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
+  {
+    name: "box",
+    route: "/finance/box",
+    icon: BOX_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
 ];
 </script>
 

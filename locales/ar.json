@@ -1,3 +1,256 @@
 {
-  "app_name": "لویال هوم "
+  "app_name": "لويال هوم",
+
+  "close": "إغلاق",
+  "cancel": "إغلاق",
+  "yes": "نعم",
+  "give": "إعطاء",
+  "approve_warning": "هل تريد القيام بذلك؟",
+
+  "box": "الصندوق",
+
+  "last_year": "السنة الماضية",
+  "this_month": "هذا الشهر",
+  "this_year": "هذه السنة",
+
+  "kar_spending": "المصروفات (كار)",
+  "bnchina_spending": "المصروفات (بي إن تشاينا)",
+
+  "import_cash": "استيراد المصروفات",
+  "import_owing": "استيراد الديون",
+
+  "ballon_cash": "مبيعات البالون",
+  "ballon_owing": "ديون البالون",
+
+  "mdf_cash": "مبيعات إم دي إف",
+  "mdf_owing": "ديون إم دي إف",
+
+  "factory_requested": "طلب المصنع",
+
+  "ar": "العربية",
+  "ku": "الكردية",
+
+  "ballon_quantity": "كمية البالون",
+  "mdf_quantity": "كمية إم دي إف",
+
+  "dollar_dinar": "تحويل الدولار إلى دينار",
+  "dinar_dollar": "تحويل الدينار إلى دولار",
+  "currency_exchange": "تحويل العملات",
+
+  "add_order": "طلب جديد",
+  "ordered_by": "طلب من قبل",
+  "order_invoices": "فواتير الطلبات",
+  "company_payments": "مدفوعات الشركة",
+  "add_off": "خصم جديد",
+  "weekly": "أسبوعي",
+  "daily": "يومي",
+  "bnchina": "بي إن تشاينا",
+  "Kar": "كار",
+
+  "upload_failed": "فشل التحميل",
+
+  "paid_to": "دفع إلى",
+  "paid_by": "دفع من قبل",
+  "box_transactions": "معاملات الصندوق",
+  "spending_type": "نوع المصروف",
+  "spend_to": "صرف إلى",
+  "spend_by": "صرف من قبل",
+
+  "contracts": "العقود",
+  "add_contract": "عقد جديد",
+  "contract_name": "اسم العقد",
+  "contract_file": "ملف العقد",
+
+  "employee_name": "اسم الموظف",
+  "drag_drop_or_click": "اسحب وأفلت أو انقر",
+
+  "id": "الرقم التعريفي",
+
+  "name": "الاسم",
+  "login": "تسجيل الدخول",
+  "username": "اسم المستخدم",
+  "password": "كلمة المرور",
+
+  "companies": "الشركات",
+  "add_company": "إضافة شركة",
+
+  "success": "تم بنجاح",
+  "tryagain": "حدث خطأ ما، اتصل بالمطور!",
+
+  "actions": "الإجراءات",
+  "authority": "الصلاحيات",
+
+  "dollar_prices": "أسعار الدولار",
+
+  "save": "حفظ",
+  "update": "تحديث",
+  "delete": "حذف",
+  "delete_all": "حذف الكل",
+  "submit": "إرسال",
+  "selected": "محدد",
+  "details": "التفاصيل",
+
+  "next": "التالي",
+  "previous": "السابق",
+
+  "credentials_wrong": "بيانات الاعتماد خاطئة",
+  "delete_warning": "هل تريد حذف هذا؟",
+
+  "dashboard": "لوحة التحكم",
+  "sales": "المبيعات",
+  "clients": "العملاء",
+  "client": "العميل",
+  "employee": "الموظفون",
+  "warehouse": "المستودع",
+  "finance": "المالية",
+  "report": "التقرير",
+  "settings": "الإعدادات",
+  "rooms": "الغرف",
+  "managers": "المدراء",
+  "import": "استيراد",
+  "imports": "الاستيرادات",
+  "mdf_sale": "مبيعات إم دي إف",
+  "ballon_sale": "مبيعات البالون",
+  "mdf": "إم دي إف",
+  "ballon": "بالون",
+  "product_name": "اسم المنتج",
+  "quantity": "الكمية",
+  "owing": "الدين",
+  "cash": "نقداً",
+  "unit": "الوحدة",
+  "update_invoice": "تحديث الفاتورة",
+  "see_invoice": "عرض الفاتورة",
+  "print": "طباعة",
+  "from": "من",
+  "to": "إلى",
+  "factory_name": "اسم المصنع",
+  "search": "بحث",
+
+  "add_manager": "إضافة مدير",
+  "update_manager": "تحديث المدير",
+
+  "copy": "نسخ",
+
+  "dinar_price": "سعر الدينار",
+  "add_dinar_price": "إضافة سعر",
+
+  "profile": "الملف الشخصي",
+  "add_client": "إضافة عميل",
+  "firstname": "الاسم الأول",
+  "lastname": "الاسم الأخير",
+  "contract_number": "رقم العقد",
+  "phone": "الهاتف",
+  "extra_phone": "الهاتف الثاني",
+  "relative": "الوكيل",
+  "relative_name": "اسم الوكيل",
+  "relative_phone": "هاتف الوكيل",
+  "paid_money_type": "نوع العملة",
+
+  "dollar": "دولار",
+  "dinar": "دينار",
+
+  "depts": "الديون",
+  "deptors": "المدينون",
+  "owing_invoices": "فواتير الديون",
+
+  "client_name": "اسم العميل",
+  "person_name": "اسم الشخص",
+  "sale_status": "حالة البيع",
+  "discount": "الخصم",
+
+  "client_transactions": "المعاملات",
+  "client_dept_payments": "الديون",
+
+  "employees": "الموظفون",
+  "employee_payments": "المدفوعات",
+  "employee_attendances": "الحضور",
+
+  "wasted_product": "المنتج التالف",
+  "spendings": "المصروفات",
+  "add_spending": "إضافة مصروف",
+
+  "employee_salary_payment": "دفع راتب الموظف",
+
+  "company_depts": "ديون الشركة",
+  "add_company_dept": "دفع الدين",
+
+  "payments": "المدفوعات",
+
+  "box_transaction": "معاملة الصندوق",
+  "new_transaction": "معاملة جديدة",
+  "deposit": "إيداع",
+  "withdraw": "سحب",
+
+  "add_employee": "إضافة موظف",
+  "salary_type": "نوع الراتب",
+  "salary": "الراتب",
+  "position": "المنصب",
+
+  "products": "المنتجات",
+  "add_product": "إضافة منتج",
+  "get_price": "سعر الشراء",
+  "sell_price": "سعر البيع",
+  "tag": "العلامة",
+  "unit_name": "الوحدة",
+  "factory": "المصنع",
+
+  "import_invoices": "فواتير الاستيراد",
+  "wasted_products": "المنتجات التالفة",
+
+  "imported_quantity": "المستورد",
+  "wasted_quantity": "التالف",
+  "inventory_quantity": "المخزون",
+
+  "dept_invoices": "فواتير الديون",
+  "payment_history": "سجل المدفوعات",
+  "pay": "دفع",
+  "repay": "إعادة الدفع",
+
+  "add_import": "فاتورة استيراد جديدة",
+  "pending": "معلق",
+  "working": "قيد العمل",
+  "finished": "منتهي",
+
+  "import_invoice": "فاتورة الاستيراد",
+  "transaction_type": "نوع المعاملة",
+  "currency_type": "نوع العملة",
+  "invoice_number": "رقم الفاتورة",
+  "manual_invoice_number": "رقم الفاتورة اليدوي",
+  "total_get_price": "إجمالي سعر الشراء",
+  "total_sell_price": "إجمالي سعر البيع",
+  "total_sell_price_discount": "إجمالي سعر البيع/الخصم",
+  "extra_price": "السعر الإضافي",
+  "company_name": "اسم الشركة",
+  "created_at": "تاريخ الإنشاء",
+  "updated_at": "تاريخ التحديث",
+  "note": "ملاحظة",
+
+  "add_wasted_product": "إضافة منتج تالف",
+
+  "jard": "الجرد",
+  "add_ballon_sale": "بيع بالون جديد",
+  "sold_quantity": "الكمية المباعة",
+
+  "logout": "تسجيل الخروج",
+  "logout_warning": "هل تريد تسجيل الخروج؟",
+
+  "available_quantity": "الكمية المتوفرة",
+
+  "total_paid": "إجمالي المدفوع",
+  "total_remaining": "إجمالي المتبقي",
+
+  "client_depts": "ديون العميل",
+  "total_owing": "إجمالي الدين",
+  "balance": "الرصيد",
+  "amount": "المبلغ",
+
+  "add_transaction": "معاملة جديدة",
+
+  "sale_type": "نوع البيع",
+  "sale_id": "رقم الفاتورة",
+
+  "add_mdf_sale": "بيع إم دي إف جديد",
+  "total_product_price": "سعر المنتج",
+  "item_name": "اسم العنصر",
+  "add_item": "عنصر جديد"
 }

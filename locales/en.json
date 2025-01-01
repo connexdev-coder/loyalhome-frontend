@@ -7,6 +7,24 @@
   "give": "Give",
   "approve_warning": "Do you want to do it?",
 
+  "box": "Box",
+
+  "last_year": "Last Year",
+  "this_month": "This Month",
+  "this_year": "This Year",
+
+  "kar_spending": "Spending (Kar)",
+  "bnchina_spending": "Spending (Bnchina)",
+
+  "import_cash": "Import Spending",
+  "import_owing": "Import Owing",
+
+  "ballon_cash": "Ballon Sales",
+  "ballon_owing": "Ballon Owing",
+
+  "mdf_cash": "MDF Sales",
+  "mdf_owing": "MDF Owing",
+
   "factory_requested": "Factory Requested",
 
   "ar": "Arabic",
@@ -147,8 +165,11 @@
   "employee_payments": "Payments",
   "employee_attendances": "Attendances",
 
+  "wasted_product": "Wasted Product",
   "spendings": "Spendings",
   "add_spending": "Add Spending",
+
+  "employee_salary_payment": "Employee Salary Payment",
 
   "company_depts": "Company Owings",
   "add_company_dept": "Owing Payment",
