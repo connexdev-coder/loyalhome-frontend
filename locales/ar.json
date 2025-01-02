@@ -1,9 +1,12 @@
 {
   "app_name": "لويال هوم",
 
-  "logins": "Logins",
-  "activities": "Activities",
-  "manager_name": "Manager Name",
+  "logins": "تسجيلات الدخول",
+  "activities": "الأنشطة",
+  "manager_name": "اسم المدير",
+  "table": "الجدول",
+  "row": "الصف",
+  "new_value": "القيمة الجديدة",
 
   "close": "إغلاق",
   "cancel": "إغلاق",

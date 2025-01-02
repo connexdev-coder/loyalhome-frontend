@@ -1,9 +1,12 @@
 {
   "app_name": "لۆیاڵ هۆم",
 
-  "logins": "Logins",
-  "activities": "Activities",
-  "manager_name": "Manager Name",
+  "logins": "چوونەژوورەوەکان",
+  "activities": "چالاکییەکان",
+  "manager_name": "ناوی بەڕێوەبەر",
+  "table": "خشتە",
+  "row": "ڕیز",
+  "new_value": "نرخی نوێ",
 
   "close": "داخستن",
   "cancel": "داخستن",
