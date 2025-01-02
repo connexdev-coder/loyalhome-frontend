@@ -1,6 +1,10 @@
 {
   "app_name": "لۆیاڵ هۆم",
 
+  "logins": "Logins",
+  "activities": "Activities",
+  "manager_name": "Manager Name",
+
   "close": "داخستن",
   "cancel": "داخستن",
   "yes": "بەڵێ",

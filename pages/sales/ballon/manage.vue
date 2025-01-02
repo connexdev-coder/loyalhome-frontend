@@ -32,7 +32,7 @@
           :invoice_id="query_id"
         >
           <div
-            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+            class="bg-white text-mdf px-2 py-1 rounded-sm flex items-center gap-1"
           >
             <Icon name="hugeicons:add-01" class="text-xl" />
             <span> {{ $t("add_product") }}</span>

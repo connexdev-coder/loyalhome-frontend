@@ -24,7 +24,6 @@
         />
 
         <OfflineSelect
-          label="exchange_type"
           placeholder="exchange_type"
           :icon="EXCHANGER_ICON"
           :options="['dollar_dinar', 'dinar_dollar']"

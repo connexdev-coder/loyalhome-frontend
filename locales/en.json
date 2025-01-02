@@ -1,6 +1,13 @@
 {
   "app_name": "Loyal Home",
 
+  "logins": "Logins",
+  "activities": "Activities",
+  "manager_name": "Manager Name",
+  "table": "Table",
+  "row": "Row",
+  "new_value": "New Value",
+
   "close": "Close",
   "cancel": "Close",
   "yes": "Yes",

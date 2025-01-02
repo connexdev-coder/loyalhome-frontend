@@ -7,24 +7,28 @@
         <h1 class="text-xl uppercase">{{ $t("products") }}</h1>
       </div>
 
-      <ManageProduct
-        title="add_product"
-        :manage-data="manageData"
-        type="add"
-        :id="0"
-        @refresh="fetchCurrentPage"
-      >
-        <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+      <div class="flex flex-row items-center gap-1">
+        <ManageProduct
+          v-for="factory in factoryData"
+          title="add_product"
+          :manage-data="{ factory_id: factory.factory_id, ...manageData }"
+          type="add"
+          :id="0"
+          @refresh="fetchCurrentPage"
         >
-          <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_product") }}</span>
-        </div>
-      </ManageProduct>
+          <div
+            class="text-white px-2 py-1 rounded-sm flex items-center gap-1"
+            :class="factory.factory_name == 'ballon' ? 'bg-ballon' : 'bg-mdf'"
+          >
+            <Icon name="hugeicons:add-01" class="text-xl" />
+            <span> {{ $t("add_product") }} {{ $t(factory.factory_name) }}</span>
+          </div>
+        </ManageProduct>
+      </div>
     </div>
 
     <!-- Filter -->
-    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-2">
       <Input
         :value="filterData"
         value-field="search"
@@ -33,6 +37,15 @@
         placeholder="search"
         @on-change="fetchCurrentPage"
         @refresh="fetchCurrentPage"
+      />
+
+      <OfflineSelect
+        placeholder="factory_name"
+        :icon="FACTORY_ICON"
+        :options="['', 'mdf', 'ballon']"
+        :selected-value="filterData"
+        field="factory_name"
+        @on-change="fetchCurrentPage"
       />
     </div>
 
@@ -90,6 +103,7 @@ const { t } = useI18n();
 
 const filterData = ref({
   search: "",
+  factory_name: "",
 });
 
 const manageData = ref({
@@ -98,7 +112,6 @@ const manageData = ref({
   get_price: "",
   sell_price: "",
   unit_id: "",
-  factory_id: "",
 });
 
 // Define columns
@@ -129,7 +142,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `products?page=${page}&search=${filterData.value.search}`
+    `products?page=${page}&search=${filterData.value.search}&factory_name=${filterData.value.factory_name}`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
@@ -143,4 +156,15 @@ fetchPage(currentPage.value);
 function fetchCurrentPage() {
   fetchPage(currentPage.value);
 }
+
+const factoryData = ref<any>(null);
+const factoryStatus = ref<any>(null);
+async function fetchFactories() {
+  const { data: dataData, status: dataStatus }: any = await useGet(
+    `configs/factories`
+  );
+  factoryData.value = dataData.value.data;
+  factoryStatus.value = dataStatus.value;
+}
+fetchFactories();
 </script>

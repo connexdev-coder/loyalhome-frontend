@@ -1,6 +1,10 @@
 {
   "app_name": "لويال هوم",
 
+  "logins": "Logins",
+  "activities": "Activities",
+  "manager_name": "Manager Name",
+
   "close": "إغلاق",
   "cancel": "إغلاق",
   "yes": "نعم",

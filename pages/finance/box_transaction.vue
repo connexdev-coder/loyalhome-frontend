@@ -20,19 +20,24 @@
         />
 
         <ManageBoxTransaction
+          v-for="factory in factoryData"
           title="add_transaction"
           :manage-data="{
             currency_type: 'dollar',
+            factory_id: factory.factory_id,
           }"
           type="add"
           :id="0"
           @refresh="fetchCurrentPage"
         >
           <div
-            class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+            class="text-white px-2 py-1 rounded-sm flex items-center gap-1"
+            :class="factory.factory_name == 'ballon' ? 'bg-ballon' : 'bg-mdf'"
           >
             <Icon name="hugeicons:add-01" class="text-xl" />
-            <span> {{ $t("add_transaction") }}</span>
+            <span>
+              {{ $t("add_transaction") }} {{ $t(factory.factory_name) }}</span
+            >
           </div>
         </ManageBoxTransaction>
       </div>
@@ -51,6 +56,16 @@
         :icon="filter.icon"
         :placeholder="filter.valueField"
         @on-change="filter.onChange"
+      />
+
+      <OfflineSelect
+        label="factory_name"
+        placeholder="factory_name"
+        :icon="FACTORY_ICON"
+        :options="['', 'mdf', 'ballon']"
+        :selected-value="filterData"
+        field="factory_name"
+        @on-change="fetchCurrentPage"
       />
 
       <OfflineSelect
@@ -120,6 +135,7 @@ const filterData = ref({
   transaction_type: "",
   from: "",
   to: "",
+  factory_name: "",
 });
 
 const filters = [
@@ -186,7 +202,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `box_trx?page=${page}&search=${filterData.value.search}&transaction_type=${filterData.value.transaction_type}&from=${filterData.value.from}&to=${filterData.value.to}`
+    `box_trx?page=${page}&search=${filterData.value.search}&transaction_type=${filterData.value.transaction_type}&from=${filterData.value.from}&to=${filterData.value.to}&factory_name=${filterData.value.factory_name}`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
@@ -200,4 +216,15 @@ fetchPage(currentPage.value);
 function fetchCurrentPage() {
   fetchPage(currentPage.value);
 }
+
+const factoryData = ref<any>(null);
+const factoryStatus = ref<any>(null);
+async function fetchFactories() {
+  const { data: dataData, status: dataStatus }: any = await useGet(
+    `configs/factories`
+  );
+  factoryData.value = dataData.value.data;
+  factoryStatus.value = dataStatus.value;
+}
+fetchFactories();
 </script>

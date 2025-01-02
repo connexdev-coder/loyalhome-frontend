@@ -44,6 +44,22 @@ let navigations = [
     background: "var(--color-management)",
     textColor: "#ffffff",
   },
+  {
+    name: "logins",
+    route: "/settings/logins",
+    icon: HISTORY_ICON,
+    role: "",
+    background: "var(--color-management)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "activities",
+    route: "/settings/activities",
+    icon: HISTORY_ICON,
+    role: "",
+    background: "var(--color-client)",
+    textColor: "#ffffff",
+  },
 ];
 </script>
 

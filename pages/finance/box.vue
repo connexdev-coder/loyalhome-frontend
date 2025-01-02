@@ -11,7 +11,7 @@
       <h1 class="text-2xl text-ten font-bold">
         {{ $t("box") }}
       </h1>
-      <div class="bg-dollar text-white p-3 rounded-sm w-fit">
+      <div class="bg-dollar text-white p-3 rounded-sm w-fit min-w-[200px]">
         <h1 class="line-clamp-1 text-lg">{{ $t("box") }}</h1>
         <span v-if="data" class="text-2xl">
           {{

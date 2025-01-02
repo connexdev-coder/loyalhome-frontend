@@ -53,36 +53,7 @@
             :disabled="selectedDollarPrice ? true : false"
           />
 
-          <ComboBox
-            label="factory_name"
-            type="text"
-            :icon="PRICE_ICON"
-            placeholder="factory_name"
-            api_route="configs/factories"
-            api_route_query="search"
-            :result_fields="['factory_name']"
-            :selectedValue="selectedFactory"
-            @on-change="
-              (data:any) => {
-                selectedFactory = data;
-                props.manageData.factory_id = data.factory_id;
-                props.manageData.factory_name = data.factory_name;
-
-              }
-            "
-            @clear="
-              () => {
-                selectedFactory = null;
-                manageData.client_id = '';
-              }
-            "
-            :disabled="selectedFactory ? true : false"
-          />
-
-          <div
-            class="grid grid-cols-2 gap-2"
-            v-if="selectedFactory || props.type == 'update'"
-          >
+          <div class="grid grid-cols-2 gap-2">
             <OfflineSelect
               label="currency_type"
               placeholder="currency_type"
@@ -162,7 +133,6 @@ const props = defineProps<{
   id: any;
 }>();
 
-const selectedFactory = ref<any>(null);
 const selectedDollarPrice = ref<any>(null);
 
 function validateFields() {
@@ -175,7 +145,6 @@ function validateFields() {
   ].filter(
     (field) => props.manageData[field] == null || props.manageData[field] === ""
   );
-  if (!selectedFactory.value) missingFields.push("factory_id");
   if (!selectedDollarPrice.value) missingFields.push("dollar_to_dinar_id");
   return missingFields;
 }
@@ -235,10 +204,6 @@ function checkAndSetDefaults() {
     selectedDollarPrice.value = {
       dollar_to_dinar_id: props.manageData.dollar_to_dinar_id,
       dinar_price: props.manageData.dinar_price,
-    };
-    selectedFactory.value = {
-      factory_id: props.manageData.factory_id,
-      factory_name: props.manageData.factory_name,
     };
   }
 }

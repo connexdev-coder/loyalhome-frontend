@@ -41,14 +41,7 @@
                 placeholder="extra_price"
               />
             </div>
-            <div
-              @click="
-                () => {
-                  props.manageData.extra_price = 1000;
-                }
-              "
-              class="flex flex-col cursor-pointer"
-            >
+            <div @click="getMonthSpending" class="flex flex-col cursor-pointer">
               <span class="text-md invisible">asd</span>
               <div
                 class="bg-dollar text-white h-10 w-10 flex items-center justify-center rounded-sm"
@@ -72,6 +65,7 @@
 <script setup lang="ts">
 import { useActionPost, useActionPut } from "~/hooks/actionFetch";
 import { useToast } from "../ui/toast";
+import { useGet } from "~/hooks/fetch";
 
 const { t } = useI18n();
 const { toast } = useToast();
@@ -153,4 +147,11 @@ const inputs = [
     icon: NOTE_ICON,
   },
 ];
+
+async function getMonthSpending() {
+  const { data, status } = await useGet("reports/month_spending");
+  if (status.value == "success") {
+  }
+  props.manageData.extra_price = data;
+}
 </script>

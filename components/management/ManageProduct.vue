@@ -11,7 +11,7 @@
         <DialogDescription> </DialogDescription>
       </DialogHeader>
 
-      <div class="h-[300px] overflow-y-scroll">
+      <div class="h-[70vh] overflow-y-scroll">
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
@@ -40,29 +40,6 @@
               }
             "
             :disabled="selectedUnit ? true : false"
-          />
-          <ComboBox
-            label="factory"
-            type="text"
-            icon="hugeicons:factory-02"
-            placeholder="factory"
-            api_route="configs/factories"
-            api_route_query="search"
-            :result_fields="['factory_name']"
-            :selectedValue="selectedFactory"
-            @on-change="
-              (data) => {
-                selectedFactory = data;
-                props.manageData.factory_id = data.factory_id;
-              }
-            "
-            @clear="
-              () => {
-                selectedFactory = null;
-                props.manageData.factory_id = '';
-              }
-            "
-            :disabled="selectedFactory ? true : false"
           />
 
           <Input
