@@ -6,8 +6,6 @@
       <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
     </div>
 
-    {{ data }}
-
     <div
       class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 items-center gap-2"
     >
