@@ -58,6 +58,17 @@
       />
 
       <Input
+        v-if="!query_id"
+        :value="manageData"
+        :disabled="query_id ? true : false"
+        value-field="created_at"
+        type="date"
+        :icon="DATE_ICON"
+        label="created_at"
+        placeholder="created_at"
+      />
+
+      <Input
         v-if="query_id"
         :value="selectedClient"
         :disabled="true"
@@ -112,6 +123,26 @@
         :icon="CLIENT_ICON"
         label="person_name"
         placeholder="person_name"
+      />
+
+      <Input
+        :value="manageData"
+        :disabled="false"
+        value-field="total_price"
+        type="text"
+        :icon="DOLLAR_ICON"
+        label="total_price"
+        placeholder="total_price"
+      />
+
+      <Input
+        :value="manageData"
+        :disabled="false"
+        value-field="total_meter"
+        type="text"
+        :icon="METER_ICON"
+        label="total_meter"
+        placeholder="total_meter"
       />
     </div>
 
@@ -295,7 +326,10 @@ const manageData = ref({
   sale_status: "",
   discount: 0,
   client_id: "",
+  created_at: new Date(),
   note: "",
+  total_price: 0,
+  total_meter: 0,
 });
 
 const manageProductData = ref({
@@ -359,6 +393,8 @@ function setManageData() {
     manageData.value.transaction_type = data.value[0].transaction_type;
     manageData.value.sale_status = data.value[0].sale_status;
     manageData.value.person_name = data.value[0].person_name;
+    manageData.value.total_price = data.value[0].total_price;
+    manageData.value.total_meter = data.value[0].total_meter;
   }
 }
 

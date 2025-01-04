@@ -31,8 +31,8 @@
               (data) => {
                 selectedProduct = data;
                 props.manageData.product_id = data.product_id;
-                props.manageData.get_price = data.get_price;
-                props.manageData.sell_price = data.sell_price;
+                // props.manageData.get_price = data.get_price;
+                // props.manageData.sell_price = data.sell_price;
               }
             "
             @clear="
@@ -132,16 +132,16 @@ async function onManageClient() {
 const dialogContentVisible = ref(false);
 
 const inputs = [
-  {
-    valueField: "get_price",
-    type: "number",
-    icon: DOLLAR_ICON,
-  },
-  {
-    valueField: "sell_price",
-    type: "number",
-    icon: DOLLAR_ICON,
-  },
+  // {
+  //   valueField: "get_price",
+  //   type: "number",
+  //   icon: DOLLAR_ICON,
+  // },
+  // {
+  //   valueField: "sell_price",
+  //   type: "number",
+  //   icon: DOLLAR_ICON,
+  // },
   {
     valueField: "quantity",
     type: "number",
@@ -159,7 +159,6 @@ function checkAndSetDefaults() {
     selectedProduct.value = {
       product_id: props.manageData.product_id,
       product_name: props.manageData.product_name,
-      // get_price: props.manageData.get_price,
     };
   }
 }

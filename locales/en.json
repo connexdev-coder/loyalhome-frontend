@@ -1,6 +1,10 @@
 {
   "app_name": "Loyal Home",
 
+  "total_price": "Total Price",
+  "total_meter": "Total Meter",
+  "ballon_meter": "Ballon Meter Sold",
+
   "logins": "Logins",
   "activities": "Activities",
   "manager_name": "Manager Name",

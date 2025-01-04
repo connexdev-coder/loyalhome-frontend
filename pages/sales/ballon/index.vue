@@ -178,8 +178,13 @@ const columns = [
     sortable: true,
   },
   {
-    key: "discount",
-    label: `${t("discount")} (${MAIN_CURRENCY})`,
+    key: "total_price",
+    label: `${t("total_price")} (${MAIN_CURRENCY})`,
+    sortable: true,
+  },
+  {
+    key: "total_meter",
+    label: `${t("total_meter")} (${MAIN_CURRENCY})`,
     sortable: true,
   },
   { key: "client_name", label: t("client_name"), sortable: true },

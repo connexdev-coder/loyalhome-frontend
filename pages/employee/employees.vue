@@ -105,6 +105,11 @@ const columns = [
   { key: "employee_id", label: "ID", sortable: true },
   { key: "name", label: t("name"), sortable: true },
   { key: "phone", label: t("phone"), sortable: true },
+  {
+    key: "position",
+    label: `${t("position")} (${MAIN_CURRENCY})`,
+    sortable: true,
+  },
   { key: "salary", label: `${t("salary")} (${MAIN_CURRENCY})`, sortable: true },
   { key: "salary_type", label: t("salary_type"), sortable: true },
   { key: "actions", label: t("actions") },

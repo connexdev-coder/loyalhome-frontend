@@ -65,6 +65,17 @@
         placeholder="manual_invoice_number"
       />
 
+      <Input
+        v-if="!query_id"
+        :value="manageData"
+        :disabled="query_id ? true : false"
+        value-field="created_at"
+        type="date"
+        :icon="DATE_ICON"
+        label="created_at"
+        placeholder="created_at"
+      />
+
       <OfflineSelect
         label="transaction_type"
         placeholder="transaction_type"
@@ -287,6 +298,7 @@ const manageData = ref({
   factory_id: "",
   extra_price: "0",
   note: "",
+  created_at: new Date(),
 });
 
 const manageProductData = ref({

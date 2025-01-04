@@ -49,3 +49,4 @@ export const IMPORT_ICON = "lets-icons:import-fill";
 export const CLOSE_ICON = "hugeicons:cancel-01";
 export const DASHBOARD_ICON = "hugeicons:dashboard-square-02";
 export const BOX_ICON = "hugeicons:computer-dollar";
+export const METER_ICON = "tabler:meter-square";

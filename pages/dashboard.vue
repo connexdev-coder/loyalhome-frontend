@@ -18,7 +18,7 @@
         </h1>
         <div class="grid grid-cols-2 gap-2">
           <div
-            v-for="span in ['ballon_cash', 'ballon_owing']"
+            v-for="span in ['ballon_cash', 'ballon_owing', 'ballon_meter']"
             class="bg-ballon text-white p-3 rounded-sm aspect-video"
           >
             <div class="flex flex-row items-center gap-1">

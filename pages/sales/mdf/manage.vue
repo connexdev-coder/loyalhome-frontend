@@ -57,6 +57,17 @@
         placeholder="invoice_number"
       />
 
+      <Input
+        v-if="!query_id"
+        :value="manageData"
+        :disabled="query_id ? true : false"
+        value-field="created_at"
+        type="date"
+        :icon="DATE_ICON"
+        label="created_at"
+        placeholder="created_at"
+      />
+
       <OfflineSelect
         label="transaction_type"
         placeholder="transaction_type"
@@ -272,6 +283,7 @@ const manageData = ref({
   transaction_type: "",
   sale_status: "",
   client_id: "",
+  created_at: new Date(),
   note: "",
 });
 

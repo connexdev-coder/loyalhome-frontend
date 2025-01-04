@@ -6,6 +6,8 @@
       <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
     </div>
 
+    {{ data }}
+
     <div
       class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 items-center gap-2"
     >
@@ -68,7 +70,7 @@
         </h1>
         <div class="grid grid-cols-2 gap-2">
           <div
-            v-for="span in ['ballon_cash', 'ballon_owing']"
+            v-for="span in ['ballon_cash', 'ballon_owing', 'ballon_meter']"
             class="bg-ballon text-white p-3 rounded-sm aspect-video"
           >
             <div class="flex flex-row items-center gap-1">
