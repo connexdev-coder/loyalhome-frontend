@@ -6,6 +6,11 @@
         <Icon :name="HISTORY_ICON" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase">{{ $t("payment_history") }}</h1>
       </div>
+
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="company_payments" extra="" lang="ku" />
+        <PrintDialog type="company_payments" extra="" lang="ar" />
+      </div>
     </div>
 
     <!-- Filter -->

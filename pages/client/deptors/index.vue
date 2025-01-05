@@ -6,6 +6,11 @@
         <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase">{{ $t("deptors") }}</h1>
       </div>
+
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="client_deptors" extra="" lang="ku" />
+        <PrintDialog type="client_deptors" extra="" lang="ar" />
+      </div>
     </div>
 
     <!-- Filter -->

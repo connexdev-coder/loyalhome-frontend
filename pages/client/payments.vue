@@ -7,7 +7,10 @@
         <h1 class="text-xl uppercase">{{ $t("payment_history") }}</h1>
       </div>
 
-      <div class="flex flex-row items-center gap-1"></div>
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="client_payments" extra="" lang="ku" />
+        <PrintDialog type="client_payments" extra="" lang="ar" />
+      </div>
     </div>
 
     <!-- Filter -->

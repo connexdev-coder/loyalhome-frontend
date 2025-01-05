@@ -6,6 +6,11 @@
         <Icon :name="REPAYMENT_ICON" class="text-4xl text-ten" />
         <h1 class="text-xl uppercase">{{ $t("depts") }}</h1>
       </div>
+
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="company_deptors" extra="" lang="ku" />
+        <PrintDialog type="company_deptors" extra="" lang="ar" />
+      </div>
     </div>
 
     <!-- Filter -->

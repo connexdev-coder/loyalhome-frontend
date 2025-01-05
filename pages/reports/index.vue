@@ -1,9 +1,15 @@
 <template>
   <div class="flex flex-col gap-3 pb-3">
     <!-- Title -->
-    <div class="font-bold flex flex-row items-center gap-1">
-      <Icon :name="REPORT_ICON" class="text-4xl text-ten" />
-      <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
+    <div class="flex flex-row items-center justify-between">
+      <div class="font-bold flex flex-row items-center gap-1">
+        <Icon :name="REPORT_ICON" class="text-4xl text-ten" />
+        <h1 class="text-xl uppercase">{{ $t("reports") }}</h1>
+      </div>
+
+      <div class="flex flex-row items-center gap-1">
+        <PrintDialog type="reports" extra="" lang="ku" />
+      </div>
     </div>
 
     <div

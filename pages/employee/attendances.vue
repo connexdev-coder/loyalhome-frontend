@@ -8,6 +8,10 @@
       </div>
 
       <div class="flex flex-row items-center gap-2" v-if="data">
+        <div class="flex flex-row items-center gap-1">
+          <PrintDialog type="employee_offs" extra="" lang="ku" />
+          <PrintDialog type="employee_offs" extra="" lang="ar" />
+        </div>
         <ManageEmployeeAttendance
           title="add_off"
           :manage-data="{}"
@@ -158,7 +162,7 @@ const filters = [
 const columns = [
   {
     key: "employee_off_id",
-    label: t("invoice_number"),
+    label: t("id"),
     sortable: true,
   },
   { key: "employee_name", label: t("employee_name"), sortable: true },
