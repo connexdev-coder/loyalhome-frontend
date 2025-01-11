@@ -8,8 +8,7 @@
       </div>
 
       <div class="flex flex-row items-center gap-1">
-        <PrintDialog type="client_payments" extra="" lang="ku" />
-        <PrintDialog type="client_payments" extra="" lang="ar" />
+        <PrintDialog type="client_payments" extra="" />
       </div>
     </div>
 
@@ -81,12 +80,6 @@
           <PrintDialog
             type="payment_check"
             :extra="`id=${row.client_dept_payment_id}&client_id=${row.client_id}`"
-            lang="ku"
-          />
-          <PrintDialog
-            type="payment_check"
-            :extra="`id=${row.client_dept_payment_id}&client_id=${row.client_id}`"
-            lang="ku"
           />
 
           <Delete

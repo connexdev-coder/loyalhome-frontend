@@ -8,8 +8,7 @@
       </div>
 
       <div class="flex flex-row items-center gap-1">
-        <PrintDialog type="company_payments" extra="" lang="ku" />
-        <PrintDialog type="company_payments" extra="" lang="ar" />
+        <PrintDialog type="company_payments" extra="" />
       </div>
     </div>
 

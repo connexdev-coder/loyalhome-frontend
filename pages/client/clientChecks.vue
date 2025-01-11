@@ -55,7 +55,10 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <PrintDialog type="clientChecks" :extra="`id=${row.client_id}`" />
+          <PrintDialog
+            type="clientChecks"
+            :extra="`client_id=${row.client_id}`"
+          />
         </div>
       </template>
     </Table>

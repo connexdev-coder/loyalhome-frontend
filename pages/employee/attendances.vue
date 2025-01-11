@@ -9,8 +9,7 @@
 
       <div class="flex flex-row items-center gap-2" v-if="data">
         <div class="flex flex-row items-center gap-1">
-          <PrintDialog type="employee_offs" extra="" lang="ku" />
-          <PrintDialog type="employee_offs" extra="" lang="ar" />
+          <PrintDialog type="employee_offs" extra="" />
         </div>
         <ManageEmployeeAttendance
           title="add_off"

@@ -12,8 +12,7 @@
       </div>
 
       <div class="flex flex-wrap md:flex-row justify-end items-center gap-2">
-        <PrintDialog type="ballon" :extra="`id=${query_id}`" lang="ku" />
-        <PrintDialog type="ballon" :extra="`id=${query_id}`" lang="ar" />
+        <PrintDialog type="ballon" :extra="`id=${query_id}`" />
 
         <button @click="manageInvoice">
           <div class="bg-inventory text-white button_shape">

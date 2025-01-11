@@ -8,7 +8,6 @@
       </div>
 
       <div class="flex flex-row items-center gap-2">
-        <PrintDialog type="wasted" :extra="``" lang="ku" />
         <ManageDollarPrice
           title="add_dinar_price"
           :manage-data="manageData"
