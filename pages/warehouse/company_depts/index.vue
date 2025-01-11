@@ -9,7 +9,6 @@
 
       <div class="flex flex-row items-center gap-1">
         <PrintDialog type="company_deptors" extra="" lang="ku" />
-        <PrintDialog type="company_deptors" extra="" lang="ar" />
       </div>
     </div>
 

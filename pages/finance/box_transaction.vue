@@ -13,11 +13,6 @@
           :extra="`from=${filterData.from}&to=${filterData.to}`"
           lang="ku"
         />
-        <PrintDialog
-          type="box_trx"
-          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar`"
-          lang="ar"
-        />
 
         <ManageBoxTransaction
           v-for="factory in factoryData"

@@ -13,11 +13,6 @@
           :extra="`search=${filterData.search}`"
           lang="ku"
         />
-        <PrintDialog
-          type="jard"
-          :extra="`search=${filterData.search}`"
-          lang="ar"
-        />
       </div>
     </div>
 

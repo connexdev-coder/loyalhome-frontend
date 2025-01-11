@@ -13,11 +13,6 @@
           :extra="`from=${filterData.from}&to=${filterData.to}`"
           lang="ku"
         />
-        <PrintDialog
-          type="wasted"
-          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar`"
-          lang="ar"
-        />
 
         <ManageWastedProduct
           title="add_wasted_product"

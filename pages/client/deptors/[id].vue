@@ -8,7 +8,6 @@
 
       <div class="flex flex-row items-center gap-1">
         <PrintDialog type="client_depts" :extra="`id=${params.id}`" lang="ku" />
-        <PrintDialog type="client_depts" :extra="`id=${params.id}`" lang="ar" />
         <NuxtLink
           v-if="client"
           :to="`/client/payments?client=${client.client_id}`"

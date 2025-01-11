@@ -13,7 +13,6 @@
 
       <div class="flex flex-wrap md:flex-row justify-end items-center gap-2">
         <PrintDialog type="mdf" :extra="`id=${query_id}`" lang="ku" />
-        <PrintDialog type="mdf" :extra="`id=${query_id}`" lang="ar" />
 
         <button @click="manageInvoice">
           <div class="bg-update text-white button_shape">

@@ -13,11 +13,6 @@
           :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar&spend_to=${filterData.spend_to}&spending_type=${filterData.spending_type}&search=${filterData.search}`"
           lang="ku"
         />
-        <PrintDialog
-          type="spending"
-          :extra="`from=${filterData.from}&to=${filterData.to}&lang=ar&spend_to=${filterData.spend_to}&spending_type=${filterData.spending_type}&search=${filterData.search}`"
-          lang="ar"
-        />
 
         <ManageSpending
           v-for="factory in factoryData"

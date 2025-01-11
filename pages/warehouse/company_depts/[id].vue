@@ -12,11 +12,6 @@
           :extra="`id=${params.id}`"
           lang="ku"
         />
-        <PrintDialog
-          type="company_depts"
-          :extra="`id=${params.id}`"
-          lang="ar"
-        />
 
         <NuxtLink
           v-if="company"
