@@ -132,6 +132,11 @@ const inputs = [
     icon: "hugeicons:call",
   },
   {
+    valueField: "location",
+    type: "text",
+    icon: "hugeicons:flow-connection",
+  },
+  {
     valueField: "relative_name",
     type: "text",
     icon: "hugeicons:flow-connection",

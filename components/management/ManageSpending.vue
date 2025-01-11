@@ -188,6 +188,16 @@ const dialogContentVisible = ref(false);
 
 const inputs = [
   {
+    valueField: "invoiceNumber",
+    type: "text",
+    icon: INVOICE_ICON,
+  },
+  {
+    valueField: "invoiceOwner",
+    type: "text",
+    icon: CLIENT_ICON,
+  },
+  {
     valueField: "amount",
     type: "number",
     icon: PRICE_ICON,

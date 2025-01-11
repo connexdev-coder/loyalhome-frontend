@@ -1,6 +1,13 @@
 {
   "app_name": "Loyal Home",
 
+  "location": "Location",
+  "clientChecks": "Client Checks",
+  "totalCash": "Total Cash",
+
+  "invoiceNumber": "Invoice Number",
+  "invoiceOwner": "Invoice Owner",
+
   "total_price": "Total Price",
   "total_meter": "Total Meter",
   "ballon_meter": "Ballon Meter Sold",

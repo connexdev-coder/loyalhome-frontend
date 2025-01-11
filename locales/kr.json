@@ -1,6 +1,17 @@
 {
   "app_name": "لۆیاڵ هۆم",
 
+  "location": "ناونیشان",
+  "clientChecks": "کەشف حساب",
+  "totalCash": "کۆی نەقد",
+
+  "invoiceNumber": "ژمارەی وەسڵ",
+  "invoiceOwner": "خاوەنی وەسڵ",
+
+  "total_price": "کۆی گشتی",
+  "total_meter": "کۆی مەتر",
+  "ballon_meter": "فرۆشتنی باڵۆن",
+
   "logins": "چوونەژوورەوەکان",
   "activities": "چالاکییەکان",
   "manager_name": "ناوی بەڕێوەبەر",

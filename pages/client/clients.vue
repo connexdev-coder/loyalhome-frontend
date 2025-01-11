@@ -106,6 +106,7 @@ const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },
   { key: "client_phone", label: t("phone"), sortable: true },
+  { key: "location", label: t("location"), sortable: true },
   { key: "contract_number", label: t("contract_number"), sortable: true },
   { key: "relative", label: t("relative"), sortable: true },
   { key: "actions", label: t("actions") },

@@ -1,6 +1,10 @@
 {
   "app_name": "لويال هوم",
 
+  "location": "Location",
+  "clientChecks": "Client Checks",
+  "totalCash": "Total Cash",
+
   "logins": "تسجيلات الدخول",
   "activities": "الأنشطة",
   "manager_name": "اسم المدير",

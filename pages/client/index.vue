@@ -53,6 +53,14 @@ let navigations = [
     textColor: "#ffffff",
   },
   {
+    name: "clientChecks",
+    route: "/client/clientChecks",
+    icon: FINISHED_ICON,
+    role: "",
+    background: "var(--color-dollar)",
+    textColor: "#ffffff",
+  },
+  {
     name: "payment_history",
     route: "/client/payments",
     icon: HISTORY_ICON,

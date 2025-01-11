@@ -3,7 +3,7 @@
     <DialogTrigger class="">
       <div class="bg-blue-500 text-white button_shape">
         <Icon :name="PRINT_ICON" class="text-xl" />
-        <span> {{ $t(props.lang) }}</span>
+        <span> {{ $t("print") }}</span>
       </div>
     </DialogTrigger>
     <DialogContent class="max-w-[90vw] md:max-w-[70vw] h-screen flex flex-col">
@@ -28,7 +28,6 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 const props = defineProps<{
   type: string;
   extra: string;
-  lang: string;
 }>();
 
 const dialogContentVisible = ref(false);
@@ -43,7 +42,7 @@ watch(
   async (newVal) => {
     if (newVal) {
       const response = await fetch(
-        `${runtimeConfig.public.api_url}print?type=${props.type}&lang=${props.lang}&${props.extra}`,
+        `${runtimeConfig.public.api_url}print?type=${props.type}&${props.extra}`,
         {
           headers: {
             Authorization: `Bearer ${token.value}`,

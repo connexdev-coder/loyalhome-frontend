@@ -185,11 +185,12 @@ const filters = [
 
 // Define columns
 const columns = [
-  { key: "spending_id", label: "ID", sortable: true },
   { key: "spend_to", label: t("spend_to"), sortable: true },
   { key: "spend_by", label: t("spend_by"), sortable: true },
   { key: "spending_type", label: t("spending_type"), sortable: true },
   { key: "currency_type", label: t("paid_money_type"), sortable: true },
+  { key: "invoiceNumber", label: t("invoiceNumber"), sortable: true },
+  { key: "invoiceOwner", label: t("invoiceOwner"), sortable: true },
   { key: "factory_name", label: t("factory_name"), sortable: true },
   {
     key: "dollar_amount",
@@ -201,14 +202,8 @@ const columns = [
     label: `${t("amount")} (${t("dinar")})`,
     sortable: true,
   },
-  {
-    key: "dinar_price",
-    label: "$ > IQD",
-    sortable: true,
-  },
   { key: "note", label: t("note"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },
-  { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

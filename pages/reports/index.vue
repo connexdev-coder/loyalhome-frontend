@@ -81,7 +81,7 @@
               <Icon :name="BALLON_ICON" class="text-lg" />
               <h1 class="line-clamp-1 text-lg">{{ $t(span) }}</h1>
             </div>
-            <span class="text-2xl">
+            <span v-if="span != 'ballon_meter'" class="text-2xl">
               {{
                 span == "ballon_owing"
                   ? Number(data[0][span]) -
@@ -89,8 +89,12 @@
                   : span == "ballon_cash"
                   ? Number(data[0].ballon_cash) + Number(data[0].ballon_owing)
                   : data[0][span]
-              }}$
+              }}
             </span>
+            <span v-else class="text-2xl">
+              {{ data[0][span] }}
+              <Icon :name="METER_ICON" class="text-lg text-white"
+            /></span>
           </div>
         </div>
 

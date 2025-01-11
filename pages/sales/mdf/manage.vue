@@ -58,6 +58,16 @@
       />
 
       <Input
+        v-if="status == 'success' && data.length > 0"
+        :value="data[0]"
+        :disabled="true"
+        value-field="created_at"
+        type="text"
+        :icon="DATE_ICON"
+        label="created_at"
+        placeholder="created_at"
+      />
+      <Input
         v-if="!query_id"
         :value="manageData"
         :disabled="query_id ? true : false"
