@@ -164,33 +164,22 @@ const filters = [
 // Define columns
 const columns = [
   { key: "ballon_sale_id", label: t("invoice_number"), sortable: true },
+  { key: "client_name", label: t("client_name"), sortable: true },
+  { key: "person_name", label: t("person_name"), sortable: true },
   { key: "transaction_type", label: t("transaction_type"), sortable: true },
-  { key: "sale_status", label: t("sale_status"), sortable: true },
 
   {
-    key: "total_sell_price",
-    label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
-    sortable: true,
-  },
-  {
-    key: "total_sell_price_discount",
-    label: `${t("total_sell_price_discount")} (${MAIN_CURRENCY})`,
-    sortable: true,
-  },
-  {
     key: "total_price",
-    label: `${t("total_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_price")}`,
     sortable: true,
   },
   {
     key: "total_meter",
-    label: `${t("total_meter")} (${MAIN_CURRENCY})`,
+    label: `${t("total_meter")}`,
     sortable: true,
   },
-  { key: "client_name", label: t("client_name"), sortable: true },
-  { key: "person_name", label: t("person_name"), sortable: true },
+
   { key: "created_at", label: t("created_at"), sortable: true },
-  { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

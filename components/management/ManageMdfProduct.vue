@@ -44,15 +44,26 @@
             :disabled="selectedProduct ? true : false"
           />
 
-          <Input
-            v-for="input in inputs"
-            :label="input.valueField"
-            :value="props.manageData"
-            :value-field="input.valueField"
-            :type="input.type"
-            :icon="input.icon"
-            :placeholder="input.valueField"
-          />
+          <div v-if="selectedProduct" class="grid grid-cols-2 gap-2">
+            <Input
+              v-for="input in inputs"
+              :label="
+                input.valueField == 'quantity'
+                  ? selectedProduct.unit_name
+                  : input.valueField
+              "
+              :value="props.manageData"
+              :value-field="input.valueField"
+              :type="input.type"
+              :icon="input.icon"
+              :placeholder="input.valueField"
+              :max-value="
+                input.valueField == 'quantity' && selectedProduct
+                  ? selectedProduct.inventory_quantity
+                  : undefined
+              "
+            />
+          </div>
         </form>
       </div>
 

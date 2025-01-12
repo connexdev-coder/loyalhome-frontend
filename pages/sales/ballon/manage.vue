@@ -356,12 +356,12 @@ const columns = [
   { key: "quantity", label: t("quantity"), sortable: true },
   {
     key: "sell_price",
-    label: `${t("sell_price")} (${MAIN_CURRENCY})`,
+    label: `${t("sell_price")}`,
     sortable: true,
   },
   {
     key: "total_sell_price",
-    label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_sell_price")}`,
     sortable: true,
   },
   { key: "note", label: t("note"), sortable: true },

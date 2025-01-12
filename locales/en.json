@@ -154,7 +154,7 @@
 
   "profile": "Profile",
   "add_client": "Add Client",
-  "firstname": "Firstname",
+  "firstname": "Name",
   "lastname": "Lastname",
   "contract_number": "Contract Number",
   "phone": "Phone",

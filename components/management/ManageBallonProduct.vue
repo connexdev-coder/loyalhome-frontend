@@ -54,10 +54,14 @@
             >
           </div>
 
-          <div class="grid grid-cols-2 gap-2">
+          <div v-if="selectedProduct" class="grid grid-cols-2 gap-2">
             <Input
               v-for="input in inputs"
-              :label="input.valueField"
+              :label="
+                input.valueField == 'quantity'
+                  ? selectedProduct.unit_name
+                  : input.valueField
+              "
               :value="props.manageData"
               :value-field="input.valueField"
               :type="input.type"

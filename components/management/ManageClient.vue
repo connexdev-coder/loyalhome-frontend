@@ -58,11 +58,11 @@ const props = defineProps<{
 function validateFields() {
   const missingFields = [
     "firstname",
-    "lastname",
+    // "lastname",
     "phone",
-    "extra_phone",
-    "relative_name",
-    "relative_phone",
+    // "extra_phone",
+    // "relative_name",
+    // "relative_phone",
   ].filter((field) => !props.manageData[field]?.length);
 
   return missingFields;
@@ -116,11 +116,11 @@ const inputs = [
     type: "text",
     icon: "hugeicons:user",
   },
-  {
-    valueField: "lastname",
-    type: "text",
-    icon: "hugeicons:user",
-  },
+  // {
+  //   valueField: "lastname",
+  //   type: "text",
+  //   icon: "hugeicons:user",
+  // },
   {
     valueField: "phone",
     type: "text",
