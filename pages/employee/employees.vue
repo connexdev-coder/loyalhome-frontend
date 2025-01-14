@@ -96,8 +96,10 @@ const manageData = ref({
   name: "",
   phone: "",
   position: "",
-  salary_type: "",
   salary: "",
+  salary_type: "",
+  factory_type: "",
+  currency_type: "",
 });
 
 // Define columns
@@ -107,11 +109,13 @@ const columns = [
   { key: "phone", label: t("phone"), sortable: true },
   {
     key: "position",
-    label: `${t("position")} (${MAIN_CURRENCY})`,
+    label: t("position"),
     sortable: true,
   },
-  { key: "salary", label: `${t("salary")} (${MAIN_CURRENCY})`, sortable: true },
+  { key: "salary", label: t("salary"), sortable: true },
   { key: "salary_type", label: t("salary_type"), sortable: true },
+  { key: "currency_type", label: t("currency_type"), sortable: true },
+  { key: "factory_type", label: t("factory"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

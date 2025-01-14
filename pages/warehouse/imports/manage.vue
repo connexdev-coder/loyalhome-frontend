@@ -324,12 +324,12 @@ const columns = [
   { key: "quantity", label: t("quantity"), sortable: true },
   {
     key: "get_price",
-    label: `${t("get_price")} (${MAIN_CURRENCY})`,
+    label: `${t("get_price")} `,
     sortable: true,
   },
   {
     key: "total_get_price",
-    label: `${t("total_get_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_get_price")} `,
     sortable: true,
   },
   { key: "unit", label: t("unit"), sortable: true },

@@ -169,12 +169,12 @@ const columns = [
 
   {
     key: "total_sell_price",
-    label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_sell_price")} `,
     sortable: true,
   },
   {
     key: "total_sell_price_discount",
-    label: `${t("total_sell_price_discount")} (${MAIN_CURRENCY})`,
+    label: `${t("total_sell_price_discount")} `,
     sortable: true,
   },
   { key: "client_name", label: t("client_name"), sortable: true },

@@ -81,32 +81,53 @@ const filterData = ref({
 const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },
-  { key: "phone", label: t("phone"), sortable: true },
   {
-    key: "total_cash",
-    label: `${t("totalCash")} (${MAIN_CURRENCY})`,
+    key: "mdf_cash_total",
+    label: t("mdf_cash"),
     sortable: true,
   },
   {
-    key: "total_owing",
-    label: `${t("total_owing")} (${MAIN_CURRENCY})`,
+    key: "mdf_owing_total",
+    label: t("mdf_owing"),
     sortable: true,
   },
   {
-    key: "total_paid",
-    label: `${t("total_paid")} (${MAIN_CURRENCY})`,
+    key: "mdf_total_remaining",
+    label: t("mdf_remaining"),
     sortable: true,
   },
   {
-    key: "total_remaining",
-    label: `${t("total_remaining")} (${MAIN_CURRENCY})`,
+    key: "ballon_cash_total",
+    label: t("ballon_cash"),
+    sortable: true,
+  },
+  {
+    key: "ballon_owing_total",
+    label: t("ballon_owing"),
+    sortable: true,
+  },
+  {
+    key: "ballon_total_remaining",
+    label: t("ballon_remaining"),
     sortable: true,
   },
   {
     key: "total_meter",
-    label: `${t("total_meter")} (${MAIN_CURRENCY})`,
+    label: t("total_meter"),
     sortable: true,
   },
+  {
+    key: "total_paid",
+    label: t("total_paid"),
+    sortable: true,
+  },
+
+  {
+    key: "total_remaining",
+    label: t("total_owing"),
+    sortable: true,
+  },
+
   { key: "actions", label: t("actions") },
 ];
 

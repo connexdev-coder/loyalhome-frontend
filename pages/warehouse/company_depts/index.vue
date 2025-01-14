@@ -70,7 +70,7 @@ const columns = [
   { key: "company_name", label: t("name"), sortable: true },
   {
     key: "total_remaining",
-    label: `${t("total_owing")} (${MAIN_CURRENCY})`,
+    label: `${t("total_owing")} `,
     sortable: true,
   },
   { key: "actions", label: t("actions") },

@@ -9,7 +9,7 @@
   "invoiceOwner": "خاوەنی وەسڵ",
 
   "total_price": "کۆی گشتی",
-  "total_meter": "کۆی مەتر",
+  "total_meter": "کۆی مەتر - باڵۆن",
   "ballon_meter": "فرۆشتنی باڵۆن",
 
   "logins": "چوونەژوورەوەکان",
@@ -37,11 +37,13 @@
   "import_cash": "خەرجی هاوردە",
   "import_owing": "قەرزی هاوردە",
 
-  "ballon_cash": "فرۆشتنی باڵۆن",
-  "ballon_owing": "قەرزی باڵۆن",
+  "ballon_cash": "فرۆشی نەقد - باڵۆن",
+  "ballon_owing": "فرۆشی قەرز - باڵۆن",
+  "ballon_remaining": "قەرزی ماوە - باڵۆن",
 
-  "mdf_cash": "فرۆشتنی mdf",
-  "mdf_owing": "قەرزی mdf",
+  "mdf_cash": "فرۆشی نەقد - mdf",
+  "mdf_owing": "فرۆشی قەرز - mdf",
+  "mdf_remaining": "قەرزی ماوە - mdf",
 
   "factory_requested": "داواکراوی کارگە",
 
@@ -60,6 +62,7 @@
   "order_invoices": "پسووڵەی داواکراوەکان",
   "company_payments": "پارەدانی کۆمپانیا",
   "add_off": "داشکاندنی نوێ",
+  "monthly": "مانگانە",
   "weekly": "هەفتانە",
   "daily": "ڕۆژانە",
   "bnchina": "بنچینە",
@@ -222,7 +225,7 @@
   "dept_invoices": "پسووڵەی قەرزەکان",
   "payment_history": "مێژووی پارەدان",
   "pay": "پارەدان",
-  "repay": "گەڕاندنەوەی پارە",
+  "repay": "واسڵکردنی پارە",
 
   "add_import": "پسووڵەی هاوردەی نوێ",
   "pending": "چاوەڕوان",
@@ -237,7 +240,7 @@
   "total_get_price": "کۆی نرخی کڕین",
   "total_sell_price": "کۆی نرخی فرۆشتن",
   "total_sell_price_discount": "کۆی نرخی فرۆشتن/داشکاندن",
-  "extra_price": "نرخی زیادە",
+  "extra_price": "نرخی کار",
   "company_name": "ناوی کۆمپانیا",
   "created_at": "دروستکراوە لە",
   "updated_at": "نوێکراوەتەوە لە",

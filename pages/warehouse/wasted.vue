@@ -170,7 +170,7 @@ const columns = [
   },
   {
     key: "get_price",
-    label: `${t("get_price")} (${MAIN_CURRENCY})`,
+    label: `${t("get_price")} `,
     sortable: true,
   },
 

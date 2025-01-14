@@ -310,27 +310,27 @@ const columns = [
   { key: "item_name", label: t("item_name"), sortable: true },
   {
     key: "extra_price",
-    label: `${t("extra_price")} (${MAIN_CURRENCY})`,
+    label: `${t("extra_price")} `,
     sortable: true,
   },
   {
     key: "total_product_price",
-    label: `${t("total_product_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_product_price")} `,
     sortable: true,
   },
   {
     key: "total_sell_price",
-    label: `${t("total_sell_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_sell_price")} `,
     sortable: true,
   },
   {
     key: "total_sell_price_discount",
-    label: `${t("total_sell_price_discount")} (${MAIN_CURRENCY})`,
+    label: `${t("total_sell_price_discount")} `,
     sortable: true,
   },
   {
     key: "discount",
-    label: `${t("discount")} (${MAIN_CURRENCY})`,
+    label: `${t("discount")} `,
     sortable: true,
   },
   { key: "quantity", label: t("quantity"), sortable: true },

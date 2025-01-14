@@ -9,7 +9,7 @@
   "invoiceOwner": "Invoice Owner",
 
   "total_price": "Total Price",
-  "total_meter": "Total Meter",
+  "total_meter": "Total Meter - Ballon",
   "ballon_meter": "Ballon Meter Sold",
 
   "logins": "Logins",
@@ -60,6 +60,7 @@
   "order_invoices": "Ordered Inovices",
   "company_payments": "Company Payments",
   "add_off": "New Off",
+  "monthly": "Monthly",
   "weekly": "Weekly",
   "daily": "Daily",
   "bnchina": "Bnchina",
@@ -237,7 +238,7 @@
   "total_get_price": "Total Get Price",
   "total_sell_price": "Total Sell Price",
   "total_sell_price_discount": "Total Sell Price/Discount",
-  "extra_price": "Extra Price",
+  "extra_price": "Price",
   "company_name": "Company Name",
   "created_at": "Created At",
   "updated_at": "Updated At",

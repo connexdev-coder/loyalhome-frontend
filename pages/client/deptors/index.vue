@@ -87,8 +87,18 @@ const columns = [
   { key: "client_name", label: t("name"), sortable: true },
   { key: "phone", label: t("phone"), sortable: true },
   {
+    key: "ballon_total_remaining",
+    label: t("ballon_owing"),
+    sortable: true,
+  },
+  {
+    key: "mdf_total_remaining",
+    label: t("mdf_owing"),
+    sortable: true,
+  },
+  {
     key: "total_remaining",
-    label: `${t("total_owing")} (${MAIN_CURRENCY})`,
+    label: t("total_owing"),
     sortable: true,
   },
   { key: "actions", label: t("actions") },

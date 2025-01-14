@@ -176,12 +176,12 @@ const columns = [
   { key: "transaction_type", label: t("transaction_type"), sortable: true },
   {
     key: "total_get_price",
-    label: `${t("total_get_price")} (${MAIN_CURRENCY})`,
+    label: `${t("total_get_price")} `,
     sortable: true,
   },
   {
     key: "extra_price",
-    label: `${t("extra_price")} (${MAIN_CURRENCY})`,
+    label: `${t("extra_price")} `,
     sortable: true,
   },
 

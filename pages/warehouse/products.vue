@@ -121,12 +121,12 @@ const columns = [
   { key: "tag", label: t("tag"), sortable: true },
   {
     key: "get_price",
-    label: `${t("get_price")} (${MAIN_CURRENCY})`,
+    label: `${t("get_price")} `,
     sortable: true,
   },
   {
     key: "sell_price",
-    label: `${t("sell_price")} (${MAIN_CURRENCY})`,
+    label: `${t("sell_price")} `,
     sortable: true,
   },
   { key: "unit_name", label: t("unit_name"), sortable: true },

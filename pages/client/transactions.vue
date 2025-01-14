@@ -171,12 +171,12 @@ const columns = [
   { key: "currency_type", label: t("paid_money_type"), sortable: true },
   {
     key: "dollar_amount",
-    label: `${t("amount")} (${t("dollar")})`,
+    label: t("amount"),
     sortable: true,
   },
   {
     key: "dinar_amount",
-    label: `${t("amount")} (${t("dinar")})`,
+    label: t("amount"),
     sortable: true,
   },
   {

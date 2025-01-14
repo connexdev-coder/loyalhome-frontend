@@ -106,7 +106,9 @@
                 ? 'bg-yellow-100'
                 : column.key == 'dinar_price'
                 ? 'bg-slate-200'
-                : column.key == 'total_remaining'
+                : column.key == 'total_remaining' ||
+                  column.key == 'mdf_total_remaining' ||
+                  column.key == 'ballon_total_remaining'
                 ? 'bg-red-100'
                 : column.key == 'total_paid'
                 ? 'bg-green-100'
@@ -172,12 +174,31 @@ function formatData(data: any, key: string) {
     "dinar_amount",
     "dinar_price",
     "salary",
+    "mdf_total_remaining",
+    "ballon_total_remaining",
   ];
+  const meterKeys = ["total_meter"];
   return translationKeys.includes(key)
     ? t(data)
     : priceKeys.includes(key)
-    ? Number(data).toLocaleString()
+    ? Number(data).toLocaleString() + (key == "dinar_price" ? "IQD" : "$")
+    : meterKeys.includes(key)
+    ? Number(data).toLocaleString() + "m²"
     : data;
+}
+
+function ballonCheck(key: string) {
+  const ballonKeys = [
+    "ballon_cash_total",
+    "ballon_owing_total",
+    "ballon_total_remaining",
+  ];
+  return ballonKeys.includes(key);
+}
+
+function mdfCheck(key: string) {
+  const mdfKeys = ["mdf_cash_total", "mdf_owing_total", "mdf_total_remaining"];
+  return mdfKeys.includes(key);
 }
 
 // Define column type

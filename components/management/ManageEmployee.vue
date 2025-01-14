@@ -11,7 +11,7 @@
         <DialogDescription> </DialogDescription>
       </DialogHeader>
 
-      <div class="h-[300px] overflow-y-scroll">
+      <div class="h-[80%] overflow-y-scroll">
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
@@ -29,12 +29,30 @@
           />
 
           <OfflineSelect
+            label="currency_type"
+            placeholder="currency_type"
+            :icon="TRANSACTION_ICON"
+            :options="['dollar', 'dinar']"
+            :selected-value="manageData"
+            field="currency_type"
+          />
+
+          <OfflineSelect
             label="salary_type"
             placeholder="salary_type"
             :icon="TRANSACTION_ICON"
-            :options="['weekly', 'daily']"
+            :options="['weekly', 'daily', 'monthly']"
             :selected-value="manageData"
             field="salary_type"
+          />
+
+          <OfflineSelect
+            label="factory"
+            placeholder="factory"
+            :icon="TRANSACTION_ICON"
+            :options="['mdf', 'ballon']"
+            :selected-value="manageData"
+            field="factory_type"
           />
         </form>
       </div>
