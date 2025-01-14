@@ -7,63 +7,75 @@
       <span class="text-ten">({{ $t("this_month") }})</span>
     </div>
 
+    <!-- Sales And Imports -->
     <div
-      v-if="data && status == 'success'"
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2"
+      v-if="data"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
     >
-      <div
-        v-for="span in ['ballon_owing']"
-        class="bg-ballon text-white p-3 rounded-sm aspect-video"
-      >
+      <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
         <div class="flex flex-row items-center gap-1">
           <Icon :name="BALLON_ICON" class="text-lg" />
-          <h1 class="line-clamp-1 text-lg">{{ $t(span) }}</h1>
+          <h1 class="line-clamp-1 text-lg">{{ $t("ballon_sale") }}</h1>
         </div>
         <span class="text-2xl">
           {{
-            span == "ballon_owing"
-              ? Number(data[0][span]) - Number(data[0].ballon_client_payment)
-              : span == "ballon_cash"
-              ? Number(data[0].ballon_cash) + Number(data[0].ballon_owing)
-              : data[0][span]
+            (
+              Number(data[0]["ballon_owing"]) + Number(data[0]["ballon_cash"])
+            ).toLocaleString()
           }}$
         </span>
       </div>
+      <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
+        <div class="flex flex-row items-center gap-1">
+          <Icon :name="BALLON_ICON" class="text-lg" />
+          <h1 class="line-clamp-1 text-lg">{{ $t("ballon_remaining") }}</h1>
+        </div>
+        <span class="text-2xl">
+          {{
+            (
+              Number(data[0]["ballon_owing"]) +
+              Number(data[0]["ballon_cash"]) -
+              Number(data[0].ballon_client_payment)
+            ).toLocaleString()
+          }}$
+        </span>
+      </div>
+      <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
+        <div class="flex flex-row items-center gap-1">
+          <Icon :name="METER_ICON" class="text-lg" />
+          <h1 class="line-clamp-1 text-lg">{{ $t("total_meter") }}</h1>
+        </div>
+        <span class="text-2xl">
+          {{ Number(data[0]["ballon_meter"]) }}
+        </span>
+      </div>
 
-      <div
-        v-for="span in ['mdf_owing']"
-        class="bg-mdf text-white p-3 rounded-sm aspect-video"
-      >
+      <div class="bg-mdf text-white p-3 rounded-sm aspect-video">
         <div class="flex flex-row items-center gap-1">
           <Icon :name="MDF_ICON" class="text-lg" />
-          <h1 class="line-clamp-1 text-lg">{{ $t(span) }}</h1>
+          <h1 class="line-clamp-1 text-lg">{{ $t("mdf_sale") }}</h1>
         </div>
         <span class="text-2xl">
           {{
-            span == "mdf_owing"
-              ? Number(data[0][span]) - Number(data[0].mdf_client_payment)
-              : span == "mdf_cash"
-              ? Number(data[0].mdf_cash) + Number(data[0].mdf_owing)
-              : data[0][span]
+            (
+              Number(data[0]["mdf_owing"]) + Number(data[0]["mdf_cash"])
+            ).toLocaleString()
           }}$
         </span>
       </div>
 
-      <div
-        v-for="span in ['import_owing']"
-        class="bg-inventory text-white p-3 rounded-sm aspect-video"
-      >
+      <div class="bg-mdf text-white p-3 rounded-sm aspect-video">
         <div class="flex flex-row items-center gap-1">
-          <Icon :name="IMPORT_ICON" class="text-lg" />
-          <h1 class="line-clamp-1 text-lg">{{ $t(span) }}</h1>
+          <Icon :name="MDF_ICON" class="text-lg" />
+          <h1 class="line-clamp-1 text-lg">{{ $t("mdf_remaining") }}</h1>
         </div>
         <span class="text-2xl">
           {{
-            span == "import_owing"
-              ? Number(data[0][span]) - Number(data[0].company_payment)
-              : span == "import_cash"
-              ? Number(data[0].import_cash) + Number(data[0].import_owing)
-              : data[0][span]
+            (
+              Number(data[0]["mdf_owing"]) +
+              Number(data[0]["mdf_cash"]) -
+              Number(data[0].mdf_client_payment)
+            ).toLocaleString()
           }}$
         </span>
       </div>

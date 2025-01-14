@@ -6,8 +6,6 @@
       <h1 class="text-xl">{{ $t("box") }}</h1>
     </div>
 
-    {{ data }}
-
     <!-- ALL -->
     <div class="flex flex-col items-start">
       <h1 class="text-2xl text-ten font-bold">
