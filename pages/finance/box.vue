@@ -6,6 +6,8 @@
       <h1 class="text-xl">{{ $t("box") }}</h1>
     </div>
 
+    {{ data }}
+
     <!-- ALL -->
     <div class="flex flex-col items-start">
       <h1 class="text-2xl text-ten font-bold">
@@ -27,17 +29,16 @@
                 Number(data[0].ballon_box_deposit) -
                 //Minus
                 //Withdraw
-                Number(data[0].ballon_box_withdraw) +
-                Number(data[0].mdf_box_withdraw) +
+                Number(data[0].ballon_box_withdraw) -
+                Number(data[0].mdf_box_withdraw) -
                 //Sale Owing
-                Number(data[0].ballon_owing) +
-                Number(data[0].mdf_owing) +
+                // Number(data[0].ballon_owing) -
+                // Number(data[0].mdf_owing) -
                 //spending
-                Number(data[0].employee_salary_payment) +
-                Number(data[0].wasted_product) +
-                Number(data[0].company_payment) +
-                Number(data[0].import_cash) +
-                Number(data[0].kar_spending) +
+                Number(data[0].employee_salary_payment) -
+                Number(data[0].company_payment) -
+                Number(data[0].import_cash) -
+                Number(data[0].kar_spending) -
                 Number(data[0].bnchina_spending)
             ).toLocaleString()
           }}$

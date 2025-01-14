@@ -176,12 +176,15 @@ function formatData(data: any, key: string) {
     "salary",
     "mdf_total_remaining",
     "ballon_total_remaining",
+    "dollar_amount",
+    "dinar_amount",
   ];
   const meterKeys = ["total_meter"];
   return translationKeys.includes(key)
     ? t(data)
     : priceKeys.includes(key)
-    ? Number(data).toLocaleString() + (key == "dinar_price" ? "IQD" : "$")
+    ? Number(data).toLocaleString() +
+      (key == "dinar_price" || key == "dinar_amount" ? "IQD" : "$")
     : meterKeys.includes(key)
     ? Number(data).toLocaleString() + "m²"
     : data;
