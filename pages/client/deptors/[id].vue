@@ -36,8 +36,8 @@
 
     <!-- Data -->
     <Table
-      v-if="status == 'success'"
-      :columns="columns"
+      v-if="status == 'success' && data && data.length > 0"
+      :columns="data[0].clientperson == '' ? mdfColumns : columns"
       :rows="data"
       :currentPage="currentPage"
       :totalPages="totalPages"
@@ -105,6 +105,16 @@ const { t } = useI18n();
 // Define columns
 const columns = [
   { key: "clientperson", label: t("person_name"), sortable: true },
+  { key: "sale_id", label: t("invoice_number"), sortable: true },
+  // { key: "sale_type", label: t("factory"), sortable: true },
+  // { key: "total_owing", label: t("total_owing"), sortable: true },
+  // { key: "total_paid", label: t("total_paid"), sortable: true },
+  { key: "total_remaining", label: t("total_owing"), sortable: true },
+  { key: "sale_status", label: t("sale_status"), sortable: true },
+  { key: "note", label: t("note"), sortable: true },
+  { key: "actions", label: t("actions") },
+];
+const mdfColumns = [
   { key: "sale_id", label: t("invoice_number"), sortable: true },
   // { key: "sale_type", label: t("factory"), sortable: true },
   // { key: "total_owing", label: t("total_owing"), sortable: true },
