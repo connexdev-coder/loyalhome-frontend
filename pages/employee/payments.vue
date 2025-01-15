@@ -180,6 +180,7 @@ const columns = [
     label: "$ > IQD",
     sortable: true,
   },
+  { key: "created_at", label: t("created_at"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
 ];

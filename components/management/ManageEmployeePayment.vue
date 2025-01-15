@@ -43,6 +43,25 @@
             :disabled="selectedEmployee ? true : false"
           />
 
+          <div
+            v-if="selectedEmployee && props.type == 'add'"
+            class="flex flex-col items-start gap-1"
+            style="direction: rtl"
+          >
+            <span>
+              {{ $t("employee_name") }}:
+              {{ selectedEmployee.employee_name }}
+            </span>
+            <span>
+              {{ $t("position") }}:
+              {{ selectedEmployee.position }}
+            </span>
+            <span>
+              {{ $t("salary_type") }}:
+              {{ $t(selectedEmployee.salary_type) }}
+            </span>
+          </div>
+
           <!-- Set dolar price -->
           <div v-if="selectedEmployee" class="flex flex-row items-center gap-2">
             <div class="flex-1">
@@ -201,6 +220,11 @@ const inputs = [
     type: "text",
     icon: NOTE_ICON,
   },
+  {
+    valueField: "created_at",
+    type: "date",
+    icon: DATE_ICON,
+  },
 ];
 
 function checkAndSetDefaults() {
@@ -224,9 +248,7 @@ watch(
     if (newVal) {
       checkAndSetDefaults();
     } else {
-      props.manageData.dollar_to_dinar_id = null;
       selectedDollarPrice.value = null;
-      props.manageData.employee_id = null;
       selectedEmployee.value = null;
     }
   }
