@@ -71,7 +71,7 @@
     </div>
 
     <div v-if="data" class="text-xl">
-      <span>{{ $t("total_paid") }}: {{ Number(total).toLocaleString() }}</span>
+      <span>{{ $t("total_paid") }}: {{ Number(total).toLocaleString() }}$</span>
     </div>
 
     <!-- Data -->
