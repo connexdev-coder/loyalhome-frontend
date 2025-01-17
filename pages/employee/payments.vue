@@ -8,6 +8,7 @@
       </div>
 
       <div class="flex flex-row items-center gap-2" v-if="data">
+        <PrintDialog type="employee_payments" extra="" />
         <ManageEmployeePayment
           title="payment"
           :manage-data="{
@@ -18,7 +19,7 @@
           @refresh="fetchCurrentPage"
         >
           <div
-            class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-0"
+            class="bg-employee text-white px-2 py-1 rounded-sm flex items-center gap-0"
           >
             <Icon :name="DOLLAR_ICON" class="text-xl" />
             <span> {{ $t("pay") }}</span>
@@ -69,6 +70,10 @@
       />
     </div>
 
+    <div v-if="data" class="text-xl">
+      <span>{{ $t("total_paid") }}: {{ Number(total).toLocaleString() }}</span>
+    </div>
+
     <!-- Data -->
     <Table
       v-if="status == 'success'"
@@ -82,6 +87,10 @@
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
+          <PrintDialog
+            type="employee_payments"
+            :extra="`id=${row.employee_salary_payment_id}`"
+          />
           <ManageEmployeePayment
             title="payment"
             :manage-data="row"
@@ -180,6 +189,21 @@ const columns = [
     label: "$ > IQD",
     sortable: true,
   },
+  {
+    key: "working_date",
+    label: t("working_date"),
+    sortable: true,
+  },
+  {
+    key: "punish_amount",
+    label: t("punish_amount"),
+    sortable: true,
+  },
+  {
+    key: "tip_amount",
+    label: t("tip_amount"),
+    sortable: true,
+  },
   { key: "created_at", label: t("created_at"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
@@ -190,6 +214,7 @@ const currentPage = ref(1);
 const totalPages = ref(1);
 const data = ref<any>(null);
 const status = ref<any>(null);
+const total = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
@@ -199,6 +224,7 @@ async function fetchPage(page: number) {
   data.value = dataData.value.data;
   status.value = dataStatus.value;
   totalPages.value = dataData.value.total_pages;
+  total.value = dataData.value.total;
   currentPage.value = page;
 }
 

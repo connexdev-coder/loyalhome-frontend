@@ -174,6 +174,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.dollar_to_dinar_id) {
     selectedDollarPrice.value = {
       dollar_to_dinar_id: props.manageData.dollar_to_dinar_id,

@@ -1,6 +1,10 @@
 {
   "app_name": "لۆیاڵ هۆم",
 
+  "working_date": "ماوەی کارکردن",
+  "tip_amount": "بەخشش",
+  "punish_amount": "لێبڕین",
+
   "location": "ناونیشان",
   "clientChecks": "کەشف حساب",
   "totalCash": "کۆی نەقد",

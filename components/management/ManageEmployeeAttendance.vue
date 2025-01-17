@@ -152,6 +152,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.employee_id) {
     selectedEmployee.value = {
       employee_id: props.manageData.employee_id,

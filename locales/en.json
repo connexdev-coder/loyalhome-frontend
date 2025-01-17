@@ -1,6 +1,10 @@
 {
   "app_name": "Loyal Home",
 
+  "working_date": "Working Date",
+  "tip_amount": "Tip Amount",
+  "punish_amount": "Punish Amount",
+
   "location": "Location",
   "clientChecks": "Client Checks",
   "totalCash": "Total Cash",

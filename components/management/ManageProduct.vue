@@ -83,7 +83,7 @@ const selectedUnit = ref<any>(null);
 const selectedFactory = ref<any>(null);
 
 function validateFields() {
-  const missingFields = ["name", "tag", "get_price", "sell_price"].filter(
+  const missingFields = ["name", "get_price", "sell_price"].filter(
     (field) => !props.manageData[field]?.length
   );
 
@@ -151,6 +151,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.unit_id) {
     selectedUnit.value = {
       unit_id: props.manageData.unit_id,

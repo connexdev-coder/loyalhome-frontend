@@ -11,7 +11,7 @@
         <DialogDescription> </DialogDescription>
       </DialogHeader>
 
-      <div class="h-[300px] overflow-y-scroll">
+      <div class="h-[500px] overflow-y-scroll">
         <form
           ref="dataForm"
           @submit.prevent="onManageClient"
@@ -44,21 +44,21 @@
           />
 
           <div
-            v-if="selectedEmployee && props.type == 'add'"
+            v-if="selectedEmployee"
             class="flex flex-col items-start gap-1"
             style="direction: rtl"
           >
             <span>
               {{ $t("employee_name") }}:
-              {{ selectedEmployee.employee_name }}
+              {{ selectedEmployee?.employee_name || "" }}
             </span>
             <span>
               {{ $t("position") }}:
-              {{ selectedEmployee.position }}
+              {{ selectedEmployee?.position || "" }}
             </span>
             <span>
               {{ $t("salary_type") }}:
-              {{ $t(selectedEmployee.salary_type) }}
+              {{ $t(selectedEmployee?.salary_type || "") }}
             </span>
           </div>
 
@@ -107,10 +107,7 @@
             </div>
           </div>
 
-          <div
-            v-if="selectedDollarPrice"
-            class="grid grid-cols-1 md:grid-cols-2 gap-2"
-          >
+          <div v-if="selectedDollarPrice" class="grid grid-cols-2 gap-2">
             <OfflineSelect
               label="currency_type"
               placeholder="currency_type"
@@ -159,6 +156,8 @@ const props = defineProps<{
   manageData: any;
   id: any;
 }>();
+
+console.log(props.type);
 
 const selectedDollarPrice = ref<any>(null);
 
@@ -216,6 +215,21 @@ const inputs = [
     icon: DOLLAR_ICON,
   },
   {
+    valueField: "working_date",
+    type: "number",
+    icon: DOLLAR_ICON,
+  },
+  {
+    valueField: "tip_amount",
+    type: "number",
+    icon: DOLLAR_ICON,
+  },
+  {
+    valueField: "punish_amount",
+    type: "number",
+    icon: DOLLAR_ICON,
+  },
+  {
     valueField: "note",
     type: "text",
     icon: NOTE_ICON,
@@ -228,6 +242,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.dollar_to_dinar_id) {
     selectedDollarPrice.value = {
       dollar_to_dinar_id: props.manageData.dollar_to_dinar_id,

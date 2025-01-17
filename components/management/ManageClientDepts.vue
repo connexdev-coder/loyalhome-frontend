@@ -188,6 +188,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.client_id) {
     selectedClient.value = {
       client_id: props.manageData.client_id,

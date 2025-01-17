@@ -148,6 +148,7 @@ const inputs = [
 ];
 
 function checkAndSetDefaults() {
+  if (props.type == "add") return;
   if (props.manageData.product_id) {
     selectedProduct.value = {
       product_id: props.manageData.product_id,
