@@ -8,7 +8,12 @@
       </div>
 
       <div class="flex flex-row items-center gap-2" v-if="data">
-        <PrintDialog type="employee_payments" extra="" />
+        <PrintDialog
+          type="employee_payments"
+          :extra="`employee_id=${
+            selectedemployee == null ? '' : selectedemployee.employee_id
+          }`"
+        />
         <ManageEmployeePayment
           title="payment"
           :manage-data="{

@@ -77,10 +77,10 @@
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <!-- <PrintDialog
-            type="payment_check"
-            :extra="`id=${row.client_dept_payment_id}&client_id=${row.client_id}`"
-          /> -->
+          <PrintDialog
+            type="client_payments"
+            :extra="`payment_id=${row.client_dept_payment_id}`"
+          />
 
           <Delete
             type="client_depts"

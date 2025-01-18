@@ -102,7 +102,7 @@
           <h1 class="line-clamp-1 text-lg">{{ $t("total_meter") }}</h1>
         </div>
         <span class="text-2xl">
-          {{ Number(data[0]["ballon_meter"]) }}
+          {{ Number(data[0]["ballon_meter"]).toLocaleString() }}
         </span>
       </div>
 
@@ -147,9 +147,13 @@
         <span class="text-2xl">
           {{
             span == "import_owing"
-              ? Number(data[0][span]) - Number(data[0].company_payment)
+              ? (
+                  Number(data[0][span]) - Number(data[0].company_payment)
+                ).toLocaleString()
               : span == "import_cash"
-              ? Number(data[0].import_cash) + Number(data[0].import_owing)
+              ? (
+                  Number(data[0].import_cash) + Number(data[0].import_owing)
+                ).toLocaleString()
               : data[0][span]
           }}$
         </span>
@@ -174,7 +178,9 @@
           <div class="flex flex-row items-center gap-1">
             <h1 class="line-clamp-1 text-lg">{{ $t(span) }}</h1>
           </div>
-          <span class="text-2xl"> {{ data[0][span] }}$ </span>
+          <span class="text-2xl">
+            {{ Number(data[0][span]).toLocaleString() }}$
+          </span>
         </div>
       </div>
     </div>
