@@ -226,7 +226,7 @@
 
         <Input
           :value="manageData"
-          :disabled="true"
+          :disabled="false"
           value-field="extra_price"
           type="number"
           label="extra_price"

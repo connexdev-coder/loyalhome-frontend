@@ -110,6 +110,7 @@ const columns = [
   // { key: "total_owing", label: t("total_owing"), sortable: true },
   // { key: "total_paid", label: t("total_paid"), sortable: true },
   { key: "total_remaining", label: t("total_owing"), sortable: true },
+  { key: "total_meter", label: t("total_meter"), sortable: true },
   { key: "sale_status", label: t("sale_status"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
