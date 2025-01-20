@@ -68,6 +68,8 @@ const filterData = ref({
 const columns = [
   { key: "company_id", label: "ID", sortable: true },
   { key: "company_name", label: t("name"), sortable: true },
+  { key: "company_phone", label: t("phone"), sortable: true },
+  { key: "company_location", label: t("location"), sortable: true },
   {
     key: "total_remaining",
     label: `${t("total_owing")} `,

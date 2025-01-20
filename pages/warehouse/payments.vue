@@ -67,6 +67,11 @@
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
+          <PrintDialog
+            type="company_payments"
+            :extra="`payment_id=${row.company_dept_payment_id}`"
+          />
+
           <Delete
             type="company_depts"
             :id="row.company_dept_payment_id"

@@ -157,8 +157,6 @@ const props = defineProps<{
   id: any;
 }>();
 
-console.log(props.type);
-
 const selectedDollarPrice = ref<any>(null);
 
 function validateFields() {
