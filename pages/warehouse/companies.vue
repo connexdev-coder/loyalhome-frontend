@@ -98,6 +98,8 @@ const manageData = ref({
 // Define columns
 const columns = [
   { key: "name", label: t("name"), sortable: true },
+  { key: "phone", label: t("phone"), sortable: true },
+  { key: "location", label: t("location"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 

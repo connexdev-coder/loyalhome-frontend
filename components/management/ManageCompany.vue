@@ -106,5 +106,15 @@ const inputs = [
     type: "text",
     icon: "hugeicons:delivery-truck-02",
   },
+  {
+    valueField: "phone",
+    type: "text",
+    icon: "hugeicons:delivery-truck-02",
+  },
+  {
+    valueField: "location",
+    type: "text",
+    icon: "hugeicons:delivery-truck-02",
+  },
 ];
 </script>
