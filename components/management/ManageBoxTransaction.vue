@@ -171,6 +171,11 @@ const inputs = [
     type: "text",
     icon: NOTE_ICON,
   },
+  {
+    valueField: "created_at",
+    type: "date",
+    icon: NOTE_ICON,
+  },
 ];
 
 function checkAndSetDefaults() {
