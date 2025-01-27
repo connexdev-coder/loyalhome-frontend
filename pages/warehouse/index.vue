@@ -92,14 +92,6 @@ let navigations = [
     background: "var(--color-company)",
     textColor: "#ffffff",
   },
-  {
-    name: "factory_requested",
-    route: "/warehouse/factory_requested",
-    icon: PENDING_ICON,
-    role: "",
-    background: "var(--color-client)",
-    textColor: "#ffffff",
-  },
 ];
 </script>
 
