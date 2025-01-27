@@ -26,6 +26,7 @@
           @refresh="fetchCurrentPage"
         >
           <div
+            v-if="factory.factory_name == 'ballon'"
             class="text-white px-2 py-1 rounded-sm flex items-center gap-1"
             :class="factory.factory_name == 'ballon' ? 'bg-ballon' : 'bg-mdf'"
           >
@@ -51,16 +52,6 @@
         :icon="filter.icon"
         :placeholder="filter.valueField"
         @on-change="filter.onChange"
-      />
-
-      <OfflineSelect
-        label="factory_name"
-        placeholder="factory_name"
-        :icon="FACTORY_ICON"
-        :options="['', 'mdf', 'ballon']"
-        :selected-value="filterData"
-        field="factory_name"
-        @on-change="fetchCurrentPage"
       />
 
       <OfflineSelect
@@ -197,7 +188,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `box_trx?page=${page}&search=${filterData.value.search}&transaction_type=${filterData.value.transaction_type}&from=${filterData.value.from}&to=${filterData.value.to}&factory_name=${filterData.value.factory_name}`
+    `box_trx?page=${page}&search=${filterData.value.search}&transaction_type=${filterData.value.transaction_type}&from=${filterData.value.from}&to=${filterData.value.to}&factory=ballon`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;

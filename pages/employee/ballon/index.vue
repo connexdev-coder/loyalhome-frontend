@@ -2,7 +2,7 @@
   <div class="flex flex-col items-stretch gap-4">
     <div class="font-bold flex flex-row items-center gap-1">
       <Icon name="clarity:employee-group-line" class="text-4xl text-ten" />
-      <h1 class="text-xl uppercase">{{ $t("employees") }}</h1>
+      <h1 class="text-xl uppercase">{{ $t("ballon_employees") }}</h1>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -29,19 +29,27 @@ definePageMeta({
 
 let navigations = [
   {
-    name: "mdf",
-    route: "/employee/mdf",
-    icon: MDF_ICON,
+    name: "employees",
+    route: "/employee/ballon/employees",
+    icon: "clarity:employee-group-line",
     role: "",
-    background: "var(--color-mdf)",
+    background: "var(--color-employee)",
     textColor: "#ffffff",
   },
   {
-    name: "ballon",
-    route: "/employee/ballon",
-    icon: BALLON_ICON,
+    name: "employee_attendances",
+    route: "/employee/ballon/attendances",
+    icon: "hugeicons:calendar-03",
     role: "",
-    background: "var(--color-ballon)",
+    background: "var(--color-employee)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "employee_payments",
+    route: "/employee/ballon/payments",
+    icon: "hugeicons:money-receive-circle",
+    role: "",
+    background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
 ];

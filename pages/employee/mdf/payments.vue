@@ -3,28 +3,33 @@
     <!-- Title -->
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon :name="CALENDAR_ICON" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("employee_attendances") }}</h1>
+        <Icon :name="HISTORY_ICON" class="text-4xl text-ten" />
+        <h1 class="text-xl uppercase">{{ $t("payment_history") }}</h1>
       </div>
 
       <div class="flex flex-row items-center gap-2" v-if="data">
-        <div class="flex flex-row items-center gap-1">
-          <PrintDialog type="employee_offs" extra="" />
-        </div>
-        <ManageEmployeeAttendance
-          title="add_off"
-          :manage-data="{}"
+        <PrintDialog
+          type="employee_payments"
+          :extra="`employee_id=${
+            selectedemployee == null ? '' : selectedemployee.employee_id
+          }`"
+        />
+        <ManageEmployeePayment
+          title="payment"
+          :manage-data="{
+            currency_type: 'dollar',
+          }"
           type="add"
           :id="0"
           @refresh="fetchCurrentPage"
         >
           <div
-            class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
+            class="bg-employee text-white px-2 py-1 rounded-sm flex items-center gap-0"
           >
-            <Icon :name="CALENDAR_ICON" class="text-xl" />
-            <span> {{ $t("add_off") }}</span>
+            <Icon :name="DOLLAR_ICON" class="text-xl" />
+            <span> {{ $t("pay") }}</span>
           </div>
-        </ManageEmployeeAttendance>
+        </ManageEmployeePayment>
       </div>
     </div>
 
@@ -70,6 +75,10 @@
       />
     </div>
 
+    <div v-if="data" class="text-xl">
+      <span>{{ $t("total_paid") }}: {{ Number(total).toLocaleString() }}$</span>
+    </div>
+
     <!-- Data -->
     <Table
       v-if="status == 'success'"
@@ -78,16 +87,20 @@
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-change="fetchPage"
-      primary_key="employee_off_id"
-      api_route="employee_offs"
+      primary_key="employee_salary_payment_id"
+      api_route="employee_payments"
     >
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <ManageEmployeeAttendance
-            title="update"
+          <PrintDialog
+            type="employee_payments"
+            :extra="`id=${row.employee_salary_payment_id}`"
+          />
+          <ManageEmployeePayment
+            title="payment"
             :manage-data="row"
             type="update"
-            :id="row.employee_off_id"
+            :id="row.employee_salary_payment_id"
             @refresh="fetchCurrentPage"
           >
             <div
@@ -96,10 +109,10 @@
               <Icon :name="UPDATE_ICON" class="text-xl" />
               <span> {{ $t("update") }}</span>
             </div>
-          </ManageEmployeeAttendance>
+          </ManageEmployeePayment>
           <Delete
-            type="employee_offs"
-            :id="row.employee_off_id"
+            type="employee_payments"
+            :id="row.employee_salary_payment_id"
             @refresh="fetchPage(currentPage)"
           >
             <div
@@ -160,13 +173,43 @@ const filters = [
 // Define columns
 const columns = [
   {
-    key: "employee_off_id",
-    label: t("id"),
+    key: "employee_salary_payment_id",
+    label: t("invoice_number"),
     sortable: true,
   },
   { key: "employee_name", label: t("employee_name"), sortable: true },
-  { key: "from", label: t("from"), sortable: true },
-  { key: "to", label: t("to"), sortable: true },
+  { key: "currency_type", label: t("paid_money_type"), sortable: true },
+  {
+    key: "dollar_amount",
+    label: `${t("amount")} (${t("dollar")})`,
+    sortable: true,
+  },
+  {
+    key: "dinar_amount",
+    label: `${t("amount")} (${t("dinar")})`,
+    sortable: true,
+  },
+  {
+    key: "dinar_price",
+    label: "$ > IQD",
+    sortable: true,
+  },
+  {
+    key: "working_date",
+    label: t("working_date"),
+    sortable: true,
+  },
+  {
+    key: "punish_amount",
+    label: t("punish_amount"),
+    sortable: true,
+  },
+  {
+    key: "tip_amount",
+    label: t("tip_amount"),
+    sortable: true,
+  },
+  { key: "created_at", label: t("created_at"), sortable: true },
   { key: "note", label: t("note"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
@@ -176,15 +219,17 @@ const currentPage = ref(1);
 const totalPages = ref(1);
 const data = ref<any>(null);
 const status = ref<any>(null);
+const total = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `employee_offs?page=${page}&employee_id=${filterData.value.employee_id}&from=${filterData.value.from}&to=${filterData.value.to}&search=${filterData.value.search}`
+    `employee_payments?page=${page}&employee_id=${filterData.value.employee_id}&from=${filterData.value.from}&to=${filterData.value.to}&search=${filterData.value.search}&factory=mdf`
   );
 
   data.value = dataData.value.data;
   status.value = dataStatus.value;
   totalPages.value = dataData.value.total_pages;
+  total.value = dataData.value.total;
   currentPage.value = page;
 }
 

@@ -29,19 +29,35 @@ definePageMeta({
 
 let navigations = [
   {
-    name: "spendings",
-    route: "/finance/spendings",
-    icon: SPENDING_ICON,
+    name: "mdf_spendings",
+    route: "/finance/mdf_spendings",
+    icon: MDF_ICON,
     role: "",
-    background: "var(--color-dollar)",
+    background: "var(--color-mdf)",
     textColor: "#ffffff",
   },
   {
-    name: "box_transaction",
-    route: "/finance/box_transaction",
+    name: "mdf_box_transaction",
+    route: "/finance/mdf_box_transaction",
     icon: "hugeicons:arrow-data-transfer-diagonal",
     role: "",
-    background: "var(--color-dollar)",
+    background: "var(--color-mdf)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "ballon_spendings",
+    route: "/finance/ballon_spendings",
+    icon: BALLON_ICON,
+    role: "",
+    background: "var(--color-ballon)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "ballon_box_transaction",
+    route: "/finance/ballon_box_transaction",
+    icon: "hugeicons:arrow-data-transfer-diagonal",
+    role: "",
+    background: "var(--color-ballon)",
     textColor: "#ffffff",
   },
   {

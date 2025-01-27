@@ -4,7 +4,7 @@
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon :name="FINISHED_ICON" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("clientChecks") }}</h1>
+        <h1 class="text-xl uppercase">{{ $t("mdf_client_checks") }}</h1>
       </div>
 
       <div class="flex flex-row items-center gap-1">
@@ -92,38 +92,12 @@ const columns = [
     sortable: true,
   },
   {
-    key: "mdf_total_remaining",
-    label: t("mdf_remaining"),
-    sortable: true,
-  },
-  {
-    key: "ballon_cash_total",
-    label: t("ballon_cash"),
-    sortable: true,
-  },
-  {
-    key: "ballon_owing_total",
-    label: t("ballon_owing"),
-    sortable: true,
-  },
-  {
-    key: "ballon_total_remaining",
-    label: t("ballon_remaining"),
-    sortable: true,
-  },
-  {
-    key: "total_meter",
-    label: t("total_meter"),
-    sortable: true,
-  },
-  {
     key: "total_paid",
     label: t("total_paid"),
     sortable: true,
   },
-
   {
-    key: "total_remaining",
+    key: "mdf_total_remaining",
     label: t("total_owing"),
     sortable: true,
   },
@@ -139,7 +113,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `clients?page=${page}&id=${filterData.value.client_id}&type=details`
+    `clients?page=${page}&id=${filterData.value.client_id}&type=details&factory=mdf`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;

@@ -18,6 +18,14 @@
           @keydown.enter.prevent="submitForm"
           class="flex flex-col gap-3"
         >
+          <OfflineSelect
+            placeholder="factory"
+            :icon="EXCHANGER_ICON"
+            :options="['ballon', 'mdf']"
+            :selected-value="props.manageData"
+            field="factory"
+          />
+
           <Input
             v-for="input in inputs"
             :label="input.valueField"
@@ -53,17 +61,13 @@ const props = defineProps<{
   type: string;
   manageData: any;
   id: any;
+  factory: string;
 }>();
 
 function validateFields() {
-  const missingFields = [
-    "firstname",
-    // "lastname",
-    "phone",
-    // "extra_phone",
-    // "relative_name",
-    // "relative_phone",
-  ].filter((field) => !props.manageData[field]?.length);
+  const missingFields = ["firstname", "phone", "factory"].filter(
+    (field) => !props.manageData[field]?.length
+  );
 
   return missingFields;
 }
@@ -87,6 +91,7 @@ async function onManageClient() {
     props.type == "add"
       ? await useActionPost("clients", {
           ...props.manageData,
+          factory: props.factory,
         })
       : await useActionPut(`clients/${props.manageData.client_id}`, {
           ...props.manageData,
@@ -116,11 +121,6 @@ const inputs = [
     type: "text",
     icon: "hugeicons:user",
   },
-  // {
-  //   valueField: "lastname",
-  //   type: "text",
-  //   icon: "hugeicons:user",
-  // },
   {
     valueField: "phone",
     type: "text",

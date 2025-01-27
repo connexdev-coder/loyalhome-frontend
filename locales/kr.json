@@ -5,6 +5,18 @@
   "tip_amount": "بەخشش",
   "punish_amount": "لێبڕین",
 
+  "mdf_client_checks": "کەشف حسابی MDF",
+  "ballon_client_checks": "کەشف حسابی باڵۆن",
+
+  "mdf_employees": "کارمەندانی MDF",
+  "ballon_employees": "کارمەندانی باڵۆن",
+
+  "mdf_clients": "کڕیارانی MDF",
+  "ballon_clients": "کڕیارانی باڵۆن",
+
+  "mdf_deptors": "قەرزارانی MDF",
+  "ballon_deptors": "قەرزارانی باڵۆن",
+
   "location": "ناونیشان",
   "clientChecks": "کەشف حساب",
   "totalCash": "کۆی نەقد",
@@ -57,6 +69,12 @@
   "ballon_quantity": "بڕی باڵۆن",
   "mdf_quantity": "بڕی mdf",
 
+  "ballon_spendings": "خەرجی باڵۆن",
+  "mdf_spendings": "خەرجی MDF",
+
+  "mdf_box_transaction": "ئاڵ و گۆڕی قاسەی MDF",
+  "ballon_box_transaction": "ئاڵ و گۆڕی قاسەی باڵۆن",
+
   "dollar_dinar": "گۆڕینی دۆلار بۆ دینار",
   "dinar_dollar": "گۆڕینی دینار بۆ دۆلار",
   "currency_exchange": "گۆڕینەوەی دراو",
@@ -65,7 +83,7 @@
   "ordered_by": "داواکراوە لەلایەن",
   "order_invoices": "پسووڵەی داواکراوەکان",
   "company_payments": "پارەدانی کۆمپانیا",
-  "add_off": "داشکاندنی نوێ",
+  "add_off": "مۆڵەتی نوێ",
   "monthly": "مانگانە",
   "weekly": "هەفتانە",
   "daily": "ڕۆژانە",
@@ -227,7 +245,7 @@
   "inventory_quantity": "کۆگا",
 
   "dept_invoices": "پسووڵەی قەرزەکان",
-  "payment_history": "مێژووی پارەدان",
+  "payment_history": "ڕێکەوتی پارەدان",
   "pay": "پارەدان",
   "repay": "واسڵکردنی پارە",
 

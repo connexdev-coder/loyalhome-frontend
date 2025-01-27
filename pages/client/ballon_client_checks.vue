@@ -3,12 +3,12 @@
     <!-- Title -->
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("deptors") }}</h1>
+        <Icon :name="FINISHED_ICON" class="text-4xl text-ten" />
+        <h1 class="text-xl uppercase">{{ $t("ballon_client_checks") }}</h1>
       </div>
 
       <div class="flex flex-row items-center gap-1">
-        <PrintDialog type="client_deptors" extra="" lang="ku" />
+        <PrintDialog type="clientChecks" extra="" />
       </div>
     </div>
 
@@ -55,14 +55,10 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <NuxtLink :to="`/client/deptors/${row.client_id}`">
-            <div
-              class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
-            >
-              <Icon :name="DOLLAR_ICON" class="text-xl" />
-              <span> {{ $t("owing_invoices") }}</span>
-            </div>
-          </NuxtLink>
+          <PrintDialog
+            type="clientChecks"
+            :extra="`client_id=${row.client_id}`"
+          />
         </div>
       </template>
     </Table>
@@ -85,20 +81,29 @@ const filterData = ref({
 const columns = [
   { key: "client_id", label: "ID", sortable: true },
   { key: "client_name", label: t("name"), sortable: true },
-  { key: "phone", label: t("phone"), sortable: true },
   {
-    key: "ballon_total_remaining",
+    key: "ballon_cash_total",
+    label: t("ballon_cash"),
+    sortable: true,
+  },
+  {
+    key: "ballon_owing_total",
     label: t("ballon_owing"),
     sortable: true,
   },
   {
-    key: "mdf_total_remaining",
-    label: t("mdf_owing"),
+    key: "ballon_total_remaining",
+    label: t("total_owing"),
     sortable: true,
   },
   {
-    key: "total_remaining",
-    label: t("total_owing"),
+    key: "total_meter",
+    label: t("total_meter"),
+    sortable: true,
+  },
+  {
+    key: "total_paid",
+    label: t("total_paid"),
     sortable: true,
   },
   { key: "actions", label: t("actions") },
@@ -112,7 +117,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `clients?page=${page}&id=${filterData.value.client_id}&type=owing`
+    `clients?page=${page}&id=${filterData.value.client_id}&type=details&factory=ballon`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;

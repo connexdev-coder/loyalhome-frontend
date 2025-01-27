@@ -4,12 +4,13 @@
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="hugeicons:user-group" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("clients") }}</h1>
+        <h1 class="text-xl uppercase">{{ $t("mdf_clients") }}</h1>
       </div>
 
       <ManageClient
+        factory="mdf"
         title="add_client"
-        :manage-data="manageData"
+        :manage-data="{ factory: 'mdf', ...manageData }"
         type="add"
         :id="0"
         @refresh="fetchCurrentPage"
@@ -51,6 +52,7 @@
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
           <ManageClient
+            factory="mdf"
             title="update"
             :manage-data="row"
             type="update"
@@ -109,6 +111,7 @@ const columns = [
   { key: "location", label: t("location"), sortable: true },
   { key: "contract_number", label: t("contract_number"), sortable: true },
   { key: "relative", label: t("relative"), sortable: true },
+  { key: "factory", label: t("factory"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 
@@ -120,7 +123,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `clients?page=${page}&search=${filterData.value.search}`
+    `clients?page=${page}&search=${filterData.value.search}&factory=mdf`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;

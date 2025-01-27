@@ -203,6 +203,11 @@ const inputs = [
     icon: PRICE_ICON,
   },
   {
+    valueField: "phone",
+    type: "number",
+    icon: NOTE_ICON,
+  },
+  {
     valueField: "note",
     type: "text",
     icon: NOTE_ICON,

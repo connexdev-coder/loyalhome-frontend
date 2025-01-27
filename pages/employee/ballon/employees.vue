@@ -127,7 +127,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `employees?page=${page}&search=${filterData.value.search}`
+    `employees?page=${page}&search=${filterData.value.search}&factory=ballon`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
