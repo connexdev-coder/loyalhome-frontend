@@ -47,8 +47,11 @@
   "this_month": "ئەم مانگە",
   "this_year": "ئەمساڵ",
 
-  "kar_spending": "خەرجی (کار)",
-  "bnchina_spending": "خەرجی ( بنچینە )",
+  "ballon_kar_spending": "خەرجی باڵۆن (کار)",
+  "ballon_bnchina_spending": " خەرجی باڵۆن( بنچینە )",
+
+  "mdf_kar_spending": "خەرجی MDF (کار)",
+  "mdf_bnchina_spending": " خەرجی MDf( بنچینە )",
 
   "import_cash": "خەرجی هاوردە",
   "import_owing": "قەرزی هاوردە",

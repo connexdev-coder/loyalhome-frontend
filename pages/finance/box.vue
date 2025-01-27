@@ -46,25 +46,33 @@
 
     <!-- Owings -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-      <!-- Client Owings -->
-      <div class="flex flex-col items-start">
+      <!-- mdf -->
+      <NuxtLink to="/client/mdf_deptors" class="flex flex-col items-start">
         <h1 class="text-2xl text-ten font-bold">
-          {{ $t("client_depts") }}
+          {{ $t("mdf_remaining") }}
         </h1>
-        <div class="bg-destructive text-white p-3 rounded-sm w-full">
-          <h1 class="line-clamp-1 text-lg">{{ $t("owing") }}</h1>
+        <div class="bg-mdf text-white p-3 rounded-sm w-full">
+          <h1 class="line-clamp-1 text-lg">{{ $t("mdf_remaining") }}</h1>
           <span v-if="data" class="text-2xl">
-            {{
-              Number(
-                Number(data[0].ballon_owing) + Number(data[0].mdf_owing)
-              ).toLocaleString()
-            }}$
+            {{ Number(data[0].mdf_owing).toLocaleString() }}$
           </span>
         </div>
-      </div>
+      </NuxtLink>
+      <!-- ballon -->
+      <NuxtLink to="/client/ballon_deptors" class="flex flex-col items-start">
+        <h1 class="text-2xl text-ten font-bold">
+          {{ $t("ballon_remaining") }}
+        </h1>
+        <div class="bg-ballon text-white p-3 rounded-sm w-full">
+          <h1 class="line-clamp-1 text-lg">{{ $t("ballon_remaining") }}</h1>
+          <span v-if="data" class="text-2xl">
+            {{ Number(data[0].ballon_owing).toLocaleString() }}$
+          </span>
+        </div>
+      </NuxtLink>
 
       <!-- Company Owings -->
-      <div class="flex flex-col items-start">
+      <NuxtLink to="/warehouse/company_depts" class="flex flex-col items-start">
         <h1 class="text-2xl text-ten font-bold">
           {{ $t("company_depts") }}
         </h1>
@@ -74,7 +82,7 @@
             {{ Number(Number(data[0].import_owing)).toLocaleString() }}$
           </span>
         </div>
-      </div>
+      </NuxtLink>
     </div>
   </div>
 </template>

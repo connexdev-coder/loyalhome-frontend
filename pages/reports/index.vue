@@ -68,7 +68,10 @@
       v-if="data"
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
     >
-      <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
+      <NuxtLink
+        to="/sales/ballon"
+        class="bg-ballon text-white p-3 rounded-sm aspect-video"
+      >
         <div class="flex flex-row items-center gap-1">
           <Icon :name="BALLON_ICON" class="text-lg" />
           <h1 class="line-clamp-1 text-lg">{{ $t("ballon_sale") }}</h1>
@@ -80,8 +83,11 @@
             ).toLocaleString()
           }}$
         </span>
-      </div>
-      <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
+      </NuxtLink>
+      <NuxtLink
+        to="/client/ballon_deptors"
+        class="bg-ballon text-white p-3 rounded-sm aspect-video"
+      >
         <div class="flex flex-row items-center gap-1">
           <Icon :name="BALLON_ICON" class="text-lg" />
           <h1 class="line-clamp-1 text-lg">{{ $t("ballon_remaining") }}</h1>
@@ -95,7 +101,7 @@
             ).toLocaleString()
           }}$
         </span>
-      </div>
+      </NuxtLink>
       <div class="bg-ballon text-white p-3 rounded-sm aspect-video">
         <div class="flex flex-row items-center gap-1">
           <Icon :name="METER_ICON" class="text-lg" />
@@ -106,7 +112,10 @@
         </span>
       </div>
 
-      <div class="bg-mdf text-white p-3 rounded-sm aspect-video">
+      <NuxtLink
+        to="/sales/mdf"
+        class="bg-mdf text-white p-3 rounded-sm aspect-video"
+      >
         <div class="flex flex-row items-center gap-1">
           <Icon :name="MDF_ICON" class="text-lg" />
           <h1 class="line-clamp-1 text-lg">{{ $t("mdf_sale") }}</h1>
@@ -118,9 +127,12 @@
             ).toLocaleString()
           }}$
         </span>
-      </div>
+      </NuxtLink>
 
-      <div class="bg-mdf text-white p-3 rounded-sm aspect-video">
+      <NuxtLink
+        to="/client/mdf_deptors"
+        class="bg-mdf text-white p-3 rounded-sm aspect-video"
+      >
         <div class="flex flex-row items-center gap-1">
           <Icon :name="MDF_ICON" class="text-lg" />
           <h1 class="line-clamp-1 text-lg">{{ $t("mdf_remaining") }}</h1>
@@ -134,7 +146,7 @@
             ).toLocaleString()
           }}$
         </span>
-      </div>
+      </NuxtLink>
 
       <div
         v-for="span in ['import_cash', 'import_owing']"
@@ -169,8 +181,10 @@
         <div
           v-for="span in [
             'employee_salary_payment',
-            'kar_spending',
-            'bnchina_spending',
+            'mdf_kar_spending',
+            'mdf_bnchina_spending',
+            'ballon_kar_spending',
+            'ballon_bnchina_spending',
             'wasted_product',
           ]"
           class="bg-management text-white p-3 rounded-sm aspect-video"
