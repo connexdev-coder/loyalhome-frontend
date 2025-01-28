@@ -132,6 +132,11 @@ const navigations = [
     icon: "hugeicons:folder-file-storage",
   },
   {
+    name: "companies",
+    route: "/companies",
+    icon: "hugeicons:delivery-truck-02",
+  },
+  {
     name: "finance",
     route: "/finance",
     icon: "hugeicons:bitcoin-money-02",
