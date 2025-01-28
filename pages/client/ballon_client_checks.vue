@@ -8,7 +8,7 @@
       </div>
 
       <div class="flex flex-row items-center gap-1">
-        <PrintDialog type="clientChecks" extra="" />
+        <PrintDialog type="clientChecks" extra="factory=ballon" />
       </div>
     </div>
 

@@ -8,7 +8,7 @@
       </div>
 
       <div class="flex flex-row items-center gap-1">
-        <PrintDialog type="client_deptors" extra="" lang="ku" />
+        <PrintDialog type="client_deptors" extra="factory=ballon" lang="ku" />
       </div>
     </div>
 

@@ -57,7 +57,6 @@
       <Input
         v-if="status == 'success' && data.length > 0"
         :value="data[0]"
-        :disabled="true"
         value-field="created_at"
         type="text"
         :icon="DATE_ICON"
@@ -67,7 +66,6 @@
 
       <Input
         :value="manageData"
-        :disabled="query_id ? true : false"
         value-field="invoice_number"
         type="text"
         icon="hugeicons:file-import"
@@ -78,7 +76,6 @@
       <Input
         v-if="!query_id"
         :value="manageData"
-        :disabled="query_id ? true : false"
         value-field="created_at"
         type="date"
         :icon="DATE_ICON"

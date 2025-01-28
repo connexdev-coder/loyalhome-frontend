@@ -4,7 +4,7 @@
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("imports") }}</h1>
+        <h1 class="text-xl uppercase">{{ $t("mdf_imports") }}</h1>
       </div>
 
       <NuxtLink to="/warehouse/imports/manage">
@@ -186,7 +186,6 @@ const columns = [
   },
 
   { key: "company_name", label: t("company_name"), sortable: true },
-  { key: "factory_name", label: t("factory_name"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },
   { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },
@@ -206,7 +205,7 @@ async function fetchPage(page: number) {
     to: filterData.value.to || "",
     transaction_type: filterData.value.transaction_type || "",
     company_id: filterData.value.company_id || "",
-    factory_id: filterData.value.factory_id || "",
+    factory: "mdf",
   });
 
   const { data: dataData, status: dataStatus }: any = await useGet(

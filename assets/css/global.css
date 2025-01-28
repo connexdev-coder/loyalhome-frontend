@@ -25,8 +25,8 @@
   --color-company: #ee9b00;
   --color-employee: #006d77;
 
-  --color-mdf: #c1121f;
-  --color-ballon: #0077b6;
+  --color-mdf: #0077b6;
+  --color-ballon: #c1121f;
 }
 
 ::-webkit-scrollbar {

@@ -5,6 +5,12 @@
   "tip_amount": "بەخشش",
   "punish_amount": "لێبڕین",
 
+  "ballon_imports": "هاوردەی باڵۆن",
+  "mdf_imports": "هاوردەی MDF",
+
+  "ballon_products": "کاڵاکانی باڵۆن",
+  "mdf_products": "کاڵاکانی MDF",
+
   "mdf_client_checks": "کەشف حسابی MDF",
   "ballon_client_checks": "کەشف حسابی باڵۆن",
 

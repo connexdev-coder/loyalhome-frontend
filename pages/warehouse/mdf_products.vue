@@ -4,7 +4,7 @@
     <div class="flex flex-row items-center justify-between">
       <div class="font-bold flex flex-row items-center gap-1">
         <Icon name="hugeicons:dashboard-square-01" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("products") }}</h1>
+        <h1 class="text-xl uppercase">{{ $t("mdf_products") }}</h1>
       </div>
 
       <div class="flex flex-row items-center gap-1">
@@ -17,6 +17,7 @@
           @refresh="fetchCurrentPage"
         >
           <div
+            v-if="factory.factory_name == 'mdf'"
             class="text-white px-2 py-1 rounded-sm flex items-center gap-1"
             :class="factory.factory_name == 'ballon' ? 'bg-ballon' : 'bg-mdf'"
           >
@@ -37,15 +38,6 @@
         placeholder="search"
         @on-change="fetchCurrentPage"
         @refresh="fetchCurrentPage"
-      />
-
-      <OfflineSelect
-        placeholder="factory_name"
-        :icon="FACTORY_ICON"
-        :options="['', 'mdf', 'ballon']"
-        :selected-value="filterData"
-        field="factory_name"
-        @on-change="fetchCurrentPage"
       />
     </div>
 
@@ -130,7 +122,6 @@ const columns = [
     sortable: true,
   },
   { key: "unit_name", label: t("unit_name"), sortable: true },
-  { key: "factory_name", label: t("factory_name"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 
@@ -142,7 +133,7 @@ const status = ref<any>(null);
 
 async function fetchPage(page: number) {
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `products?page=${page}&search=${filterData.value.search}&factory_name=${filterData.value.factory_name}`
+    `products?page=${page}&search=${filterData.value.search}&factory=mdf`
   );
   data.value = dataData.value.data;
   status.value = dataStatus.value;
