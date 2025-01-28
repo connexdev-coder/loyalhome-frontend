@@ -36,8 +36,10 @@
                 Number(data[0].employee_salary_payment) -
                 Number(data[0].company_payment) -
                 Number(data[0].import_cash) -
-                Number(data[0].kar_spending) -
-                Number(data[0].bnchina_spending)
+                Number(data[0].mdf_kar_spending) -
+                Number(data[0].mdf_bnchina_spending) -
+                Number(data[0].ballon_kar_spending) -
+                Number(data[0].ballon_bnchina_spending)
             ).toLocaleString()
           }}$
         </span>
@@ -72,7 +74,7 @@
       </NuxtLink>
 
       <!-- Company Owings -->
-      <NuxtLink to="/warehouse/company_depts" class="flex flex-col items-start">
+      <NuxtLink to="/companies/company_depts" class="flex flex-col items-start">
         <h1 class="text-2xl text-ten font-bold">
           {{ $t("company_depts") }}
         </h1>
