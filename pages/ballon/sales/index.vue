@@ -1,18 +1,20 @@
 <template>
   <div class="flex flex-col gap-3">
     <!-- Title -->
-    <div class="flex flex-row items-center justify-between">
+    <div
+      class="flex flex-row items-center justify-between bg-ballon text-white px-2 py-1 rounded-md"
+    >
       <div class="font-bold flex flex-row items-center gap-1">
-        <Icon name="lets-icons:import-fill" class="text-4xl text-ten" />
-        <h1 class="text-xl uppercase">{{ $t("mdf_imports") }}</h1>
+        <Icon :name="BALLON_ICON" class="text-4xl" />
+        <h1 class="text-xl uppercase">{{ $t("ballon_sale") }}</h1>
       </div>
 
-      <NuxtLink to="/warehouse/imports/manage">
+      <NuxtLink to="/ballon/sales/manage">
         <div
-          class="bg-ten text-overTen px-2 py-1 rounded-sm flex items-center gap-1"
+          class="bg-white text-ballon px-2 py-1 rounded-sm flex items-center gap-1"
         >
           <Icon name="hugeicons:add-01" class="text-xl" />
-          <span> {{ $t("add_import") }}</span>
+          <span> {{ $t("add_ballon_sale") }}</span>
         </div>
       </NuxtLink>
     </div>
@@ -31,54 +33,29 @@
       />
 
       <ComboBox
-        label="company_name"
+        label="client_name"
         type="text"
-        :icon="COMPANY_ICON"
-        placeholder="company_name"
-        api_route="companies"
+        :icon="CLIENT_ICON"
+        placeholder="client_name"
+        api_route="clients"
         api_route_query="search"
-        :result_fields="['company_name']"
-        :selectedValue="selectedCompany"
+        :result_fields="['client_name']"
+        :selectedValue="selectedClient"
         @on-change="
           (data:any) => {
-            selectedCompany = data;
-            filterData.company_id = data.company_id;
+            selectedClient = data;
+            filterData.client_id = data.client_id;
             fetchCurrentPage();
           }
         "
         @clear="
           () => {
-            selectedCompany = null;
-            filterData.company_id = '';
+            selectedClient = null;
+            filterData.client_id = '';
             fetchCurrentPage();
           }
         "
-        :disabled="selectedCompany ? true : false"
-      />
-      <ComboBox
-        label="factory_name"
-        type="text"
-        :icon="FACTORY_ICON"
-        placeholder="factory_name"
-        api_route="configs/factories"
-        api_route_query="search"
-        :result_fields="['factory_name']"
-        :selectedValue="selectedFactory"
-        @on-change="
-          (data:any) => {
-            selectedFactory = data;
-            filterData.factory_id = data.factory_id;
-            fetchCurrentPage();
-          }
-        "
-        @clear="
-          () => {
-            selectedFactory = null;
-            filterData.factory_id = '';
-            fetchCurrentPage();
-          }
-        "
-        :disabled="selectedFactory ? true : false"
+        :disabled="selectedClient ? true : false"
       />
     </div>
 
@@ -90,23 +67,21 @@
       :currentPage="currentPage"
       :totalPages="totalPages"
       @page-change="fetchPage"
-      primary_key="import_invoice_id"
-      api_route="import_inv"
+      primary_key="ballon_sale_id"
+      api_route="ballon_sales"
     >
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <NuxtLink
-            :to="`/warehouse/imports/manage?id=${row.import_invoice_id}`"
-          >
+          <NuxtLink :to="`/ballon/sales/manage?id=${row.ballon_sale_id}`">
             <div class="bg-update text-white button_shape">
               <Icon :name="EYE_ICON" class="text-xl" />
               <span> {{ $t("see_invoice") }}</span>
             </div>
           </NuxtLink>
           <Delete
-            type="import_inv"
-            :id="row.import_invoice_id"
+            type="ballon_sales"
+            :id="row.ballon_sale_id"
             @refresh="fetchPage(currentPage)"
           >
             <div
@@ -116,6 +91,24 @@
               <span> {{ $t("delete") }}</span>
             </div>
           </Delete>
+
+          <select
+            class="px-2 py-1 bg-transparent"
+            v-model="row.sale_status"
+            name="sale_status"
+            id=""
+            @change="
+              async (e: any) => {
+                await useActionPut(`ballon_sales/${row.ballon_sale_id}`, {
+                  sale_status: e.target.value,
+                });
+              }
+            "
+          >
+            <option value="pending">{{ $t("pending") }}</option>
+            <option value="working">{{ $t("working") }}</option>
+            <option value="finished">{{ $t("finished") }}</option>
+          </select>
         </div>
       </template>
     </Table>
@@ -127,9 +120,9 @@ import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
 import ComboBox from "~/components/rcp/ComboBox.vue";
+import { useActionPut } from "~/hooks/actionFetch";
 
-const selectedCompany = ref(null);
-const selectedFactory = ref(null);
+const selectedClient = ref(null);
 
 const { t } = useI18n();
 
@@ -138,8 +131,7 @@ const filterData = ref({
   from: "",
   to: "",
   transaction_type: "",
-  company_id: "",
-  factory_id: "",
+  client_id: "",
 });
 
 const filters = [
@@ -171,23 +163,23 @@ const filters = [
 
 // Define columns
 const columns = [
-  { key: "import_invoice_id", label: t("invoice_number"), sortable: true },
-  { key: "invoice_number", label: t("manual_invoice_number"), sortable: true },
+  { key: "ballon_sale_id", label: t("invoice_number"), sortable: true },
+  { key: "client_name", label: t("client_name"), sortable: true },
+  { key: "person_name", label: t("person_name"), sortable: true },
   { key: "transaction_type", label: t("transaction_type"), sortable: true },
+
   {
-    key: "total_get_price",
-    label: `${t("total_get_price")} `,
+    key: "total_price",
+    label: `${t("total_price")}`,
     sortable: true,
   },
   {
-    key: "extra_price",
-    label: `${t("extra_price")} `,
+    key: "total_meter",
+    label: `${t("total_meter")}`,
     sortable: true,
   },
 
-  { key: "company_name", label: t("company_name"), sortable: true },
   { key: "created_at", label: t("created_at"), sortable: true },
-  { key: "updated_at", label: t("updated_at"), sortable: true },
   { key: "actions", label: t("actions") },
 ];
 
@@ -204,12 +196,11 @@ async function fetchPage(page: number) {
     from: filterData.value.from || "",
     to: filterData.value.to || "",
     transaction_type: filterData.value.transaction_type || "",
-    company_id: filterData.value.company_id || "",
-    factory: "mdf",
+    client_id: filterData.value.client_id || "",
   });
 
   const { data: dataData, status: dataStatus }: any = await useGet(
-    `import_inv?${queryParams.toString()}`
+    `ballon_sales?${queryParams.toString()}`
   );
 
   data.value = dataData.value.data;

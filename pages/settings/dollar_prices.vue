@@ -74,6 +74,10 @@ import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table, Input } from "@/components/rcp";
 
+definePageMeta({
+  layout: "default",
+});
+
 const { t } = useI18n();
 
 const filterData = ref({

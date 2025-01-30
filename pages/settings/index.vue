@@ -25,6 +25,7 @@
 <script setup lang="ts">
 definePageMeta({
   requiredAuthorities: ["settings"],
+  layout: "default",
 });
 
 let navigations = [

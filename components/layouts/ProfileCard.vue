@@ -1,5 +1,8 @@
 <template>
-  <div class="flex items-center gap-2 transition-all duration-300 ease-in-out">
+  <NuxtLink
+    to="/dashboard"
+    class="flex items-center gap-2 transition-all duration-300 ease-in-out"
+  >
     <div
       class="w-11 h-11 flex items-center justify-center bg-ten text-overTen rounded-full"
     >
@@ -10,7 +13,7 @@
     </div>
 
     <h1 class="text-lg">{{ userDetails.name }}</h1>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

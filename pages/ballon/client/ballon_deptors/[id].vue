@@ -10,7 +10,7 @@
         <PrintDialog type="client_depts" :extra="`id=${params.id}`" lang="ku" />
         <NuxtLink
           v-if="client"
-          :to="`/client/payments?client=${client.client_id}`"
+          :to="`/ballon/client/payments?client=${client.client_id}`"
         >
           <div
             class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
@@ -72,13 +72,7 @@
             </div>
           </ManageClientDeptPayment>
 
-          <NuxtLink
-            :to="
-              row.sale_type == 'mdf'
-                ? `/sales/mdf/manage?id=${row.sale_id}`
-                : `/sales/ballon/manage?id=${row.sale_id}`
-            "
-          >
+          <NuxtLink :to="`/ballon/sales/manage?id=${row.sale_id}`">
             <div
               class="bg-inventory text-white px-2 py-1 rounded-sm flex items-center gap-1"
             >

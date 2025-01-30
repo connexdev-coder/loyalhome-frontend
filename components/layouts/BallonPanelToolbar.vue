@@ -107,40 +107,36 @@ const router = useRouter();
 
 const navigations = [
   {
-    name: "sales",
-    route: "/sales",
+    name: "ballon_sale",
+    route: "/ballon/sales",
     icon: "hugeicons:shopping-basket-02",
   },
   {
     name: "clients",
-    route: "/client",
+    route: "/ballon/client",
     icon: "hugeicons:user-group",
   },
   {
     name: "employee",
-    route: "/employee",
+    route: "/ballon/employee",
     icon: "clarity:employee-group-line",
   },
   {
     name: "warehouse",
-    route: "/warehouse",
+    route: "/ballon/warehouse",
     icon: "hugeicons:folder-file-storage",
   },
-
   {
     name: "finance",
-    route: "/finance",
+    route: "/ballon/finance",
     icon: "hugeicons:bitcoin-money-02",
   },
   {
     name: "report",
-    route: "/reports",
+    route: "/ballon/reports",
     icon: "hugeicons:file-verified",
   },
 ];
-
-const { logout } = useProfileStore();
-const { userDetails } = storeToRefs(useProfileStore());
 </script>
 
 <style scoped>

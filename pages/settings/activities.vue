@@ -61,6 +61,10 @@ import { ref } from "vue";
 import { useGet } from "~/hooks/fetch";
 import { Table } from "@/components/rcp";
 
+definePageMeta({
+  layout: "default",
+});
+
 const filters = [
   {
     valueField: "search",

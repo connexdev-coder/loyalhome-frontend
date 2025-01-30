@@ -1,7 +1,15 @@
 <template>
   <div :style="{ direction: locale == 'en' ? 'ltr' : 'rtl' }">
     <div class="text-md h-screen relative font-calibri">
-      <NuxtLayout>
+      <NuxtLayout
+        :name="
+          route.path.startsWith('/ballon')
+            ? 'ballon-layout'
+            : route.path.startsWith('/mdf')
+            ? 'mdf-layout'
+            : 'default'
+        "
+      >
         <NuxtPage />
       </NuxtLayout>
     </div>
@@ -10,11 +18,14 @@
 </template>
 
 <script setup lang="ts">
-const { locale } = useI18n();
+import { useRoute } from "vue-router";
 
 useHead({
   title: "Loyal Home",
 });
+
+const { locale } = useI18n();
+const route = useRoute();
 </script>
 
 <style>

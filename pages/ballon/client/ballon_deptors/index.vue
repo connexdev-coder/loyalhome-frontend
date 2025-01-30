@@ -55,7 +55,7 @@
       <!-- Custom slot for 'actions' column -->
       <template #cell-actions="{ row }">
         <div class="flex flex-row items-center justify-start gap-1">
-          <NuxtLink :to="`/client/ballon_deptors/${row.client_id}`">
+          <NuxtLink :to="`/ballon/client/ballon_deptors/${row.client_id}`">
             <div
               class="bg-dollar text-white px-2 py-1 rounded-sm flex items-center gap-1"
             >

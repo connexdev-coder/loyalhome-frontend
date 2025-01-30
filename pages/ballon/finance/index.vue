@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col items-stretch gap-4">
     <div class="font-bold flex flex-row items-center gap-1">
-      <Icon name="hugeicons:file-verified" class="text-4xl text-ten" />
-      <h1 class="text-xl uppercase">{{ $t("sales") }}</h1>
+      <Icon name="hugeicons:bitcoin-money-02" class="text-4xl text-ten" />
+      <h1 class="text-xl uppercase">{{ $t("finance") }}</h1>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
       <NuxtLink
         v-for="section in navigations"
         :to="section.route"
@@ -29,19 +29,27 @@ definePageMeta({
 
 let navigations = [
   {
-    name: "ballon_sale",
-    route: "/sales/ballon",
+    name: "ballon_spendings",
+    route: "/ballon/finance/ballon_spendings",
     icon: BALLON_ICON,
     role: "",
     background: "var(--color-ballon)",
     textColor: "#ffffff",
   },
   {
-    name: "mdf_sale",
-    route: "/sales/mdf",
-    icon: MDF_ICON,
+    name: "ballon_box_transaction",
+    route: "/ballon/finance/ballon_box_transaction",
+    icon: "hugeicons:arrow-data-transfer-diagonal",
     role: "",
-    background: "var(--color-mdf)",
+    background: "var(--color-ballon)",
+    textColor: "#ffffff",
+  },
+  {
+    name: "box",
+    route: "/ballon/finance/box",
+    icon: BOX_ICON,
+    role: "",
+    background: "var(--color-dollar)",
     textColor: "#ffffff",
   },
 ];
